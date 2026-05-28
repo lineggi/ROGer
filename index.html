@@ -452,7 +452,6 @@ deck-stage > section {
   border: 1.8px solid var(--callout);
   border-radius: 6px;
   pointer-events: none;
-  z-index: 5;
 }
 .cal.dashed { border-style: dashed; border-width: 1.4px; }
 .cal.tight { inset: -1px; }
@@ -465,7 +464,6 @@ deck-stage > section {
   border: 1.4px dashed var(--callout);
   border-radius: 4px;
   pointer-events: none;
-  z-index: 6;
 }
 .sub-tag {
   position: absolute;
@@ -485,6 +483,7 @@ deck-stage > section {
   line-height: 1;
   letter-spacing: 0.02em;
   white-space: nowrap;
+  z-index: 10;
 }
 .sub-tag.tag-r { left: auto; right: -4px; }
 .sub-tag.tag-b { top: auto; bottom: -9px; }
@@ -507,7 +506,7 @@ deck-stage > section {
   justify-content: center;
   line-height: 1;
   letter-spacing: 0.02em;
-  z-index: 6;
+  z-index: 10;
 }
 .cal-tag.tag-r { left: auto; right: -10px; }
 .cal-tag.tag-b { top: auto; bottom: -10px; }
@@ -3395,10 +3394,10 @@ function goTo(id) {
               </div>
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">3</span></div>
-                <div class="card" style="padding:10px 8px 6px;position:relative;">
+                <div class="card" style="padding:10px 8px 6px;">
                   <span class="sub-cal" style="inset:4px auto auto 4px;display:none;"><span class="sub-tag tag-b">3-6</span></span>
                   <div class="chart-wrap" style="height:90px;border:0;position:relative;">
-                    <span class="sub-cal" style="inset:2px;"><span class="sub-tag tag-b">3-1</span></span>
+                    <span class="sub-cal" style="inset:2px;"><span class="sub-tag tag-in">3-1</span></span>
                     <svg viewBox="0 0 300 90" preserveAspectRatio="none" style="width:100%;height:100%;">
                       <path d="M0,80 L30,76 L60,70 L90,66 L120,58 L150,52 L180,46 L210,40 L240,32 L270,26 L300,20" fill="none" stroke="#111" stroke-width="2"></path>
                       <path d="M150,52 L300,52" stroke="#c4c4c4" stroke-width="1" stroke-dasharray="3,3"></path>
@@ -4369,7 +4368,7 @@ function goTo(id) {
                     <div class="amt">+$216.42</div>
                   </div>
                   <div class="list-row" style="padding:8px 0;position:relative;">
-                    <span class="sub-cal" style="inset:2px -8px;"><span class="sub-tag">4-3</span><span class="proto-badge-next">&#8594; ref-01</span></span>
+                    <span class="sub-cal" style="inset:2px -8px;"><span class="sub-tag">4-3</span></span>
                     <div class="av">R</div>
                     <div>
                       <div class="ttl">Referral</div>
@@ -4378,7 +4377,7 @@ function goTo(id) {
                     <div class="amt">+$32.10</div>
                   </div>
                   <div class="list-row" style="padding:8px 0;position:relative;">
-                    <span class="sub-cal" style="inset:2px -8px;"><span class="sub-tag">4-4</span><span class="proto-badge-next">&#8594; hst-01</span></span>
+                    <span class="sub-cal" style="inset:2px -8px;"><span class="sub-tag">4-4</span></span>
                     <div class="av">C</div>
                     <div>
                       <div class="ttl">Card cashback</div>
@@ -4788,4 +4787,4 @@ function goTo(id) {
 </script>
 <!-- end DEPTH VIEWER -->
 
-</body></html>     
+</body></html>                 
