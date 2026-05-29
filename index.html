@@ -1567,11 +1567,38 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- ③ daily reward strip -->
-            <div class="section" style="padding:0 20px 6px;">
+            <!-- 4 quick actions -->
+            <div class="section" style="padding:2px 20px 6px;">
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">4</span></div>
-                <div class="card-2 card" style="padding:10px 14px;">
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px 0;">
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">4-1</span></span>
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↓</div>
+                    Deposit
+                  </div>
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">4-2</span></span>
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↑</div>
+                    Withdraw
+                  </div>
+                  <div style="display: grid; justify-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; position: relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">4-3</span></span>
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">+</div>Earning</div>
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">4-4</span></span>
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:14px;">★</div>
+                    Claim
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ⑤ daily reward strip -->
+            <div class="section" style="padding:0 20px 6px;">
+              <div class="cal-wrap">
+                <div class="cal"><span class="cal-tag">5</span></div>
+                <div class="card" style="padding:10px 14px;">
                   <div class="row">
                     <div>
                       <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward</div>
@@ -1590,17 +1617,17 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- ④ asset breakdown card -->
+            <!-- ⑥ asset breakdown card -->
             <div class="section" style="padding:0 20px 6px;">
               <div class="row" style="margin-bottom:6px;">
                 <span class="kicker">Position</span>
                 <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Positions Hub">
-                  <span class="sub-cal" style="inset:-3px -4px;"><span class="sub-tag tag-b">5-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
+                  <span class="sub-cal" style="inset:-3px -4px;"><span class="sub-tag tag-b">6-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
                   View all ›
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">5</span></div>
+                <div class="cal"><span class="cal-tag">6</span></div>
                 <div class="card" style="padding:12px 14px;">
                   <div style="display:flex;gap:14px;align-items:center;">
                     <div style="position:relative;width:108px;height:108px;flex-shrink:0;">
@@ -1618,7 +1645,7 @@ function goTo(id) {
                     </div>
                     <div style="flex:1;display:grid;gap:2px;">
                       <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:4px 6px 4px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">5-1</span></span>
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">6-1</span></span>
                         <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Cash</div>
@@ -1627,7 +1654,7 @@ function goTo(id) {
                         <div style="font-size:12px;font-weight:700;">$4,210</div>
                       </div>
                       <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:4px 6px 4px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">5-2</span></span>
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">6-2</span></span>
                         <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Earning</div>
@@ -1636,7 +1663,7 @@ function goTo(id) {
                         <div style="font-size:12px;font-weight:700;">$6,820</div>
                       </div>
                       <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:4px 6px 4px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">5-3</span></span>
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">6-3</span></span>
                         <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Broker</div>
@@ -1645,7 +1672,7 @@ function goTo(id) {
                         <div style="font-size:12px;font-weight:700;">$1,358</div>
                       </div>
                       <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:4px 6px 4px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">5-4</span></span>
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;"><span class="sub-tag tag-r">6-4</span></span>
                         <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">ROG</div>
@@ -1659,32 +1686,6 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- 5 quick actions -->
-            <div class="section" style="padding:2px 20px 6px;">
-              <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">6</span></div>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px 0;">
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">6-1</span></span>
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↓</div>
-                    Deposit
-                  </div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">6-2</span></span>
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↑</div>
-                    Withdraw
-                  </div>
-                  <div style="display: grid; justify-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; position: relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">6-3</span></span>
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">+</div>Earning</div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag tag-r">6-4</span></span>
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:14px;">★</div>
-                    Claim
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- 6 recent activity -->
             <div class="section" style="padding:4px 20px 6px;">
@@ -1800,8 +1801,30 @@ function goTo(id) {
           </div>
         </div>
 
-        <!-- ③  Today's Reward --><div class="desc-item">
+        <!-- ④  Quick Actions --><div class="desc-item">
           <span class="desc-num">4</span>
+          <div class="desc-body">
+            <span class="lbl">Quick Actions <span style="font-weight:500;color:#777;font-size:12px;">(바로가기 행)</span></span>
+            자주 쓰는 4개 액션 바로가기.
+            <ul class="sub-list">
+              <li><span class="num">4-1</span><span><b>Deposit.</b> 탭 → <code>front-ast-01</code> 입금.<br>Card · 계좌이체 · Crypto 선택.</span></li>
+              <li><span class="num">4-2</span><span><b>Withdraw.</b> 탭 → <code>front-ast-02</code> 출금.<br>Verification 필수.</span></li>
+              <li><span class="num">4-3</span><span><b>Earn.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
+              <li><span class="num">4-4</span><span><b>Claim.</b> [S.N] 탭 → <code>front-rwd-00</code> 리워드 센터.<br>어닝 · Trader · Referral 리워드 통합 수령.</span></li>
+            </ul>
+            <div class="desc-exc">
+              <b>예외 변수</b>
+              <ul>
+                <li>4-2: Verification 미완료 → <code>front-ver-03</code> 게이트 노출</li>
+                <li>4-4 [S.N]: 미설정 → <code>front-set-05</code> 강제 이동, 설정 완료 후 자동 복귀</li>
+                <li>4-3 Earn: Verification 불필요 (잠금 없음)</li>
+                <li>Broker 트레이딩 진입은 Quick actions 제외 → Position 6-3 행 또는 Trade GNB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <!-- ⑤  Today's Reward --><div class="desc-item">
+          <span class="desc-num">5</span>
           <div class="desc-body">
             <span class="lbl">Today's Reward <span style="font-weight:500;color:#777;font-size:12px;">(일별 리워드 strip)</span></span>
             Earner · Trader 랏 · Referral 3개 소스 리워드 합산.<br>
@@ -1818,18 +1841,18 @@ function goTo(id) {
           </div>
         </div>
 
-        <!-- ④  Position --><div class="desc-item">
-          <span class="desc-num">5</span>
+        <!-- ⑥  Position --><div class="desc-item">
+          <span class="desc-num">6</span>
           <div class="desc-body">
             <span class="lbl">Position <span style="font-weight:500;color:#777;font-size:12px;">(도넛 차트 + 범례)</span></span>
             Cash / Earn / Broker / ROG 4개 자산군 비중을<br>
             도넛 차트 + 범례로 시각화. 중앙에 총 자산 표시.
             <ul class="sub-list">
-              <li><span class="num">5-1</span><span><b>Cash.</b> USD 예수금.</span></li>
-              <li><span class="num">5-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
-              <li><span class="num">5-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
-              <li><span class="num">5-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
-              <li><span class="num">5-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Positions Hub.</span></li>
+              <li><span class="num">6-1</span><span><b>Cash.</b> USD 예수금.</span></li>
+              <li><span class="num">6-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
+              <li><span class="num">6-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
+              <li><span class="num">6-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
+              <li><span class="num">6-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Positions Hub.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -1842,28 +1865,7 @@ function goTo(id) {
           </div>
         </div>
 
-        <!-- ⑤  Quick Actions --><div class="desc-item">
-          <span class="desc-num">6</span>
-          <div class="desc-body">
-            <span class="lbl">Quick Actions <span style="font-weight:500;color:#777;font-size:12px;">(바로가기 행)</span></span>
-            자주 쓰는 4개 액션 바로가기.
-            <ul class="sub-list">
-              <li><span class="num">6-1</span><span><b>Deposit.</b> 탭 → <code>front-ast-01</code> 입금.<br>Card · 계좌이체 · Crypto 선택.</span></li>
-              <li><span class="num">6-2</span><span><b>Withdraw.</b> 탭 → <code>front-ast-02</code> 출금.<br>Verification 필수.</span></li>
-              <li><span class="num">6-3</span><span><b>Earn.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
-              <li><span class="num">6-4</span><span><b>Claim.</b> [S.N] 탭 → <code>front-rwd-00</code> 리워드 센터.<br>어닝 · Trader · Referral 리워드 통합 수령.</span></li>
-            </ul>
-            <div class="desc-exc">
-              <b>예외 변수</b>
-              <ul>
-                <li>6-2: Verification 미완료 → <code>front-ver-03</code> 게이트 노출</li>
-                <li>6-4 [S.N]: 미설정 → <code>front-set-05</code> 강제 이동, 설정 완료 후 자동 복귀</li>
-                <li>6-3 Earn: Verification 불필요 (잠금 없음)</li>
-                <li>Broker 트레이딩 진입은 Quick actions 제외 → Position 5-3 행 또는 Trade GNB</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+
 
         <!-- ⑥  Recent Activity -->
 
@@ -1978,11 +1980,34 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- ③ daily reward strip -->
-            <div class="section" style="padding:0 20px 6px;">
+            <!-- 4 quick actions -->
+            <div class="section" style="padding:2px 20px 6px;">
               <div class="cal-wrap">
                 <div class="cal" style="display:none"><span class="cal-tag">4</span></div>
-                <div class="card-2 card" style="padding:10px 14px;">
+                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px 0;">
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↓</div>
+                    Deposit
+                  </div>
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↑</div>
+                    Withdraw
+                  </div>
+                  <div style="display: grid; justify-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; position: relative;">
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">+</div>Earning</div>
+                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:14px;">★</div>
+                    Claim
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- ⑤ daily reward strip -->
+            <div class="section" style="padding:0 20px 6px;">
+              <div class="cal-wrap">
+                <div class="cal" style="display:none"><span class="cal-tag">5</span></div>
+                <div class="card" style="padding:10px 14px;">
                   <div class="row">
                     <div>
                       <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward</div>
@@ -2001,7 +2026,7 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- ④ asset breakdown card -->
+            <!-- ⑥ asset breakdown card -->
             <div class="section" style="padding:0 20px 6px;">
               <div class="row" style="margin-bottom:6px;">
                 <span class="kicker">Position</span>
@@ -2010,7 +2035,7 @@ function goTo(id) {
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">5</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
                 <div class="card" style="padding:12px 14px;">
                   <div style="display:flex;gap:14px;align-items:center;">
                     <div style="position:relative;width:108px;height:108px;flex-shrink:0;">
@@ -2065,28 +2090,6 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- 5 quick actions -->
-            <div class="section" style="padding:2px 20px 6px;">
-              <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:4px 0;">
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↓</div>
-                    Deposit
-                  </div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">↑</div>
-                    Withdraw
-                  </div>
-                  <div style="display: grid; justify-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; position: relative;">
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:16px;">+</div>Earning</div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <div style="width:40px;height:40px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:14px;">★</div>
-                    Claim
-                  </div>
-                </div>
-              </div>
-            </div>
 
             <!-- 6 recent activity -->
             <div class="section" style="padding:4px 20px 6px;">
