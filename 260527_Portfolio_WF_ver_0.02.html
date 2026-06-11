@@ -1209,6 +1209,17 @@ deck-stage { display: block; }
 
 </style>
 <script>
+
+  function showGnb(name, el){
+    var deps=document.querySelectorAll('#depth-tooltip .gnb-depth');
+    for(var i=0;i<deps.length;i++){ deps[i].style.display=(deps[i].getAttribute('data-gnb')===name)?'':'none'; }
+    var tabs=document.querySelectorAll('#depth-tooltip .gnb-tab'); for(var j=0;j<tabs.length;j++){ tabs[j].classList.remove('active'); }
+    if(el) el.classList.add('active');
+    else { var t=document.querySelector('#depth-tooltip .gnb-tab[data-gnbtab="'+name+'"]'); if(t) t.classList.add('active'); }
+  }
+  window.showGnb=showGnb;
+  document.addEventListener('DOMContentLoaded',function(){ showGnb('portfolio'); });
+
 function goTo(id) {
   const el = document.getElementById(id);
   if (el) {
@@ -4567,6 +4578,10 @@ function goTo(id) {
   text-transform: uppercase;
   margin: 0 0 14px;
 }
+    .gnb-tabs { display:flex; gap:4px; margin:0 0 14px; flex-wrap:wrap; }
+    .gnb-tab { font-size:10px; font-weight:700; padding:5px 11px; border-radius:6px; border:1px solid #ddd; background:#f4f4f2; color:#555; cursor:pointer; letter-spacing:.02em; user-select:none; }
+    .gnb-tab.active { background:#1a3a6b; border-color:#1a3a6b; color:#fff; }
+    .gnb-tab.disabled { opacity:.4; cursor:default; }
 
 /* mini tree nodes */
 .dv-row   { display: flex; align-items: flex-start; gap: 0; }
@@ -4619,7 +4634,14 @@ function goTo(id) {
 <div id="depth-badge">
   <!-- Tooltip tree (visible on hover) -->
   <div id="depth-tooltip">
-    <h3>Screen Flow · Current Position</h3>
+    <h3>Screen Flow · GNB 선택</h3>
+    <div class="gnb-tabs">
+      <span class="gnb-tab" data-gnbtab="portfolio" onclick="showGnb('portfolio',this)">Portfolio</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'">Trade</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'">Earning</span>
+      <span class="gnb-tab disabled" title="준비 중">Account</span>
+      <span class="gnb-tab disabled" title="준비 중">More</span>
+    </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
 
       <!-- Cover / Index -->
@@ -4635,7 +4657,7 @@ function goTo(id) {
       <div class="dv-arrow-right" style="margin-top:10px;"></div>
 
       <!-- Main tree -->
-      <div class="dv-col" style="align-items:center;">
+      <div class="dv-col gnb-depth" data-gnb="portfolio" style="align-items:center;">
         <!-- avw-01 row -->
         <div style="display:flex;align-items:center;gap:0;">
           <a class="dv-node" onclick="goTo('slide-front-avw-01-a');return false;" href="#">

@@ -174,6 +174,10 @@ deck-stage>section{background:#f3f3f1;color:var(--ink);font-family:var(--sans);d
 }
 #depth-badge:hover #depth-tooltip { display: block; }
 #depth-tooltip h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #999; text-transform: uppercase; margin: 0 0 14px; }
+    .gnb-tabs { display:flex; gap:4px; margin:0 0 14px; flex-wrap:wrap; }
+    .gnb-tab { font-size:10px; font-weight:700; padding:5px 11px; border-radius:6px; border:1px solid #ddd; background:#f4f4f2; color:#555; cursor:pointer; letter-spacing:.02em; user-select:none; }
+    .gnb-tab.active { background:#1a3a6b; border-color:#1a3a6b; color:#fff; }
+    .gnb-tab.disabled { opacity:.4; cursor:default; }
 .dv-row   { display: flex; align-items: flex-start; gap: 0; }
 .dv-col   { display: flex; flex-direction: column; align-items: center; gap: 0; }
 .dv-node  { display: flex; flex-direction: column; align-items: center; cursor: pointer; text-decoration: none; }
@@ -361,7 +365,14 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 <div id="depth-badge">
   <!-- Nav Tree (hover to view) -->
   <div id="depth-tooltip">
-    <h3>Screen Flow · GNB 2 Trade &amp; GNB 3 Earning</h3>
+    <h3>Screen Flow · GNB 선택</h3>
+    <div class="gnb-tabs">
+      <span class="gnb-tab" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'">Portfolio</span>
+      <span class="gnb-tab" data-gnbtab="trade" onclick="showGnb('trade',this)">Trade</span>
+      <span class="gnb-tab" data-gnbtab="earning" onclick="showGnb('earning',this)">Earning</span>
+      <span class="gnb-tab disabled" title="준비 중">Account</span>
+      <span class="gnb-tab disabled" title="준비 중">More</span>
+    </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
 
       <!-- Cover / Index -->
@@ -380,7 +391,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
       <div style="display:flex;align-items:flex-start;gap:20px;">
 
         <!-- GNB 2: Trade -->
-        <div class="dv-col" style="align-items:center;">
+        <div class="dv-col gnb-depth" data-gnb="trade" style="align-items:center;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1a3a6b;margin-bottom:6px;">GNB 2 · Trade</div>
           <a class="dv-node" onclick="goTo('slide-front-trd-01-a');return false;" href="#">
             <div class="dv-box" data-node-id="slide-front-trd-01-a">
@@ -448,10 +459,10 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         </div><!-- end Trade col -->
 
         <!-- separator -->
-        <div style="width:1px;background:#e0e0e0;align-self:stretch;margin:0 4px;"></div>
+        <div class="gnb-sep" style="width:1px;background:#e0e0e0;align-self:stretch;margin:0 4px;"></div>
 
         <!-- GNB 3: Earning -->
-        <div class="dv-col" style="align-items:center;">
+        <div class="dv-col gnb-depth" data-gnb="earning" style="align-items:center;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#2d6a4f;margin-bottom:6px;">GNB 3 · Earning</div>
           <a class="dv-node" onclick="goTo('slide-front-ern-01');return false;" href="#">
             <div class="dv-box" data-node-id="slide-front-ern-01">
@@ -2022,6 +2033,18 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   var badgeId   = document.getElementById('depth-badge-id');
   var badgeName = document.getElementById('depth-badge-name');
   var currentSlideId = null;
+
+
+  function showGnb(name, el){
+    var deps=document.querySelectorAll('#depth-tooltip .gnb-depth');
+    for(var i=0;i<deps.length;i++){ deps[i].style.display=(deps[i].getAttribute('data-gnb')===name)?'':'none'; }
+    var sep=document.querySelector('#depth-tooltip .gnb-sep'); if(sep) sep.style.display='none';
+    var tabs=document.querySelectorAll('#depth-tooltip .gnb-tab'); for(var j=0;j<tabs.length;j++){ tabs[j].classList.remove('active'); }
+    if(el) el.classList.add('active');
+    else { var t=document.querySelector('#depth-tooltip .gnb-tab[data-gnbtab="'+name+'"]'); if(t) t.classList.add('active'); }
+  }
+  window.showGnb=showGnb;
+  document.addEventListener('DOMContentLoaded',function(){ showGnb('trade'); });
 
   function goTo(targetId) {
     var el = document.getElementById(targetId);
