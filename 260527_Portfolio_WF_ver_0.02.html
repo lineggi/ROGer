@@ -988,6 +988,16 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 .gnb-item{cursor:pointer}
 
 #slide-front-avw-01-a .phone-content,#slide-front-avw-01-b .phone-content{overflow-y:auto;min-height:0;}
+
+#helpBtn{background:#111;color:#fff;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;cursor:pointer;pointer-events:all;font-family:var(--mono);}
+#helpPop{position:fixed;top:48px;right:20px;z-index:9100;width:330px;max-width:78vw;background:#fff;border:1.5px solid #ddd;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:16px 18px;display:none;font-family:system-ui,-apple-system,sans-serif;pointer-events:all;}
+#helpPop.open{display:block;}
+#helpPop h4{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:-.01em;}
+#helpPop ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+#helpPop li{font-size:11.5px;line-height:1.5;color:#333;}
+#helpPop li b{color:#111;}
+#helpPop .hp-close{position:absolute;top:10px;right:12px;cursor:pointer;font-size:14px;color:#999;}
+
 </style>
 <script type="application/json" id="speaker-notes">[]</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1231,7 +1241,18 @@ function goTo(id) {
 
 </head>
 <body style="font-family: 'Roboto', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;">
-<div id="ver-panel"><div class="ver-badge" id="numToggle" style="cursor:pointer;" onclick="document.body.classList.toggle('hide-callouts');this.textContent=document.body.classList.contains('hide-callouts')?'◉ 넘버 보이기':'◉ 넘버 숨기기';">◉ 넘버 숨기기</div></div>
+<div id="ver-panel"><div class="ver-badge" id="numToggle" style="cursor:pointer;" onclick="document.body.classList.toggle('hide-callouts');this.textContent=document.body.classList.contains('hide-callouts')?'◉ 넘버 보이기':'◉ 넘버 숨기기';">◉ 넘버 숨기기</div><div id="helpBtn" onclick="document.getElementById('helpPop').classList.toggle('open')">? 사용법</div></div>
+<div id="helpPop">
+  <span class="hp-close" onclick="document.getElementById('helpPop').classList.remove('open')">&times;</span>
+  <h4>사용 가이드 · How to read</h4>
+  <ul>
+    <li><b>화면 흐름·뎁스 보기</b> &mdash; 우측 하단 <b>Screen Flow</b> 맵에 마우스를 올리고 상단 <b>GNB 탭</b>을 선택하면 해당 GNB의 화면 흐름(뎁스)이 펼쳐집니다.</li>
+    <li><b>프로토타입 이동</b> &mdash; 폰 화면의 버튼&middot;행&middot;아이콘을 <b>클릭</b>하면 실제 연결 화면으로 이동합니다. <span style="font-family:var(--mono);font-size:10px;">&#8594; 배지</span>가 이동 대상입니다.</li>
+    <li><b>넘버 숨기기</b> &mdash; 우측 상단 <b>&#9673; 넘버 숨기기</b> 토글로 콜아웃 번호를 켜고 끌 수 있습니다.</li>
+    <li><b>콜아웃 1:1</b> &mdash; 폰 UI의 번호 = 우측 디스크립션 번호와 <b>1:1로 매칭</b>됩니다. (점선 X-Y는 하위 항목)</li>
+    <li><b>언어 규칙</b> &mdash; 화면(UI) 텍스트는 <b>영문</b>, 기능 명세(디스크립션)는 <b>국문</b>입니다.</li>
+  </ul>
+</div>
 
 <deck-stage style="--deck-rail-w: 188px;">
 <!-- =========================================================
@@ -4640,7 +4661,7 @@ function goTo(id) {
       <span class="gnb-tab" data-gnbtab="portfolio" onclick="showGnb('portfolio',this)">Portfolio</span>
       <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'">Trade</span>
       <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'">Earning</span>
-      <span class="gnb-tab disabled" title="준비 중">Account</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_Account.html#slide-front-acc-00'">Account</span>
       <span class="gnb-tab disabled" title="준비 중">More</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
@@ -4842,7 +4863,8 @@ function goTo(id) {
   var GNB_ROUTES = {
     'Portfolio': {slide:'slide-front-avw-01-a'},
     'Trade':     {href:'ROGer_TradeEarning.html#slide-front-trd-01-a'},
-    'Earning':   {href:'ROGer_TradeEarning.html#slide-front-ern-01'}
+    'Earning':   {href:'ROGer_TradeEarning.html#slide-front-ern-01'},
+    'Account':   {href:'ROGer_Account.html#slide-front-acc-00'}
   };
   document.addEventListener('click', function gnbRouteHandler(e){
     var item = e.target.closest('.gnb-item');
@@ -4854,4 +4876,4 @@ function goTo(id) {
   });
 })();
 </script>
-</body></html>                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</body></html>

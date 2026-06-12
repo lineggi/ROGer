@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<title>ROGer · Account Wireframe Storyboard</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SPC90ZXh0Pjwvc3ZnPg==">
+<style>
+:root {
+  --ink:#111;--ink-2:#2a2a2a;--ink-3:#555;--ink-4:#8a8a8a;--ink-5:#c4c4c4;
+  --line:#e2e2e2;--line-2:#ededed;--paper:#fff;--paper-2:#f5f5f5;--paper-3:#ececec;
+  --callout:#c8102e;--callout-soft:#fde8eb;
+  --header-bar:#1a3a6b;--header-bar-2:#111;
+  --earn:#0a7c5e;--earn-soft:#e6f5f0;
+  --sans:'Pretendard','Roboto',system-ui,sans-serif;
+  --mono:'Roboto Mono',ui-monospace,monospace;
+  /* design-system tokens */
+  --space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;
+  --text-2xs:11px;--text-xs:12px;--text-sm:13px;--text-md:15px;--text-lg:18px;--text-xl:22px;--text-2xl:28px;
+  --radius-sm:8px;--radius-md:12px;--radius-lg:14px;--radius-pill:999px;
+  --gain:#0a7c5e;--loss:#c8102e;
+}
+*{box-sizing:border-box;}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+
+deck-stage>section{background:#f3f3f1;color:var(--ink);font-family:var(--sans);display:grid;grid-template-rows:64px 1fr;overflow:hidden;}
+.sb-header{display:grid;grid-template-columns:540px 1fr;height:64px;}
+.sb-header-left,.sb-header-right{display:flex;align-items:center;padding:0 24px;color:#fff;font-weight:700;letter-spacing:.02em;font-size:18px;gap:12px;}
+.sb-header-left{background:var(--header-bar);display:grid;grid-template-columns:auto 1fr;align-items:center;gap:14px;}
+.sb-header-left .sb-id{font-family:var(--mono);font-weight:500;font-size:13px;opacity:.85;letter-spacing:.06em;padding:4px 8px;background:rgba(255,255,255,.12);border-radius:4px;}
+.sb-header-left .sb-title-block{display:flex;flex-direction:column;gap:2px;min-width:0;}
+.sb-header-left .sb-path{font-family:var(--mono);font-size:10.5px;font-weight:500;opacity:.7;letter-spacing:.04em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-header-left .sb-title-kr{font-size:17px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sb-header-right{background:var(--header-bar-2);}
+.sb-header-right .sb-tags{margin-left:auto;display:flex;gap:6px;}
+.sb-header-right .sb-tag{font-family:var(--mono);font-size:11px;letter-spacing:.06em;padding:3px 8px;border:1px solid rgba(255,255,255,.4);border-radius:4px;font-weight:500;}
+.sb-body{display:grid;grid-template-columns:540px 1fr;height:100%;background:#f3f3f1;}
+.sb-phone-col{display:flex;align-items:flex-start;justify-content:center;padding:16px 24px 24px;background:#ededeb;position:relative;}
+.phone{width:390px;height:844px;background:#fff;border:1.5px solid #1a1a1a;border-radius:44px;position:relative;overflow:visible;flex-shrink:0;}
+.phone-inner{position:absolute;inset:0;border-radius:44px;overflow:hidden;display:grid;grid-template-rows:44px 1fr 84px;}
+/* GNB 항상 하단 고정: 구조 오류가 있어도 GNB가 상단에 노출되지 않도록 그리드 행 고정 */
+.phone-inner>.phone-status{grid-row:1;}
+.phone-inner>.phone-content{grid-row:2;}
+.phone-inner>.phone-gnb{grid-row:3;}
+.phone-status{display:flex;align-items:center;justify-content:space-between;padding:14px 32px 0;font-size:13px;font-weight:600;letter-spacing:.02em;}
+.phone-status-right{display:flex;gap:6px;align-items:center;font-size:12px;}
+.phone-content{position:relative;overflow-y:auto;overflow-x:hidden;min-height:0;background:#fff;padding-top:12px;}
+.phone-content-scroll{height:100%;overflow:hidden;}
+.tab-bar{display:flex;align-items:center;justify-content:space-between;padding:8px 16px 12px;gap:8px;}
+.tab-bar .icon-btn{width:44px;height:44px;display:flex;align-items:center;justify-content:center;border-radius:50%;}
+.tab-bar .icon-btn svg{width:22px;height:22px;stroke:#111;fill:none;stroke-width:1.8;}
+.tab-bar .avatar{width:32px;height:32px;border-radius:50%;background:var(--paper-3);border:1px solid var(--ink-5);}
+.tab-bar-title{font-size:22px;font-weight:700;padding:0 20px 8px;letter-spacing:-.01em;}
+.phone-gnb{display:grid;grid-template-columns:repeat(5,1fr);grid-template-rows:1fr auto;border-top:1px solid var(--line);background:#fafafa;padding:8px 0 0;}
+.phone-gnb::after{content:"";grid-column:1/-1;width:134px;height:5px;border-radius:3px;background:#111;margin:6px auto 8px;justify-self:center;}
+.gnb-item{display:flex;flex-direction:column;align-items:center;gap:3px;padding-top:4px;font-size:10px;color:var(--ink-3);font-weight:500;}
+.gnb-item.active{color:var(--ink);font-weight:700;}
+.gnb-item .gnb-icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;}
+.gnb-item .gnb-icon svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.6;}
+.gnb-item.active .gnb-icon svg{stroke-width:2.2;}
+.card{border:1px solid var(--line);border-radius:14px;background:#fff;padding:14px;}
+.card-2{background:var(--paper-2);border:1px solid transparent;}
+.row{display:flex;align-items:center;justify-content:space-between;}
+.muted{color:var(--ink-3);}.faint{color:var(--ink-3);}
+.divider{height:1px;background:var(--line);}
+.divider-2{height:1px;background:var(--line-2);}
+.h-amount{font-size:28px;font-weight:800;letter-spacing:-.02em;font-variant-numeric:tabular-nums;}
+.h-amount .ccy{font-size:14px;font-weight:600;color:var(--ink-3);margin-left:4px;}
+.kicker{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);}
+.chip{display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 10px;border-radius:13px;border:1px solid var(--ink);font-size:11px;font-weight:600;background:#fff;}
+.chip.solid{background:var(--ink);color:#fff;border-color:var(--ink);}
+.chip.ghost{border-color:var(--line);color:var(--ink-3);}
+.chip.green{background:var(--earn-soft);color:var(--earn);border-color:var(--earn);}
+.skbar{height:8px;border-radius:4px;background:var(--paper-3);}
+.cal-wrap{position:relative;}
+.cal{position:absolute;inset:-3px;border:1.8px solid var(--callout);border-radius:6px;pointer-events:none;}
+.cal.dashed{border-style:dashed;border-width:1.4px;}
+.cal.tight{inset:-1px;}
+.cal.loose{inset:-6px;}
+.sub-cal{position:absolute;border:1.4px dashed var(--callout);border-radius:4px;pointer-events:none;}
+.sub-tag{position:absolute;top:-9px;left:-4px;height:16px;padding:1px 6px;border-radius:4px;background:var(--callout);color:#fff;border:0;font-family:var(--mono);font-size:10px;font-weight:700;display:inline-flex;align-items:center;line-height:1;letter-spacing:.02em;white-space:nowrap;z-index:10;}
+.sub-tag.tag-r{left:auto;right:-4px;}
+.cal-tag{position:absolute;top:-10px;left:-10px;min-width:22px;height:22px;padding:0 5px;border-radius:11px;background:var(--callout);color:#fff;font-family:var(--mono);font-size:11px;font-weight:700;display:inline-flex;align-items:center;justify-content:center;line-height:1;letter-spacing:.02em;z-index:10;}
+.cal-tag.tag-r{left:auto;right:-10px;}
+.sb-desc-col{background:#fff;padding:24px 36px 24px 32px;overflow:hidden;display:flex;flex-direction:column;}
+.desc-grid{display:grid;grid-auto-flow:row;gap:14px;align-content:start;overflow:hidden;}
+.desc-grid.cols-2{grid-template-columns:1fr 1fr;column-gap:28px;}
+.desc-item{display:grid;grid-template-columns:28px 1fr;gap:10px;align-items:start;}
+.desc-num{width:22px;height:22px;border-radius:50%;background:var(--callout);color:#fff;font-family:var(--mono);font-weight:700;font-size:12px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+.desc-num[data-sub]{border-radius:4px;width:auto;min-width:30px;height:18px;padding:0 6px;font-size:10px;font-weight:700;margin-top:3px;}
+.desc-body{font-size:13px;line-height:1.55;color:#232323;}
+.desc-body .lbl{display:block;font-weight:700;margin-bottom:4px;font-size:14px;color:#111;}
+.desc-body .sub{display:block;margin-top:6px;font-size:12.5px;color:var(--ink-3);}
+.desc-body .sub b{color:var(--ink);font-weight:600;}
+.desc-exc{margin-top:8px;padding:7px 10px 7px 12px;background:#f7f7f5;border-left:3px solid var(--callout);border-radius:0 4px 4px 0;font-size:12px;line-height:1.55;color:#444;}
+.desc-exc>b{display:block;font-size:10.5px;font-weight:700;color:var(--callout);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.desc-exc ul{list-style:none;padding:0;margin:0;}
+.desc-exc ul li{position:relative;padding-left:10px;margin-top:2px;}
+.desc-exc ul li::before{content:"·";position:absolute;left:0;color:#aaa;}
+.desc-body .sub-list{margin:4px 0 0;padding-left:0;list-style:none;}
+.desc-body .sub-list li{display:grid;grid-template-columns:36px 1fr;gap:6px;margin-top:4px;font-size:12.5px;}
+.desc-body .sub-list .num{font-family:var(--mono);font-weight:700;color:#fff;font-size:10px;background:var(--callout);border-radius:4px;padding:1px 4px;height:fit-content;text-align:center;line-height:1.4;}
+/* cover */
+.cover{display:grid;grid-template-rows:1fr auto;grid-row:1/-1;padding:80px 100px;background:#f3f3f1;}
+.cover-eyebrow{font-family:var(--mono);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--ink-3);margin-bottom:16px;}
+.cover-title{font-size:72px;font-weight:900;line-height:1;letter-spacing:-.03em;margin:0 0 24px;}
+.cover-sub{font-size:15px;line-height:1.7;color:var(--ink-2);max-width:640px;margin:0;}
+.cover-meta{display:flex;gap:32px;flex-wrap:wrap;margin-top:auto;padding-top:32px;border-top:1px solid var(--line);font-size:13px;}
+.cover-meta div{display:flex;flex-direction:column;gap:2px;}
+.cover-meta dt{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:var(--ink-3);}
+.cover-meta dd{font-weight:600;color:var(--ink);margin:0;}
+/* index */
+.index-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;padding:28px 48px;grid-row:2;overflow:hidden;}
+.index-section h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid var(--line);}
+.index-row{display:grid;grid-template-columns:120px 1fr 1fr 64px;gap:8px;align-items:center;padding:5px 0;border-bottom:1px solid var(--line-2);font-size:12px;}
+.index-row .id{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--callout);}
+.index-row .name{font-weight:600;}
+.index-row .path{color:var(--ink-3);font-size:11px;}
+.index-row .tag{font-family:var(--mono);font-size:10px;font-weight:700;background:#111;color:#fff;border-radius:3px;padding:2px 6px;text-align:center;}
+.history-section{padding:16px 48px 24px;border-top:2px solid var(--line);grid-column:1/-1;}
+.history-section h3{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--ink-3);margin:0 0 10px;}
+.history-row{display:grid;grid-template-columns:90px 48px 1fr;gap:12px;align-items:start;padding:5px 0;border-bottom:1px solid var(--line-2);font-size:12px;}
+.h-date{font-family:var(--mono);font-size:11px;color:var(--ink-3);}
+.h-ver{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--ink);}
+.h-desc{color:var(--ink-2);line-height:1.5;}
+/* cta buttons */
+.btn-primary{display:block;width:100%;background:var(--ink);color:#fff;border:none;border-radius:14px;font-size:15px;font-weight:700;padding:14px;text-align:center;letter-spacing:-.01em;}
+.btn-secondary{display:block;width:100%;background:var(--paper-2);color:var(--ink);border:none;border-radius:14px;font-size:15px;font-weight:600;padding:14px;text-align:center;}
+.btn-outline{display:block;width:100%;background:#fff;color:var(--ink);border:1.5px solid var(--ink);border-radius:14px;font-size:15px;font-weight:600;padding:13px;text-align:center;}
+/* progress stepper */
+.stepper{display:flex;align-items:center;padding:8px 20px;gap:0;}
+.step{display:flex;flex-direction:column;align-items:center;gap:3px;flex:1;}
+.step-dot{width:20px;height:20px;border-radius:50%;background:var(--paper-3);border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink-3);}
+.step-dot.done{background:var(--ink);border-color:var(--ink);color:#fff;}
+.step-dot.active{background:var(--header-bar);border-color:var(--header-bar);color:#fff;}
+.step-label{font-size:10px;font-weight:600;color:var(--ink-3);text-align:center;}
+.step-label.active{color:var(--header-bar);}
+.step-line{height:2px;flex:1;background:var(--line);margin-bottom:16px;}
+.step-line.done{background:var(--ink);}
+/* modal overlay */
+.modal-overlay{position:absolute;inset:0;background:rgba(0,0,0,.4);display:flex;flex-direction:column;justify-content:flex-end;}
+.modal-sheet{background:#fff;border-radius:20px 20px 0 0;padding:24px 20px 32px;}
+.modal-handle{width:40px;height:4px;border-radius:2px;background:var(--line);margin:0 auto 18px;}
+/* badge */
+.badge-buy{background:#e8f5e9;color:#2e7d32;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.badge-sell{background:#fde8e8;color:#b71c1c;font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;}
+.badge-closed{background:var(--paper-3);color:var(--ink-3);font-size:10px;font-weight:700;padding:2px 6px;border-radius:4px;}
+/* APR hero */
+.apr-hero{background:linear-gradient(135deg,#0a3d62 0%,#1a6b3c 100%);border-radius:16px;padding:18px;color:#fff;margin:0 20px;}
+.apr-hero.earn{background:linear-gradient(135deg,#0a4d2e 0%,#1a8c5a 100%);}
+/* section spacing */
+.section{padding:8px 20px;}
+/* pos row */
+.pos-row{display:grid;grid-template-columns:1fr auto;gap:4px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line-2);}
+/* product card */
+.prod-card{border:1px solid var(--line);border-radius:14px;padding:14px;margin:0 20px 10px;background:#fff;}
+.prod-rate{font-size:26px;font-weight:800;color:var(--earn);letter-spacing:-.02em;}
+.prod-chips{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+/* demo badge */
+.demo-bar{display:flex;align-items:center;justify-content:space-between;padding:5px 16px;background:#f5f5f5;border-bottom:1px solid #e0e0e0;font-size:11px;font-weight:600;}
+.demo-toggle{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;}
+.toggle-pill{width:36px;height:20px;border-radius:10px;background:var(--ink);position:relative;display:inline-block;}
+.toggle-knob{position:absolute;right:3px;top:3px;width:14px;height:14px;border-radius:50%;background:#fff;}
+/* sn input */
+.sn-dots{display:flex;gap:10px;justify-content:center;margin:10px 0;}
+.sn-dot{width:36px;height:36px;border-radius:8px;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:20px;font-weight:700;}
+.sn-dot.filled{background:var(--ink);border-color:var(--ink);color:#fff;}
+/* ver panel */
+#ver-panel{position:fixed;top:14px;right:20px;z-index:9000;font-family:var(--mono);display:flex;flex-direction:column;align-items:flex-end;gap:4px;pointer-events:none;}
+#ver-panel .ver-badge{background:#111;color:#fff;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;cursor:pointer;pointer-events:all;}
+/* ── Depth Viewer (Portfolio style) ── */
+#depth-tooltip {
+  position: absolute; bottom: 100%; padding-bottom: 12px; right: 0; width: 620px;
+  background: #fff; border: 1.5px solid #ddd; border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18); padding: 18px 20px 16px;
+  display: none; pointer-events: auto;
+}
+#depth-badge:hover #depth-tooltip { display: block; }
+#depth-tooltip h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #999; text-transform: uppercase; margin: 0 0 14px; }
+    .gnb-tabs { display:flex; gap:4px; margin:0 0 14px; flex-wrap:wrap; }
+    .gnb-tab { font-size:10px; font-weight:700; padding:5px 11px; border-radius:6px; border:1px solid #ddd; background:#f4f4f2; color:#555; cursor:pointer; letter-spacing:.02em; user-select:none; }
+    .gnb-tab.active { background:#1a3a6b; border-color:#1a3a6b; color:#fff; }
+    .gnb-tab.disabled { opacity:.4; cursor:default; }
+.dv-row   { display: flex; align-items: flex-start; gap: 0; }
+.dv-col   { display: flex; flex-direction: column; align-items: center; gap: 0; }
+.dv-node  { display: flex; flex-direction: column; align-items: center; cursor: pointer; text-decoration: none; }
+.dv-box { background: #f4f4f2; border: 1.5px solid #ccc; border-radius: 6px; padding: 4px 9px 3px; text-align: center; transition: background 0.12s, border-color 0.12s; min-width: 80px; }
+.dv-node:hover .dv-box { background: #111; border-color: #111; }
+.dv-id   { display: block; font-family: 'Roboto Mono', ui-monospace, monospace; font-size: 8.5px; font-weight: 600; color: #777; letter-spacing: 0.04em; }
+.dv-name { display: block; font-size: 9.5px; font-weight: 700; color: #111; margin-top: 1px; }
+.dv-tag  { display: block; font-size: 8px; color: #999; margin-top: 1px; }
+.dv-node:hover .dv-box .dv-id   { color: #aaa; }
+.dv-node:hover .dv-box .dv-name { color: #fff; }
+.dv-node:hover .dv-box .dv-tag  { color: #bbb; }
+.dv-box.dv-active { background: #FF6B35 !important; border-color: #FF6B35 !important; }
+.dv-box.dv-active .dv-id   { color: rgba(255,255,255,0.75) !important; }
+.dv-box.dv-active .dv-name { color: #fff !important; }
+.dv-box.dv-active .dv-tag  { color: rgba(255,255,255,0.75) !important; }
+.dv-box.modal { background: #fafafa; border-style: dashed; min-width: 78px; }
+.dv-box.meta  { background: #444; border-color: #444; }
+.dv-box.meta .dv-name { color: #fff; }
+.dv-box.meta.dv-active { background: #FF6B35 !important; border-color: #FF6B35 !important; }
+.dv-arrow-down  { width: 2px; height: 12px; background: #ccc; margin: 0 auto; }
+.dv-arrow-right { width: 16px; height: 2px; background: #ccc; align-self: flex-start; flex-shrink: 0; }
+.dv-modal-group { display: flex; flex-direction: column; gap: 5px; align-items: flex-start; }
+#depth-badge { position: fixed; bottom: 20px; right: 20px; z-index: 9000; font-family: var(--mono); display: flex; flex-direction: column; align-items: flex-end; gap: 4px; pointer-events: auto; }
+#depth-badge-trigger { display: flex; align-items: center; gap: 8px; background: #111; color: #fff; font-size: 10.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px; cursor: default; letter-spacing: 0.04em; }
+#depth-badge-trigger svg { width: 14px; height: 14px; stroke: #aaa; fill: none; stroke-width: 1.6; }
+#depth-badge-id   { color: #FF6B35; }
+#depth-badge-name { color: #ccc; }
+
+/* ── Prototype Link Badges ── */
+.proto-badge-next {
+  position: absolute; top: -9px; left: 28px;
+  display: inline-flex; align-items: center; gap: 2px;
+  background: #1870F5; color: #fff;
+  font-family: var(--mono); font-size: 8px; font-weight: 700;
+  letter-spacing: .02em; padding: 2px 5px; border-radius: 3px;
+  white-space: nowrap; pointer-events: none; z-index: 8; height: 16px; line-height: 1;
+}
+.proto-badge {
+  display: inline-flex; align-items: center; gap: 3px;
+  background: #1870F5; color: #fff;
+  font-family: var(--mono); font-size: 8.5px; font-weight: 700;
+  letter-spacing: .03em; padding: 2px 6px 2px 5px; border-radius: 4px;
+  white-space: nowrap; pointer-events: none; vertical-align: middle;
+  margin-left: 5px; flex-shrink: 0;
+}
+
+/* ── Dummy GNB (wireframe placeholder) ── */
+.phone-gnb {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr auto;
+  border-top: 1px solid var(--line);
+  background: #fafafa;
+  padding: 8px 0 0;
+}
+.phone-gnb::after {
+  content: "";
+  grid-column: 1 / -1;
+  width: 134px; height: 5px;
+  border-radius: 3px;
+  background: #111;
+  margin: 6px auto 8px;
+  justify-self: center;
+}
+.gnb-item {
+  display: flex; flex-direction: column;
+  align-items: center; gap: 3px;
+  padding-top: 4px;
+  font-size: 10px;
+  color: var(--ink-3);
+  font-weight: 500;
+}
+.gnb-item.active { color: var(--ink); font-weight: 700; }
+.gnb-dummy-icon {
+  width: 20px; height: 14px;
+  background: currentColor;
+  border-radius: 3px;
+  opacity: 0.5;
+}
+.gnb-item.active .gnb-dummy-icon { opacity: 1; }
+/* cal-tag 위치: 컨텐츠 가리지 않도록 항상 좌상단 외부 */
+.phone-content > .cal-wrap:first-child > .cal > .cal-tag {
+  top: -10px; left: -10px;
+}
+/* 섹션 내 첫 cal-wrap의 cal-tag: 충분한 상단 여백 확보 */
+.section { padding-top: 12px !important; }
+
+/* ── Numbering overlap fix ── */
+.cal-wrap { position: relative; }
+.phone-content > .cal-wrap:first-child { padding-top: 0; }
+.tab-bar { padding-top: 12px !important; }
+/* sub-cal: 내용 위에 겹치지 않도록 inset 조정 */
+.sub-cal { inset: -1px !important; }
+.sub-tag { top: -18px; left: -2px; z-index: 20; }
+
+/* cal 박스: padding-top 공간 안으로 */
+.cal { inset: -3px; top: -3px; }
+/* 첫 번째 cal-wrap: 태그를 내부로 */
+.phone-content > .cal-wrap:first-child .cal-tag { top: 4px; left: 4px; }
+/* desc-item sub: 들여쓰기로 계층 표현 */
+.desc-item:has(.desc-num[data-sub]) {
+  padding-left: 16px;
+  border-left: 2px solid var(--callout-soft);
+  margin-left: 4px;
+}
+/* 짧은 서브 넘버 항목 가로 병렬 배치 (세로 여백 절약) */
+.desc-sub-inline{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px 18px;}
+.desc-sub-inline > .desc-item{margin-left:0;}
+/* 칩 호버 툴팁 */
+.tip-chip{position:relative;cursor:help;}
+.tip-chip:hover .chip-tip{display:block;}
+.chip-tip{display:none;position:absolute;left:0;top:calc(100% + 6px);z-index:60;width:212px;background:#111;color:#fff;font-size:10.5px;font-weight:500;line-height:1.45;letter-spacing:0;text-transform:none;padding:7px 9px;border-radius:6px;white-space:normal;}
+
+
+.sub-tag { top: -18px; left: -2px; z-index: 20; }
+
+
+.sub-cal.pad { inset: -3px; }
+
+/* sub-tag: 우측 하단 배치 (콘텐츠 비겹침) */
+.sub-tag.br { top: auto !important; left: auto !important; bottom: -11px !important; right: -3px !important; }
+.modal-overlay > .cal-wrap > .cal > .cal-tag { top: 6px; left: 6px; }
+/* ===== 화면설계서 보강 슬라이드 (공통 정의 · 유저 플로우) ===== */
+.spec-body{grid-row:2;height:100%;overflow:auto;padding:22px 40px 30px;background:#f3f3f1;}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 24px;align-items:start;}
+.spec-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:15px 18px;}
+.spec-card.full{grid-column:1/-1;}
+.spec-card h4{font-size:12px;font-weight:800;letter-spacing:.02em;margin:0 0 11px;color:#111;display:flex;align-items:center;gap:8px;}
+.spec-card h4 .spec-kicker{font-family:var(--mono);font-size:10.5px;font-weight:700;color:#fff;background:var(--callout);border-radius:4px;padding:2px 7px;letter-spacing:.04em;}
+.spec-table{width:100%;border-collapse:collapse;font-size:12px;}
+.spec-table th,.spec-table td{text-align:left;padding:5px 8px;border-bottom:1px solid var(--line-2);vertical-align:top;line-height:1.5;}
+.spec-table th{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:var(--ink-3);background:var(--paper-2);}
+.spec-table td.k{font-family:var(--mono);font-weight:700;color:var(--callout);white-space:nowrap;font-size:11.5px;}
+.spec-table td b{color:#111;font-weight:700;}
+.spec-table .mono{font-family:var(--mono);font-size:11px;}
+.spec-pill{display:inline-flex;align-items:center;height:20px;padding:0 8px;border-radius:10px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.03em;}
+.spec-pill.p0{background:#fde8eb;color:#c8102e;}
+.spec-pill.p1{background:#fff3e0;color:#b26a00;}
+.spec-pill.p2{background:#eef1f5;color:#5a6b85;}
+.spec-pill.tag{background:#111;color:#fff;}
+.spec-pill.sn{background:#e6f5f0;color:#0a7c5e;}
+.spec-pill.fa{background:#eaf0fb;color:#1a3a6b;}
+.spec-note{font-size:12px;line-height:1.6;color:#333;margin:0;}
+.spec-note .lbl{font-weight:700;color:#111;}
+.spec-note .mono{font-family:var(--mono);font-size:11px;background:#f2f2f0;padding:1px 5px;border-radius:4px;}
+.spec-note .sub{display:block;color:var(--ink-3);font-size:11.5px;margin-top:4px;}
+.spec-flowwrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;}
+.spec-flow-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px 16px;overflow:auto;}
+.spec-flow-card h4{font-size:12px;font-weight:800;margin:0 0 10px;color:#111;display:flex;align-items:center;gap:8px;}
+.spec-flow-card .gnb-pill{font-family:var(--mono);font-size:10.5px;font-weight:700;color:#fff;border-radius:4px;padding:2px 7px;letter-spacing:.04em;}
+.gnb-pill.trade{background:var(--header-bar);}
+.gnb-pill.earn{background:var(--earn);}
+.spec-flow-card .mermaid{display:flex;justify-content:center;}
+.spec-flow-card .spec-note{border-top:1px dashed var(--line);padding-top:8px;}
+.spec-legend{display:flex;flex-wrap:wrap;gap:14px;font-size:11px;color:var(--ink-3);}
+.spec-legend span{display:inline-flex;align-items:center;gap:5px;}
+.spec-legend i{width:18px;height:12px;border-radius:2px;display:inline-block;border:1px solid #bbb;font-style:normal;text-align:center;line-height:11px;font-size:10px;color:#888;}
+/* 화면 desc 내 플로우 게이트 노트 */
+.desc-gate{margin-top:8px;padding:7px 10px 7px 12px;background:#eef5f1;border-left:3px solid var(--earn);border-radius:0 4px 4px 0;font-size:12px;line-height:1.55;color:#1f4a3c;}
+.desc-gate>b{display:block;font-size:10.5px;font-weight:700;color:var(--earn);margin-bottom:4px;text-transform:uppercase;letter-spacing:.05em;}
+.desc-gate .mono{font-family:var(--mono);font-weight:600;background:rgba(10,124,94,.08);padding:0 4px;border-radius:3px;}
+.desc-gate .sub{display:block;color:#4a6b5f;font-size:11px;margin-top:3px;}
+/* 스테퍼 서브 넘버(2-1~2-3) — 점/라벨과 겹치지 않게 점 위 중앙으로 분리 */
+.stepper .step{overflow:visible;}
+.stepper .sub-cal{inset:-2px !important;}
+.stepper .sub-tag.br{top:-15px !important;bottom:auto !important;left:50% !important;right:auto !important;transform:translateX(-50%);height:15px;padding:1px 5px;font-size:10.5px;z-index:25;}
+
+
+.proto-badge,.proto-badge-next{display:none!important}
+body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
+
+.gnb-item{cursor:pointer}
+
+#slide-front-ern-01 .phone-content{overflow-y:auto;min-height:0;}
+
+#helpBtn{background:#111;color:#fff;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;cursor:pointer;pointer-events:all;font-family:var(--mono);}
+#helpPop{position:fixed;top:48px;right:20px;z-index:9100;width:330px;max-width:78vw;background:#fff;border:1.5px solid #ddd;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:16px 18px;display:none;font-family:var(--sans,system-ui);pointer-events:all;}
+#helpPop.open{display:block;}
+#helpPop h4{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:-.01em;}
+#helpPop ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+#helpPop li{font-size:11.5px;line-height:1.5;color:#333;}
+#helpPop li b{color:#111;}
+#helpPop .hp-close{position:absolute;top:10px;right:12px;cursor:pointer;font-size:14px;color:#999;}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body style="margin:0;background:#222;">
+
+
+<div id="ver-panel">
+  <div class="ver-badge">v0.1 · 2026.06.12</div><div class="ver-badge" id="numToggle" style="cursor:pointer;" onclick="document.body.classList.toggle('hide-callouts');this.textContent=document.body.classList.contains('hide-callouts')?'\u25c9 \ub118\ubc84 \ubcf4\uc774\uae30':'\u25c9 \ub118\ubc84 \uc228\uae30\uae30';">◉ 넘버 숨기기</div><div id="helpBtn" onclick="document.getElementById('helpPop').classList.toggle('open')">? 사용법</div>
+</div>
+
+<div id="helpPop">
+  <span class="hp-close" onclick="document.getElementById('helpPop').classList.remove('open')">&times;</span>
+  <h4>사용 가이드 · How to read</h4>
+  <ul>
+    <li><b>화면 흐름·뎁스 보기</b> — 우측 하단 <b>Screen Flow</b> 맵에 마우스를 올리고 상단 <b>GNB 탭</b>을 선택하면 해당 GNB의 화면 흐름(뎁스)이 펼쳐집니다.</li>
+    <li><b>프로토타입 이동</b> — 폰 화면의 버튼·행·아이콘을 <b>클릭</b>하면 실제 연결 화면으로 이동합니다. <span style="font-family:var(--mono);font-size:10px;">&#8594; 배지</span>가 이동 대상 화면입니다.</li>
+    <li><b>넘버 숨기기</b> — 우측 상단 <b>◉ 넘버 숨기기</b> 토글로 콜아웃 번호를 켜고 끌 수 있습니다.</li>
+    <li><b>콜아웃 1:1</b> — 폰 UI의 번호 = 우측 디스크립션 번호와 <b>1:1로 매칭</b>됩니다. (점선 X-Y는 하위 항목)</li>
+    <li><b>언어 규칙</b> — 화면(UI) 텍스트는 <b>영문</b>, 기능 명세(디스크립션)는 <b>국문</b>입니다.</li>
+  </ul>
+</div>
+
+
+<div id="depth-badge">
+  <div id="depth-tooltip">
+    <h3>Screen Flow · GNB 선택</h3>
+    <div class="gnb-tabs">
+      <span class="gnb-tab" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'">Portfolio</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'">Trade</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'">Earning</span>
+      <span class="gnb-tab" data-gnbtab="account" onclick="showGnb('account',this)">Account</span>
+      <span class="gnb-tab disabled" title="준비 중">More</span>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
+      <div class="dv-col" style="gap:5px;margin-right:12px;padding-top:2px;">
+        <a class="dv-node" onclick="goTo('slide-cover');return false;" href="#"><div class="dv-box meta" data-node-id="slide-cover"><span class="dv-name">Cover</span></div></a>
+        <div class="dv-arrow-down"></div>
+        <a class="dv-node" onclick="goTo('slide-index');return false;" href="#"><div class="dv-box meta" data-node-id="slide-index"><span class="dv-name">Index</span></div></a>
+      </div>
+      <div class="dv-arrow-right" style="margin-top:10px;"></div>
+      <div class="dv-col gnb-depth" data-gnb="account" style="align-items:center;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1a3a6b;margin-bottom:6px;">GNB 4 · Account</div>
+        <a class="dv-node" onclick="goTo('slide-front-acc-00');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-00"><span class="dv-id">front-acc-00</span><span class="dv-name">Account Hub</span></div></a>
+        <div class="dv-arrow-down"></div>
+        <div style="display:flex;align-items:flex-start;gap:8px;"><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="goTo('slide-front-acc-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-02"><span class="dv-id">front-acc-02</span><span class="dv-name">Deposit</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="goTo('slide-front-acc-04');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-04"><span class="dv-id">front-acc-04</span><span class="dv-name">Withdraw</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="goTo('slide-front-acc-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-05"><span class="dv-id">front-acc-05</span><span class="dv-name">Transactions</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="goTo('slide-front-acc-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-06"><span class="dv-id">front-acc-06</span><span class="dv-name">Reward center</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="goTo('slide-front-card-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-01"><span class="dv-id">front-card-01</span><span class="dv-name">Card</span></div></a></div></div>
+      </div>
+    </div>
+  </div>
+  <div id="depth-badge-trigger">
+    <svg viewBox="0 0 24 24"><circle cx="9" cy="5" r="2"/><circle cx="19" cy="5" r="2"/><circle cx="14" cy="12" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="19" cy="19" r="2"/><line x1="9" y1="7" x2="14" y2="10"/><line x1="19" y1="7" x2="14" y2="10"/><line x1="14" y1="14" x2="6" y2="17"/><line x1="14" y1="14" x2="19" y2="17"/></svg>
+    <span id="depth-badge-id">&mdash;</span>
+    <span id="depth-badge-name">scroll to begin</span>
+  </div>
+</div>
+
+<deck-stage style="--deck-rail-w:188px;">
+<section id="slide-cover">
+  <div class="cover" style="grid-row:1/-1;">
+    <div>
+      <div class="cover-eyebrow">ROGer · 화면설계서 (Screen Spec)</div>
+      <h1 class="cover-title">Account<br><span style="font-weight:500;color:#555;">Mobile · 6 screens</span></h1>
+      <p class="cover-sub">스테이블코인 기반 FX 플랫폼 ROGer의 GNB 4 · Account 와이어프레임.<br>
+      자산 허브 · 입출금(Deposit/Withdraw) · 자금 트랜잭션 내역 · 리워드 센터(정본) · Card.</p>
+    </div>
+    <dl class="cover-meta">
+      <div><dt>Version</dt><dd>v0.1 · 2026.06.12</dd></div>
+      <div><dt>Platform</dt><dd>Mobile (compact)</dd></div>
+      <div><dt>Language</dt><dd>UI: English</dd></div>
+      <div><dt>Source</dt><dd>Notion IA · 유저 플로우 · TO-BE(06.12)</dd></div>
+      <div><dt>Scope</dt><dd>6 screens (Account 5 + Card 1)</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section id="slide-index">
+  <header class="sb-header">
+    <div class="sb-header-left">
+      <span class="sb-id">INDEX</span>
+      <span class="sb-title-kr">화면 인덱스</span>
+    </div>
+    <div class="sb-header-right">Account · 6 screens <span class="sb-tags"><span class="sb-tag">GNB 4</span></span></div>
+  </header>
+  <div class="index-grid">
+    <div class="index-section">
+      <h3>4 · Account</h3>
+      <div class="index-row"><span class="id">front-acc-00</span><span class="name">Account Hub</span><span class="path">Account › Account Hub</span><span class="tag">SLIDE 02</span></div>
+      <div class="index-row"><span class="id">front-acc-02</span><span class="name">Deposit</span><span class="path">Account › Deposit</span><span class="tag">SLIDE 03</span></div>
+      <div class="index-row"><span class="id">front-acc-04</span><span class="name">Withdraw</span><span class="path">Account › Withdraw</span><span class="tag">SLIDE 04</span></div>
+      <div class="index-row"><span class="id">front-acc-05</span><span class="name">Transaction History</span><span class="path">Account › Transaction History</span><span class="tag">SLIDE 05</span></div>
+      <div class="index-row"><span class="id">front-acc-06</span><span class="name">Reward Center</span><span class="path">Account › Reward Center</span><span class="tag">SLIDE 06</span></div>
+      <div class="index-row"><span class="id">front-card-01</span><span class="name">Card Home</span><span class="path">Account › Card Home</span><span class="tag">SLIDE 07</span></div>
+      
+    </div>
+    <div class="history-section" style="grid-column:1/-1;">
+      <h3>Update History</h3>
+      <div class="history-row"><span class="h-date">2026.06.12</span><span class="h-ver">v0.1</span><span class="h-desc">초기 생성 — Account GNB(6화면) 신설. TO-BE 기준: Account=Transaction history · 리워드 센터 정본 · 자금동사(Deposit/Withdraw · Transfer · Invest/Redeem) · Card=Account 하위. Portfolio/Trade/Earning과 크로스 링크.</span></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== front-acc-00 ===== -->
+<section id="slide-front-acc-00">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-acc-00</span><div class="sb-title-block"><span class="sb-path">Account</span><span class="sb-title-kr">Account 홈</span></div></div><div class="sb-header-right">Account Home · Hub<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P0</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div style="flex:1;font-size:22px;font-weight:800;letter-spacing:-.02em;padding:2px 4px;">Account</div><div class="icon-btn"><svg viewBox="0 0 24 24" style="width:21px;height:21px;stroke:#111;fill:none;stroke-width:1.8;"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6"/></svg></div></div></div>
+        <div class="section" style="padding:10px 20px 6px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div class="card" style="padding:16px;"><div class="kicker">Cash balance</div><div class="h-amount" style="margin-top:4px;font-size:30px;">4,210.00<span class="ccy">USD</span></div><div style="display:flex;gap:20px;margin-top:12px;padding-top:12px;border-top:1px solid var(--line-2);font-size:11px;"><div><div style="color:var(--ink-3);font-weight:600;">Total assets</div><div style="font-weight:800;font-size:14px;margin-top:2px;">12,438.52 USD</div></div><div><div style="color:var(--ink-3);font-weight:600;">In products</div><div style="font-weight:800;font-size:14px;margin-top:2px;">8,228.52 USD</div></div></div></div></div></div>
+        <div class="section" style="padding:6px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;"><div onclick="goTo('slide-front-acc-02')" style="display:grid;justify-items:center;gap:5px;font-size:10px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Deposit<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-1</span></span><span class="proto-badge">&#8594; acc-02</span></div><div onclick="goTo('slide-front-acc-04')" style="display:grid;justify-items:center;gap:5px;font-size:10px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Withdraw<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-2</span></span><span class="proto-badge">&#8594; acc-04</span></div><div onclick="goTo('slide-front-acc-06')" style="display:grid;justify-items:center;gap:5px;font-size:10px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Reward<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-3</span></span><span class="proto-badge">&#8594; acc-06</span></div><div onclick="goTo('slide-front-card-01')" style="display:grid;justify-items:center;gap:5px;font-size:10px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Card<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-4</span></span><span class="proto-badge">&#8594; card-01</span></div></div></div></div>
+        <div class="section" style="padding:6px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div onclick="goTo('slide-front-acc-06')" class="card" style="padding:12px 14px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;"><div><div style="font-size:13px;font-weight:700;">Rewards to claim<span class="proto-badge">&#8594; acc-06</span></div><div style="font-size:11px;color:var(--ink-3);margin-top:2px;">Earning · Trade payback · Referral</div></div><div style="display:flex;align-items:center;gap:8px;"><span style="font-size:16px;font-weight:800;color:var(--gain);">+24.18</span><span style="font-size:16px;color:var(--ink-3);">&rsaquo;</span></div></div></div></div>
+        <div class="section" style="padding:6px 20px 12px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">5</span></div><div><div class="row" style="margin-bottom:4px;"><span style="font-size:12px;font-weight:700;">Recent transactions</span><span onclick="goTo('slide-front-acc-05')" style="font-size:11px;color:var(--ink-3);font-weight:600;cursor:pointer;position:relative;">View all &rsaquo;<span class="sub-cal" style="inset:-3px -4px;"><span class="sub-tag br">5-1</span></span><span class="proto-badge">&#8594; acc-05</span></span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line-2);font-size:12px;"><div><div style="font-weight:700;">Deposit · Card</div><div style="font-size:11px;color:var(--ink-3);">May 18 · Completed</div></div><div style="font-weight:700;color:var(--gain);">+500.00</div></div><div style="display:flex;justify-content:space-between;padding:8px 0;font-size:12px;"><div><div style="font-weight:700;">Invest · Flexible</div><div style="font-size:11px;color:var(--ink-3);">May 17 · Completed</div></div><div style="font-weight:700;color:var(--loss);">-1,000.00</div></div></div></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>Account GNB 랜딩 상단 바. 페이지명 "Account" + 우측 프로필 아이콘.</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Asset summary</span>자산 요약 카드. <b>예수금(Cash balance)</b> 헤드라인 + 총 자산·운용 중 분해. USD 표기. 거래 서버/지갑에서 폴링.</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Quick actions</span>계정 핵심 4개 바로가기.</div></div><div class="desc-item"><span class="desc-num data-sub">3-1</span><div class="desc-body"><span class="lbl">Deposit</span>외부(카드·은행·Crypto)→예수금. 탭 시 front-acc-02.</div></div><div class="desc-item"><span class="desc-num data-sub">3-2</span><div class="desc-body"><span class="lbl">Withdraw</span>예수금→은행·지갑. 탭 시 front-acc-04. (Verification·2FA 게이트)</div></div><div class="desc-item"><span class="desc-num data-sub">3-3</span><div class="desc-body"><span class="lbl">Reward</span>리워드 센터(정본). 탭 시 front-acc-06.</div></div><div class="desc-item"><span class="desc-num data-sub">3-4</span><div class="desc-body"><span class="lbl">Card</span>카드 홈. 탭 시 front-card-01.</div></div><div class="desc-item"><span class="desc-num">4</span><div class="desc-body"><span class="lbl">Rewards summary</span>수령 가능 리워드 요약(어닝+거래 페이백+레퍼럴 합산). 탭 시 front-acc-06. 0건 시 "No rewards yet".</div></div><div class="desc-item"><span class="desc-num">5</span><div class="desc-body"><span class="lbl">Recent transactions</span>최근 자금 트랜잭션 미리보기(입금·출금·예치/환매·리워드·카드결제). ※ 매매 주문은 Portfolio Order history(별도).</div></div><div class="desc-item"><span class="desc-num data-sub">5-1</span><div class="desc-body"><span class="lbl">View all</span>탭 시 front-acc-05 Transaction history. 필터·기간 지원.</div></div>
+    </div></div>
+  </div>
+</section>
+<!-- ===== front-acc-02 ===== -->
+<section id="slide-front-acc-02">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-acc-02</span><div class="sb-title-block"><span class="sb-path">Account › Deposit</span><span class="sb-title-kr">입금</span></div></div><div class="sb-header-right">Deposit · Card/Bank/Crypto<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P0</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;width:24px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M15 6l-6 6 6 6"/></svg><span class="proto-badge">&#8594; acc-00</span></div><div style="flex:1;text-align:center;font-size:17px;font-weight:700;margin-left:-24px;">Deposit</div><div style="width:24px;"></div></div></div>
+        <div class="section" style="padding:10px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div><div class="kicker" style="margin-bottom:6px;">Method</div><div style="display:flex;gap:6px;"><div style="flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:11px;font-weight:700;position:relative;background:var(--ink);color:#fff;">Card<span class="sub-cal" style="inset:-2px;border-radius:9px;"><span class="sub-tag br">2-1</span></span></div><div style="flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:11px;font-weight:700;position:relative;background:var(--paper-2);color:var(--ink-3);">Bank transfer<span class="sub-cal" style="inset:-2px;border-radius:9px;"><span class="sub-tag br">2-2</span></span></div><div style="flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:11px;font-weight:700;position:relative;background:var(--paper-2);color:var(--ink-3);">Crypto<span class="sub-cal" style="inset:-2px;border-radius:9px;"><span class="sub-tag br">2-3</span></span></div></div></div></div></div>
+        <div class="section" style="padding:8px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div><div style="font-size:11px;color:var(--ink-3);margin-bottom:4px;">Amount</div><div style="display:flex;gap:8px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;"><input style="flex:1;border:none;font-size:16px;font-weight:700;outline:none;font-family:inherit;" value="500.00"><span style="font-size:12px;font-weight:600;color:var(--ink-3);">USD</span></div><div style="font-size:11px;color:var(--ink-3);margin-top:5px;position:relative;">Card fee 1.5% · Credited instantly<span class="sub-cal" style="inset:-2px;border-radius:8px;"><span class="sub-tag br">3-1</span></span></div></div></div></div>
+        <div class="section" style="padding:6px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div class="card" style="padding:10px 14px;background:var(--paper-2);border:none;font-size:12.5px;"><div style="display:flex;justify-content:space-between;margin-top:14px;position:relative;"><span style="color:var(--ink-3);">To</span><span style="font-weight:600;">Cash balance</span></div><div style="display:flex;justify-content:space-between;margin-top:14px;"><span style="color:var(--ink-3);">You receive</span><span style="font-weight:700;">≈ 492.50 USD</span></div></div></div></div>
+        <div class="section" style="padding:10px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">5</span></div><button class="btn-primary" onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;">Deposit<span class="proto-badge">&#8594; acc-00</span></button></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>좌측 back → front-acc-00. 페이지명 "Deposit".</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Method</span>입금 수단 선택. <b>Card · Bank transfer · Crypto(USDT/USDC)</b>. 모두 예수금으로 통합 입금.</div></div><div class="desc-item"><span class="desc-num data-sub">2-1</span><div class="desc-body"><span class="lbl">Card</span>카드 입금(즉시 반영).</div></div><div class="desc-item"><span class="desc-num data-sub">2-2</span><div class="desc-body"><span class="lbl">Bank transfer</span>은행 계좌이체.</div></div><div class="desc-item"><span class="desc-num data-sub">2-3</span><div class="desc-body"><span class="lbl">Crypto</span>USDT(TRC-20)/USDC(ERC-20) 입금.</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Amount</span>입금 금액 입력(USD). 수단별 수수료·반영 시점 표기.</div></div><div class="desc-item"><span class="desc-num data-sub">3-1</span><div class="desc-body"><span class="lbl">Fee/timing</span>수단별 수수료·반영 시점(카드 1.5% 즉시 / 은행 무료 1~2일 / Crypto 망 수수료).</div></div><div class="desc-item"><span class="desc-num">4</span><div class="desc-body"><span class="lbl">Summary</span>도착 = 예수금. 수수료 차감 후 실수령액 표기.</div></div><div class="desc-item"><span class="desc-num">5</span><div class="desc-body"><span class="lbl">Confirm</span>입금 확정 → 완료 후 front-acc-00 복귀(데모는 즉시). 실서비스는 입금 확인(acc-03) 경유.<div class="desc-exc"><b>예외 변수</b><ul><li>금액 미입력·한도 초과 시 CTA 비활성</li><li>Crypto는 입금 주소 QR·확인 단계 추가</li></ul></div></div></div>
+    </div></div>
+  </div>
+</section>
+<!-- ===== front-acc-04 ===== -->
+<section id="slide-front-acc-04">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-acc-04</span><div class="sb-title-block"><span class="sb-path">Account › Withdraw</span><span class="sb-title-kr">출금</span></div></div><div class="sb-header-right">Withdraw · Bank/Crypto [2FA]<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P0</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;width:24px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M15 6l-6 6 6 6"/></svg><span class="proto-badge">&#8594; acc-00</span></div><div style="flex:1;text-align:center;font-size:17px;font-weight:700;margin-left:-24px;">Withdraw</div><div style="width:24px;"></div></div></div>
+        <div class="section" style="padding:10px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div><div class="kicker" style="margin-bottom:6px;">Destination</div><div style="display:flex;gap:6px;"><div style="flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:11px;font-weight:700;position:relative;background:var(--ink);color:#fff;">Bank account<span class="sub-cal" style="inset:-2px;border-radius:9px;"><span class="sub-tag br">2-1</span></span></div><div style="flex:1;text-align:center;padding:8px 0;border-radius:8px;font-size:11px;font-weight:700;position:relative;background:var(--paper-2);color:var(--ink-3);">Crypto wallet<span class="sub-cal" style="inset:-2px;border-radius:9px;"><span class="sub-tag br">2-2</span></span></div></div></div></div></div>
+        <div class="section" style="padding:8px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div><div style="font-size:11px;color:var(--ink-3);margin-bottom:4px;">Amount <span style="font-weight:600;color:var(--ink);">Available 4,210.00 USD</span></div><div style="display:flex;gap:8px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;"><input style="flex:1;border:none;font-size:16px;font-weight:700;outline:none;font-family:inherit;" value="1,000.00"><span style="font-size:12px;font-weight:600;color:var(--ink-3);">USD</span><button style="background:var(--ink);color:#fff;border:none;border-radius:6px;padding:4px 10px;font-size:11px;font-weight:700;">MAX</button></div></div></div></div>
+        <div class="section" style="padding:6px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div class="card" style="padding:10px 14px;background:var(--paper-2);border:none;font-size:12.5px;"><div style="display:flex;justify-content:space-between;margin-top:14px;position:relative;"><span style="color:var(--ink-3);">Network/Bank fee</span><span style="font-weight:600;">- 1.00 USD</span><span class="sub-cal" style="inset:0;"><span class="sub-tag br">4-1</span></span></div><div style="display:flex;justify-content:space-between;margin-top:14px;"><span style="color:var(--ink-3);">You receive</span><span style="font-weight:700;">≈ 999.00 USD</span></div></div></div></div>
+        <div class="section" style="padding:10px 20px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">5</span></div><button class="btn-primary" style="cursor:pointer;position:relative;">Withdraw<span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-1</span></span></button></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>좌측 back → front-acc-00. 페이지명 "Withdraw".</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Destination</span>출금 대상. <b>Bank account · Crypto wallet</b>. (저장된 출금처 선택/추가)</div></div><div class="desc-item"><span class="desc-num data-sub">2-1</span><div class="desc-body"><span class="lbl">Bank account</span>등록 은행 계좌로 출금.</div></div><div class="desc-item"><span class="desc-num data-sub">2-2</span><div class="desc-body"><span class="lbl">Crypto wallet</span>등록 지갑 주소로 출금(망 선택).</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Amount</span>출금 금액. <b>가용액 = 예수금(Available)</b>. MAX = 전액.</div></div><div class="desc-item"><span class="desc-num">4</span><div class="desc-body"><span class="lbl">Summary</span>수수료·실수령액 요약.</div></div><div class="desc-item"><span class="desc-num data-sub">4-1</span><div class="desc-body"><span class="lbl">Fee</span>망/은행 수수료. Crypto는 네트워크별 상이.</div></div><div class="desc-item"><span class="desc-num">5</span><div class="desc-body"><span class="lbl">Confirm</span>출금 확정. <b>Verification 완료 + S.N + 2FA</b> 통과 후 처리.<div class="desc-exc"><b>예외 변수</b><ul><li>Verification 미완료 시 → front-ver-03 게이트(소속 More)로 유도</li><li>2FA 미설정 시 설정 강제</li><li>가용액 초과·최소 미만 시 CTA 비활성</li></ul></div></div></div><div class="desc-item"><span class="desc-num data-sub">5-1</span><div class="desc-body"><span class="lbl">Withdraw CTA</span>확정 트리거. 게이트 통과 후 출금 요청 → 완료 안내.</div></div><div class="desc-item"><span class="desc-num">GATE</span><div class="desc-body desc-gate"><span class="lbl">인증 게이트 · [Verification + S.N + 2FA]</span>출금 실행 전: Verification 완료 필수(미완료 → front-ver-03, 소속 More)<br>S.N(보안번호) → 2FA(Google OTP) 순 인증<br>User Flow · 출금 보안</div></div>
+    </div></div>
+  </div>
+</section>
+<!-- ===== front-acc-05 ===== -->
+<section id="slide-front-acc-05">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-acc-05</span><div class="sb-title-block"><span class="sb-path">Account › History</span><span class="sb-title-kr">자금 트랜잭션 내역</span></div></div><div class="sb-header-right">Transaction history<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P1</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;width:24px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M15 6l-6 6 6 6"/></svg><span class="proto-badge">&#8594; acc-00</span></div><div style="flex:1;text-align:center;font-size:17px;font-weight:700;margin-left:-24px;">Transactions</div><div class="icon-btn"><svg viewBox="0 0 24 24" style="width:19px;height:19px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M3 6h18M6 12h12M10 18h4"/></svg></div></div></div>
+        <div class="section" style="padding:8px 20px 2px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div style="display:flex;gap:5px;overflow-x:auto;"><span style="font-size:10px;font-weight:700;padding:5px 10px;border-radius:13px;white-space:nowrap;background:var(--ink);color:#fff;">All</span><span style="font-size:10px;font-weight:700;padding:5px 10px;border-radius:13px;white-space:nowrap;background:var(--paper-2);color:var(--ink-3);">Deposit</span><span style="font-size:10px;font-weight:700;padding:5px 10px;border-radius:13px;white-space:nowrap;background:var(--paper-2);color:var(--ink-3);">Withdraw</span><span style="font-size:10px;font-weight:700;padding:5px 10px;border-radius:13px;white-space:nowrap;background:var(--paper-2);color:var(--ink-3);">Invest</span><span style="font-size:10px;font-weight:700;padding:5px 10px;border-radius:13px;white-space:nowrap;background:var(--paper-2);color:var(--ink-3);">Reward</span></div></div></div>
+        <div class="section" style="padding:6px 20px 10px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Deposit · Card</div><div style="font-size:11px;color:var(--ink-3);">May 18 · Completed</div></div><div style="font-size:13px;font-weight:700;color:var(--gain);">+500.00</div></div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Invest · Flexible</div><div style="font-size:11px;color:var(--ink-3);">May 17 · Completed</div></div><div style="font-size:13px;font-weight:700;color:var(--loss);">-1,000.00</div></div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Reward · Earning</div><div style="font-size:11px;color:var(--ink-3);">May 17 · Credited</div></div><div style="font-size:13px;font-weight:700;color:var(--gain);">+0.34</div></div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Withdraw · Bank</div><div style="font-size:11px;color:var(--ink-3);">May 15 · Processing</div></div><div style="font-size:13px;font-weight:700;color:var(--loss);">-300.00</div></div><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 0;"><div><div style="font-size:13px;font-weight:700;">Card payment</div><div style="font-size:11px;color:var(--ink-3);">May 14 · Completed</div></div><div style="font-size:13px;font-weight:700;color:var(--loss);">-42.10</div></div><div style="font-size:11px;color:var(--ink-3);text-align:center;margin-top:8px;cursor:pointer;" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-ord-01'">Looking for trade orders? → Order history (Portfolio)<span class="proto-badge">&#8594; Portfolio</span></div></div></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>좌측 back → front-acc-00. 페이지명 "Transactions" + 필터 아이콘.</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Filter</span>유형 필터 — All · Deposit · Withdraw · Invest(예치/환매) · Reward · Card. 기간 필터 병행.</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Transaction list</span>자금 트랜잭션 목록(시간 역순). 유형·금액(+/−)·일시·상태(Completed/Processing). <b>※ 매매 주문은 여기 아님 → Portfolio Order history</b>로 교차 안내.<div class="desc-exc"><b>예외 변수</b><ul><li>0건 시 "No transactions yet" 빈 상태</li><li>상태 Processing은 회색, Failed는 빨강 + 사유</li></ul></div></div></div>
+    </div></div>
+  </div>
+</section>
+<!-- ===== front-acc-06 ===== -->
+<section id="slide-front-acc-06">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-acc-06</span><div class="sb-title-block"><span class="sb-path">Account › Rewards</span><span class="sb-title-kr">리워드 센터</span></div></div><div class="sb-header-right">Reward center (정본)<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P0</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;width:24px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M15 6l-6 6 6 6"/></svg><span class="proto-badge">&#8594; acc-00</span></div><div style="flex:1;text-align:center;font-size:17px;font-weight:700;margin-left:-24px;">Reward center</div><div style="width:24px;"></div></div></div>
+        <div class="section" style="padding:10px 20px 6px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div class="card" style="padding:16px;text-align:center;"><div class="kicker">Claimable rewards</div><div class="h-amount" style="margin-top:4px;font-size:30px;color:var(--gain);">+24.18<span class="ccy" style="color:var(--ink-3);">USD</span></div><button class="btn-primary" style="margin-top:12px;cursor:pointer;position:relative;">Claim all<span class="sub-cal" style="inset:0;"><span class="sub-tag br">2-1</span></span></button></div></div></div>
+        <div class="section" style="padding:6px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div><div class="kicker" style="margin-bottom:4px;">Sources</div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;position:relative;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Earning rewards</div><div style="font-size:11px;color:var(--ink-3);">Daily accrual · auto</div></div><div style="font-size:13px;font-weight:700;color:var(--gain);">+18.40</div><span class="sub-cal" style="inset:0;"><span class="sub-tag br">3-1</span></span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;position:relative;border-bottom:1px solid var(--line-2);"><div><div style="font-size:13px;font-weight:700;">Trade payback</div><div style="font-size:11px;color:var(--ink-3);">Lot-based payback</div></div><div style="font-size:13px;font-weight:700;color:var(--gain);">+4.20</div><span class="sub-cal" style="inset:0;"><span class="sub-tag br">3-2</span></span></div><div style="display:flex;justify-content:space-between;align-items:center;padding:10px 0;position:relative;"><div><div style="font-size:13px;font-weight:700;">Referral</div><div style="font-size:11px;color:var(--ink-3);">Referral bonus</div></div><div style="font-size:13px;font-weight:700;color:var(--gain);">+1.58</div><span class="sub-cal" style="inset:0;"><span class="sub-tag br">3-3</span></span></div></div></div></div>
+        <div class="section" style="padding:8px 20px 12px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div style="display:flex;gap:8px;"><button class="btn-outline" style="cursor:pointer;position:relative;">Reinvest<span class="sub-cal" style="inset:0;"><span class="sub-tag br">4-1</span></span></button><button onclick="goTo('slide-front-acc-05')" class="btn-outline" style="cursor:pointer;position:relative;">History<span class="sub-cal" style="inset:0;"><span class="sub-tag br">4-2</span></span><span class="proto-badge">&#8594; acc-05</span></button></div></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>좌측 back → front-acc-00. 페이지명 "Reward center".</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Claimable total</span>수령 가능 리워드 총액(전 소스 합산). <b>리워드 수령의 정본 화면</b> — Earning/Portfolio는 요약·링크만.</div></div><div class="desc-item"><span class="desc-num data-sub">2-1</span><div class="desc-body"><span class="lbl">Claim all</span>전체 수령 → 예수금 적립. [S.N] 게이트.</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Sources</span>리워드 출처 분해 — 어닝 적립 · 거래 페이백 · 레퍼럴. (통합 수령)</div></div><div class="desc-item"><span class="desc-num data-sub">3-1</span><div class="desc-body"><span class="lbl">Earning rewards</span>어닝 상품 일 적립 리워드.</div></div><div class="desc-item"><span class="desc-num data-sub">3-2</span><div class="desc-body"><span class="lbl">Trade payback</span>FX 거래 랏 기반 페이백.</div></div><div class="desc-item"><span class="desc-num data-sub">3-3</span><div class="desc-body"><span class="lbl">Referral</span>초대(레퍼럴) 보상.</div></div><div class="desc-item"><span class="desc-num">4</span><div class="desc-body"><span class="lbl">Actions</span>수령 외 부가 액션.</div></div><div class="desc-item"><span class="desc-num data-sub">4-1</span><div class="desc-body"><span class="lbl">Reinvest</span>리워드를 어닝 상품에 재투자(Invest).</div></div><div class="desc-item"><span class="desc-num data-sub">4-2</span><div class="desc-body"><span class="lbl">History</span>수령 내역 → front-acc-05 Transaction history.</div></div>
+    </div></div>
+  </div>
+</section>
+<!-- ===== front-card-01 ===== -->
+<section id="slide-front-card-01">
+  <header class="sb-header"><div class="sb-header-left"><span class="sb-id">front-card-01</span><div class="sb-title-block"><span class="sb-path">Account › Card</span><span class="sb-title-kr">카드 홈</span></div></div><div class="sb-header-right">Card home<span class="sb-tags"><span class="sb-tag">GNB 4</span><span class="sb-tag">P1</span></span></div></header>
+  <div class="sb-body">
+    <div class="sb-phone-col"><div class="phone"><div class="phone-inner">
+      <div class="phone-status"><span>9:41</span><span class="phone-status-right"><svg width="18" height="10" viewBox="0 0 18 10" fill="#111"><rect x="0" y="6" width="3" height="4"/><rect x="4" y="4" width="3" height="6"/><rect x="8" y="2" width="3" height="8"/><rect x="12" y="0" width="3" height="10"/></svg><svg width="14" height="10" viewBox="0 0 14 10" fill="none" stroke="#111" stroke-width="1"><path d="M1 3.5a9 9 0 0 1 12 0M3 5.8a6 6 0 0 1 8 0M5 8.2a3 3 0 0 1 4 0"/></svg><svg width="24" height="11" viewBox="0 0 24 11" fill="none" stroke="#111" stroke-width="1"><rect x=".5" y=".5" width="20" height="10" rx="2"/><rect x="2" y="2" width="15" height="7" fill="#111"/><rect x="21" y="3.5" width="2" height="4" fill="#111"/></svg></span></div>
+      <div class="phone-content">
+        <div class="cal-wrap"><div class="cal"><span class="cal-tag" style="top:4px;left:4px;">1</span></div><div class="tab-bar"><div onclick="goTo('slide-front-acc-00')" style="cursor:pointer;position:relative;width:24px;"><svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#111;fill:none;stroke-width:1.8;"><path d="M15 6l-6 6 6 6"/></svg><span class="proto-badge">&#8594; acc-00</span></div><div style="flex:1;text-align:center;font-size:17px;font-weight:700;margin-left:-24px;">Card</div><div style="width:24px;"></div></div></div>
+        <div class="section" style="padding:10px 20px 6px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">2</span></div><div style="background:var(--ink);border-radius:14px;padding:16px;color:#fff;"><div style="font-size:11px;opacity:.7;font-weight:600;">ROGer Card</div><div style="font-size:13px;letter-spacing:.15em;margin-top:18px;">•••• •••• •••• 6411</div><div style="display:flex;justify-content:space-between;align-items:flex-end;margin-top:10px;"><div><div style="font-size:9px;opacity:.6;">Balance</div><div style="font-size:18px;font-weight:800;">320.00 USD</div></div><div style="font-size:10px;opacity:.7;">VISA</div></div></div></div></div>
+        <div class="section" style="padding:6px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">3</span></div><div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;"><div style="display:grid;justify-items:center;gap:5px;font-size:10.5px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Charge<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-1</span></span></div><div style="display:grid;justify-items:center;gap:5px;font-size:10.5px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Manage<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-2</span></span></div><div style="display:grid;justify-items:center;gap:5px;font-size:10.5px;font-weight:600;position:relative;cursor:pointer;"><div style="width:30px;height:30px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);"></div>Freeze<span class="sub-cal" style="inset:-4px;border-radius:10px;"><span class="sub-tag br">3-3</span></span></div></div></div></div>
+        <div class="section" style="padding:6px 20px 4px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div><div class="row" style="margin-bottom:4px;"><span style="font-size:12px;font-weight:700;">Recent payments</span></div><div style="display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid var(--line-2);font-size:12px;"><div><div style="font-weight:700;">Coffee shop</div><div style="font-size:11px;color:var(--ink-3);">May 14</div></div><div style="font-weight:700;color:var(--loss);">-4.20</div></div><div style="display:flex;justify-content:space-between;padding:8px 0;font-size:12px;"><div><div style="font-weight:700;">Online store</div><div style="font-size:11px;color:var(--ink-3);">May 13</div></div><div style="font-weight:700;color:var(--loss);">-37.90</div></div></div></div></div>
+        <div class="section" style="padding:6px 20px 12px;"><div class="cal-wrap"><div class="cal"><span class="cal-tag">5</span></div><div style="border:1px solid var(--line);border-radius:14px;"><div style="display:flex;justify-content:space-between;padding:13px 14px;border-bottom:1px solid var(--line-2);cursor:pointer;position:relative;"><span style="font-size:13px;font-weight:600;">Card settings</span><span style="color:var(--ink-3);">&rsaquo;</span><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-1</span></span></div><div style="display:flex;justify-content:space-between;padding:13px 14px;cursor:pointer;position:relative;"><span style="font-size:13px;font-weight:600;color:var(--loss);">Deactivate card</span><span style="color:var(--ink-3);">&rsaquo;</span><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-2</span></span></div></div></div></div>
+      </div>
+      <nav class="phone-gnb"><div class="gnb-item"><div class="gnb-dummy-icon"></div>Portfolio</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>Earning</div><div class="gnb-item active"><div class="gnb-dummy-icon"></div>Account</div><div class="gnb-item"><div class="gnb-dummy-icon"></div>More</div></nav>
+    </div></div></div>
+    <div class="sb-desc-col"><div class="desc-grid">
+<div class="desc-item"><span class="desc-num">1</span><div class="desc-body"><span class="lbl">Top app bar</span>좌측 back → front-acc-00. 페이지명 "Card". (Card는 Account GNB 하위)</div></div><div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Card visual</span>카드 비주얼 + 카드 잔액. 마스킹 카드번호.</div></div><div class="desc-item"><span class="desc-num">3</span><div class="desc-body"><span class="lbl">Card actions</span>카드 핵심 액션.</div></div><div class="desc-item"><span class="desc-num data-sub">3-1</span><div class="desc-body"><span class="lbl">Charge</span>예수금 → 카드 충전.</div></div><div class="desc-item"><span class="desc-num data-sub">3-2</span><div class="desc-body"><span class="lbl">Manage</span>카드 관리(한도·PIN 등).</div></div><div class="desc-item"><span class="desc-num data-sub">3-3</span><div class="desc-body"><span class="lbl">Freeze</span>카드 일시 정지/해제.</div></div><div class="desc-item"><span class="desc-num">4</span><div class="desc-body"><span class="lbl">Recent payments</span>최근 카드 결제 내역(자금 트랜잭션의 카드 항목).</div></div><div class="desc-item"><span class="desc-num">5</span><div class="desc-body"><span class="lbl">Card management</span>카드 설정·해지.</div></div><div class="desc-item"><span class="desc-num data-sub">5-1</span><div class="desc-body"><span class="lbl">Card settings</span>카드 상세 설정.</div></div><div class="desc-item"><span class="desc-num data-sub">5-2</span><div class="desc-body"><span class="lbl">Deactivate card</span>카드 비활성화/삭제(확인 모달). Verification 게이트 가능.</div></div>
+    </div></div>
+  </div>
+</section>
+</deck-stage>
+
+<script>
+(function() {
+  var SLIDE_META = {
+    'slide-cover':             { id: 'COVER',            name: 'Cover' },
+    'slide-index':             { id: 'INDEX',            name: 'Index' },
+    'slide-front-acc-00': { id: 'front-acc-00', name: 'Account Hub' },
+    'slide-front-acc-02': { id: 'front-acc-02', name: 'Deposit' },
+    'slide-front-acc-04': { id: 'front-acc-04', name: 'Withdraw' },
+    'slide-front-acc-05': { id: 'front-acc-05', name: 'Transaction history' },
+    'slide-front-acc-06': { id: 'front-acc-06', name: 'Reward center' },
+    'slide-front-card-01': { id: 'front-card-01', name: 'Card Home' },
+  };
+  var badgeId   = document.getElementById('depth-badge-id');
+  var badgeName = document.getElementById('depth-badge-name');
+  var currentSlideId = null;
+
+
+  function showGnb(name, el){
+    var deps=document.querySelectorAll('#depth-tooltip .gnb-depth');
+    for(var i=0;i<deps.length;i++){ deps[i].style.display=(deps[i].getAttribute('data-gnb')===name)?'':'none'; }
+    var sep=document.querySelector('#depth-tooltip .gnb-sep'); if(sep) sep.style.display='none';
+    var tabs=document.querySelectorAll('#depth-tooltip .gnb-tab'); for(var j=0;j<tabs.length;j++){ tabs[j].classList.remove('active'); }
+    if(el) el.classList.add('active');
+    else { var t=document.querySelector('#depth-tooltip .gnb-tab[data-gnbtab="'+name+'"]'); if(t) t.classList.add('active'); }
+  }
+  window.showGnb=showGnb;
+  document.addEventListener('DOMContentLoaded',function(){ showGnb('account'); });
+
+  function goTo(targetId) {
+    var el = document.getElementById(targetId);
+    if (el) { el.scrollIntoView({ block: 'start' }); }   /* 즉시 이동(스크롤 애니메이션 없음) */
+  }
+  window.goTo = goTo;
+
+  function toggleReward(){var b=document.getElementById('rewardBody');var c=document.getElementById('rewardChevron');if(!b)return;var open=b.style.display!=='none';b.style.display=open?'none':'block';if(c)c.style.transform=open?'rotate(0deg)':'rotate(180deg)';}
+  window.toggleReward=toggleReward;
+
+  function toggleFaq(el){var item=el.parentElement;var ans=item.querySelector('.faq-ans');var sign=el.querySelector('.faq-sign');if(!ans)return;var open=ans.style.display!=='none';ans.style.display=open?'none':'block';if(sign)sign.textContent=open?'+':'\u2212';}
+  window.toggleFaq=toggleFaq;
+
+  /* 모든 인터랙션 배지(→ 대상)를 클릭 시 해당 화면으로 즉시 이동하도록 자동 연결 */
+  function __hostFor(b){
+    var n=b;
+    while(n && n!==document.body){
+      var t=n.tagName.toLowerCase();
+      if(t==='button'||t==='div'||t==='a') return n;
+      n=n.parentElement;
+    }
+    return b.parentElement;
+  }
+  function __wireNav(){
+    document.querySelectorAll('.proto-badge, .proto-badge-next').forEach(function(b){
+      var m=(b.textContent||'').match(/([a-z]{2,5}-[0-9a-z-]+)/i);
+      if(!m) return;
+      var id='slide-front-'+m[1].toLowerCase();
+      if(!document.getElementById(id)) return;          /* 덱에 없는 화면(pos-/perf- 등)은 제외 */
+      var host=__hostFor(b);
+      if(host.hasAttribute('onclick')||host.__navWired) return;
+      host.__navWired=true;
+      host.style.cursor='pointer';
+      host.addEventListener('click', function(ev){ ev.preventDefault(); ev.stopPropagation(); goTo(id); });
+    });
+  }
+  __wireNav();
+
+  function setActive(slideId) {
+    if (slideId === currentSlideId) return;
+    currentSlideId = slideId;
+    var meta = SLIDE_META[slideId];
+    if (meta) { badgeId.textContent = meta.id; badgeName.textContent = meta.name; }
+    document.querySelectorAll('#depth-tooltip .dv-box').forEach(function(b) { b.classList.remove('dv-active'); });
+    var active = document.querySelector('#depth-tooltip .dv-box[data-node-id="' + slideId + '"]');
+    if (active) active.classList.add('dv-active');
+  }
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && entry.intersectionRatio >= 0.4) setActive(entry.target.id);
+    });
+  }, { threshold: 0.4 });
+  document.querySelectorAll('section[id]').forEach(function(sec) { observer.observe(sec); });
+})();
+</script>
+
+<script>
+/* 공통 GNB 라우팅 — 이벤트 위임 1곳에서 처리 (라벨 -> 대상) */
+(function(){
+  var GNB_ROUTES = {
+    'Portfolio': {href:'260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'},
+    'Trade':     {href:'ROGer_TradeEarning.html#slide-front-trd-01-a'},
+    'Earning':   {href:'ROGer_TradeEarning.html#slide-front-ern-01'},
+    'Account':   {slide:'slide-front-acc-00'}
+  };
+  document.addEventListener('click', function gnbRouteHandler(e){
+    var item = e.target.closest('.gnb-item');
+    if(!item) return;
+    var r = GNB_ROUTES[item.textContent.trim()];
+    if(!r) return;
+    if(r.slide){ var el=document.getElementById(r.slide); if(el) el.scrollIntoView({block:'start'}); }
+    else if(r.href){ location.href = r.href; }
+  });
+})();
+</script>
+</body></html>

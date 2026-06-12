@@ -353,6 +353,16 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 .gnb-item{cursor:pointer}
 
 #slide-front-ern-01 .phone-content{overflow-y:auto;min-height:0;}
+
+#helpBtn{background:#111;color:#fff;font-size:10.5px;font-weight:700;padding:3px 8px;border-radius:5px;letter-spacing:.04em;cursor:pointer;pointer-events:all;font-family:var(--mono);}
+#helpPop{position:fixed;top:48px;right:20px;z-index:9100;width:330px;max-width:78vw;background:#fff;border:1.5px solid #ddd;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,.18);padding:16px 18px;display:none;font-family:system-ui,-apple-system,sans-serif;pointer-events:all;}
+#helpPop.open{display:block;}
+#helpPop h4{margin:0 0 10px;font-size:13px;font-weight:800;letter-spacing:-.01em;}
+#helpPop ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:9px;}
+#helpPop li{font-size:11.5px;line-height:1.5;color:#333;}
+#helpPop li b{color:#111;}
+#helpPop .hp-close{position:absolute;top:10px;right:12px;cursor:pointer;font-size:14px;color:#999;}
+
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
@@ -361,8 +371,19 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 
 
 <div id="ver-panel">
-  <div class="ver-badge">v0.02 · 2026.05.29</div><div class="ver-badge" id="numToggle" style="cursor:pointer;" onclick="document.body.classList.toggle('hide-callouts');this.textContent=document.body.classList.contains('hide-callouts')?'◉ 넘버 보이기':'◉ 넘버 숨기기';">◉ 넘버 숨기기</div>
+  <div class="ver-badge">v0.6 · 2026.06.11</div><div class="ver-badge" id="numToggle" style="cursor:pointer;" onclick="document.body.classList.toggle('hide-callouts');this.textContent=document.body.classList.contains('hide-callouts')?'◉ 넘버 보이기':'◉ 넘버 숨기기';">◉ 넘버 숨기기</div><div id="helpBtn" onclick="document.getElementById('helpPop').classList.toggle('open')">? 사용법</div></div>
+<div id="helpPop">
+  <span class="hp-close" onclick="document.getElementById('helpPop').classList.remove('open')">&times;</span>
+  <h4>사용 가이드 · How to read</h4>
+  <ul>
+    <li><b>화면 흐름·뎁스 보기</b> &mdash; 우측 하단 <b>Screen Flow</b> 맵에 마우스를 올리고 상단 <b>GNB 탭</b>을 선택하면 해당 GNB의 화면 흐름(뎁스)이 펼쳐집니다.</li>
+    <li><b>프로토타입 이동</b> &mdash; 폰 화면의 버튼&middot;행&middot;아이콘을 <b>클릭</b>하면 실제 연결 화면으로 이동합니다. <span style="font-family:var(--mono);font-size:10px;">&#8594; 배지</span>가 이동 대상입니다.</li>
+    <li><b>넘버 숨기기</b> &mdash; 우측 상단 <b>&#9673; 넘버 숨기기</b> 토글로 콜아웃 번호를 켜고 끌 수 있습니다.</li>
+    <li><b>콜아웃 1:1</b> &mdash; 폰 UI의 번호 = 우측 디스크립션 번호와 <b>1:1로 매칭</b>됩니다. (점선 X-Y는 하위 항목)</li>
+    <li><b>언어 규칙</b> &mdash; 화면(UI) 텍스트는 <b>영문</b>, 기능 명세(디스크립션)는 <b>국문</b>입니다.</li>
+  </ul>
 </div>
+
 <div id="depth-badge">
   <!-- Nav Tree (hover to view) -->
   <div id="depth-tooltip">
@@ -371,7 +392,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
       <span class="gnb-tab" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'">Portfolio</span>
       <span class="gnb-tab" data-gnbtab="trade" onclick="showGnb('trade',this)">Trade</span>
       <span class="gnb-tab" data-gnbtab="earning" onclick="showGnb('earning',this)">Earning</span>
-      <span class="gnb-tab disabled" title="준비 중">Account</span>
+      <span class="gnb-tab" onclick="location.href='ROGer_Account.html#slide-front-acc-00'">Account</span>
       <span class="gnb-tab disabled" title="준비 중">More</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
@@ -537,7 +558,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
       2. Earning — Flexible · Fixed-term 어닝 상품 둘러보기 · 예치 · 투자 확인 플로우.</p>
     </div>
     <dl class="cover-meta">
-      <div><dt>Version</dt><dd>v0.10 · 2026.06.04</dd></div>
+      <div><dt>Version</dt><dd>v0.6 · 2026.06.11</dd></div>
       <div><dt>Platform</dt><dd>Mobile (compact)</dd></div>
       <div><dt>Language</dt><dd>UI: English</dd></div>
       <div><dt>Source</dt><dd>Notion IA · 유저 플로우</dd></div>
@@ -580,29 +601,34 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
     <h3>Update History</h3>
 
     <div class="history-row">
+      <span class="h-date">2026.06.11</span>
+      <span class="h-ver">v0.6</span>
+      <span class="h-desc"><b>변경</b>: ern-01 어닝 홈 재설계(잔액 카드 제거 &middot; 온보딩 카드 상단 고정 &middot; 상품 CTA "Earn" &middot; APR 라벨[Flexible 8.6&ndash;21% &middot; Fixed 36%] &middot; Reward Detail 토글 &middot; 전 구간 USD 통일). 와이어프레임 <b>색 최소화 + 버튼 3등급 위계</b> 규칙 명문화(공통디자인 4-1/4-2). <b>추가</b>: 기획서 맵 우하단 GNB 셀렉터 &middot; ROGer 파비콘 &middot; 우측 상단 사용법 가이드. <b>정비</b>: 죽은 이동 링크 일괄 수정. GitHub(lineggi/ROGer)&middot;Vercel 자동배포 구축.</span>
+    </div>
+    <div class="history-row">
       <span class="h-date">2026.06.10</span>
-      <span class="h-ver">v0.10</span>
-      <span class="h-desc"><b>추가</b>: front-trd-04-01(연동 해제 확인 모달) · front-trd-07(거래 터미널 WebView). <b>변경</b>: 거래 실행 = 인앱 WebView(trd-07) 기본 + 다운로드 병행(외부앱 전용 → 정정) · trd-04 명세 보강 · Transfer 라벨(Cash / Trading account).</span>
+      <span class="h-ver">v0.5</span>
+      <span class="h-desc"><b>추가</b>: front-trd-04-01(연동 해제 확인 모달) &middot; front-trd-07(거래 터미널 WebView). <b>변경</b>: 거래 실행 = 인앱 WebView(trd-07) 기본 + 다운로드 병행(외부앱 전용 &rarr; 정정) &middot; trd-04 명세 보강 &middot; Transfer 라벨(Cash / Trading account).</span>
     </div>
     <div class="history-row">
       <span class="h-date">2026.06.09</span>
-      <span class="h-ver">v0.10</span>
-      <span class="h-desc"><b>추가</b>: front-trd-04(Trade 계좌 관리) · front-trd-05(Transfer). <b>삭제</b>: front-trd-06(Recall→Transfer swap 통합) · trd-01 Launch Broker CTA. <b>변경</b>: ern-01 심플 재설계 · trd-03 계좌개설 네이티브 폼화 · trd-01 허브 재구성(Trade account 상단) · 거래실행 외부앱 전용.</span>
+      <span class="h-ver">v0.4</span>
+      <span class="h-desc"><b>추가</b>: front-trd-04(Trade 계좌 관리) &middot; front-trd-05(Transfer). <b>삭제</b>: front-trd-06(Recall&rarr;Transfer swap 통합) &middot; trd-01 Launch Broker CTA. <b>변경</b>: ern-01 심플 재설계 &middot; trd-03 계좌개설 네이티브 폼화 &middot; trd-01 허브 재구성(Trade account 상단).</span>
     </div>
     <div class="history-row">
       <span class="h-date">2026.06.08</span>
-      <span class="h-ver">v0.10</span>
-      <span class="h-desc"><b>변경</b>: 전 화면 인터랙션(즉시 이동) 연결 · GNB 하단 고정 · trd-01 디스크립션 정비. <b>추가</b>: 공통 디자인 구조 가이드 · Notion IA 반영(MT-5→Broker·Verification 게이트·ern-02 트리).</span>
+      <span class="h-ver">v0.3</span>
+      <span class="h-desc"><b>변경</b>: 전 화면 인터랙션(즉시 이동) 연결 &middot; GNB 하단 고정 &middot; trd-01 디스크립션 정비. <b>추가</b>: 공통 디자인 구조 가이드 &middot; Notion IA 반영(MT-5&rarr;Broker &middot; Verification 게이트 &middot; ern-02 트리).</span>
     </div>
     <div class="history-row">
       <span class="h-date">2026.06.04</span>
-      <span class="h-ver">v0.10</span>
-      <span class="h-desc">화면설계서 전환 — 공통 정의(SPEC)·유저 플로우(FLOW) 슬라이드 추가 후 화면설계 전용으로 제거(순 변동 없음). 글로벌 헤더 통일(Trade Hub·Earning Home). 콜아웃·넘버링 체계 정리. 디자인 토큰·접근성(의미색·대비·터치 타깃) 반영.</span>
+      <span class="h-ver">v0.2</span>
+      <span class="h-desc">화면설계서 전환 &mdash; 공통 정의(SPEC)&middot;유저 플로우(FLOW) 슬라이드 추가 후 화면설계 전용으로 제거(순 변동 없음). 글로벌 헤더 통일(Trade Hub&middot;Earning Home). 콜아웃&middot;넘버링 체계 정리. 디자인 토큰&middot;접근성(의미색&middot;대비&middot;터치 타깃) 반영.</span>
     </div>
     <div class="history-row">
       <span class="h-date">2026.05.29</span>
       <span class="h-ver">v0.1</span>
-      <span class="h-desc">초기 생성 — GNB 2 · Trade(5 화면) + GNB 3 · Earning(6 화면) 와이어프레임. Portfolio v0.02 구조 · 콜아웃 시스템 계승.</span>
+      <span class="h-desc">초기 생성 &mdash; GNB 2 &middot; Trade(5 화면) + GNB 3 &middot; Earning(6 화면) 와이어프레임. Portfolio v0.02 구조 &middot; 콜아웃 시스템 계승.</span>
     </div>
   
   </div>
@@ -2108,7 +2134,8 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   var GNB_ROUTES = {
     'Portfolio': {href:'260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'},
     'Trade':     {slide:'slide-front-trd-01-a'},
-    'Earning':   {slide:'slide-front-ern-01'}
+    'Earning':   {slide:'slide-front-ern-01'},
+    'Account':   {href:'ROGer_Account.html#slide-front-acc-00'}
   };
   document.addEventListener('click', function gnbRouteHandler(e){
     var item = e.target.closest('.gnb-item');
@@ -2121,4 +2148,3 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 })();
 </script>
 </body></html>
-                                                                                       
