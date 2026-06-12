@@ -4658,7 +4658,7 @@ function goTo(id) {
       <span class="gnb-tab" data-gnbtab="portfolio" onclick="showGnb('portfolio',this)">Portfolio</span>
       <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'">Trade</span>
       <span class="gnb-tab" onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'">Earning</span>
-      <span class="gnb-tab" onclick="location.href='ROGer_Account.html#slide-front-acc-00'">Account</span>
+      <span class="gnb-tab disabled" title="준비 중">Account</span>
       <span class="gnb-tab disabled" title="준비 중">More</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
@@ -4860,8 +4860,7 @@ function goTo(id) {
   var GNB_ROUTES = {
     'Portfolio': {slide:'slide-front-avw-01-a'},
     'Trade':     {href:'ROGer_TradeEarning.html#slide-front-trd-01-a'},
-    'Earning':   {href:'ROGer_TradeEarning.html#slide-front-ern-01'},
-    'Account':   {href:'ROGer_Account.html#slide-front-acc-00'}
+    'Earning':   {href:'ROGer_TradeEarning.html#slide-front-ern-01'}
   };
   document.addEventListener('click', function gnbRouteHandler(e){
     var item = e.target.closest('.gnb-item');

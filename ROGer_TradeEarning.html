@@ -389,7 +389,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
       <span class="gnb-tab" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'">Portfolio</span>
       <span class="gnb-tab" data-gnbtab="trade" onclick="showGnb('trade',this)">Trade</span>
       <span class="gnb-tab" data-gnbtab="earning" onclick="showGnb('earning',this)">Earning</span>
-      <span class="gnb-tab" onclick="location.href='ROGer_Account.html#slide-front-acc-00'">Account</span>
+      <span class="gnb-tab disabled" title="준비 중">Account</span>
       <span class="gnb-tab disabled" title="준비 중">More</span>
     </div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
@@ -2132,8 +2132,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   var GNB_ROUTES = {
     'Portfolio': {href:'260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'},
     'Trade':     {slide:'slide-front-trd-01-a'},
-    'Earning':   {slide:'slide-front-ern-01'},
-    'Account':   {href:'ROGer_Account.html#slide-front-acc-00'}
+    'Earning':   {slide:'slide-front-ern-01'}
   };
   document.addEventListener('click', function gnbRouteHandler(e){
     var item = e.target.closest('.gnb-item');
