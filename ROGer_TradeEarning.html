@@ -174,6 +174,7 @@ deck-stage>section{background:#f3f3f1;color:var(--ink);font-family:var(--sans);d
   display: none; pointer-events: auto;
 }
 #depth-badge:hover #depth-tooltip { display: block; }
+#depth-badge.pinned #depth-tooltip { display: block; }
 #depth-tooltip h3 { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: #999; text-transform: uppercase; margin: 0 0 14px; }
     .gnb-tabs { display:flex; gap:4px; margin:0 0 14px; flex-wrap:wrap; }
     .gnb-tab { font-size:10px; font-weight:700; padding:5px 11px; border-radius:6px; border:1px solid #ddd; background:#f4f4f2; color:#555; cursor:pointer; letter-spacing:.02em; user-select:none; }
@@ -366,6 +367,8 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
 </style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style id="rog-chrome">html{background:#f3f3f1;}@view-transition{navigation:auto;}</style>
+<style id="cal-gutter">.phone-content .section > .cal-wrap > div:not(.cal){padding-left:13px;}</style>
 </head>
 <body style="margin:0;background:#222;">
 
@@ -385,13 +388,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   <!-- Nav Tree (hover to view) -->
   <div id="depth-tooltip">
     <h3>Screen Flow · GNB 선택</h3>
-    <div class="gnb-tabs">
-      <span class="gnb-tab" onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'">Portfolio</span>
-      <span class="gnb-tab" data-gnbtab="trade" onclick="showGnb('trade',this)">Trade</span>
-      <span class="gnb-tab" data-gnbtab="earning" onclick="showGnb('earning',this)">Earning</span>
-      <span class="gnb-tab disabled" title="준비 중">Account</span>
-      <span class="gnb-tab disabled" title="준비 중">More</span>
-    </div>
+    <div class="gnb-tabs"><span class="gnb-tab" data-gnbtab="portfolio" onclick="showGnb('portfolio',this)">Portfolio</span><span class="gnb-tab" data-gnbtab="trade" onclick="showGnb('trade',this)">Trade</span><span class="gnb-tab" data-gnbtab="earning" onclick="showGnb('earning',this)">Earning</span><span class="gnb-tab" data-gnbtab="account" onclick="showGnb('account',this)">Account</span><span class="gnb-tab" data-gnbtab="more" onclick="showGnb('more',this)">More</span></div>
     <div style="display:flex;align-items:flex-start;gap:0;overflow-x:auto;">
 
       <!-- Cover / Index -->
@@ -404,15 +401,111 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
           <div class="dv-box meta" data-node-id="slide-index"><span class="dv-name">Index</span></div>
         </a>
       </div>
-      <div class="dv-arrow-right" style="margin-top:10px;"></div>
+      <div class="dv-arrow-right" style="margin-top:10px;"></div><div class="dv-col gnb-depth" data-gnb="portfolio" style="align-items:center;">
+        <!-- avw-01 row -->
+        <div style="display:flex;align-items:center;gap:0;">
+          <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-avw-01-a');return false;" href="#">
+            <div class="dv-box" data-node-id="slide-front-avw-01-a">
+              <span class="dv-id">front-avw-01</span><span class="dv-name">Asset Overview</span><span class="dv-tag">1/2</span>
+            </div>
+          </a>
+          <div style="width:16px;height:2px;background:#ccc;flex-shrink:0;"></div>
+          <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-avw-01-b');return false;" href="#">
+            <div class="dv-box" data-node-id="slide-front-avw-01-b">
+              <span class="dv-id">front-avw-01</span><span class="dv-name">Asset Overview</span><span class="dv-tag">2/2</span>
+            </div>
+          </a>
+        </div>
+        <div class="dv-arrow-down"></div>
 
-      <!-- GNB 2 Trade + GNB 3 Earning side by side -->
-      <div style="display:flex;align-items:flex-start;gap:20px;">
+        <!-- pos-00 + perf-01 row -->
+        <div style="display:flex;align-items:flex-start;gap:12px;">
 
-        <!-- GNB 2: Trade -->
-        <div class="dv-col gnb-depth" data-gnb="trade" style="align-items:center;">
+          <!-- pos-00 branch -->
+          <div class="dv-col" style="align-items:center;">
+            <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-00');return false;" href="#">
+              <div class="dv-box" data-node-id="slide-front-pos-00">
+                <span class="dv-id">front-pos-00</span><span class="dv-name">Positions Hub</span>
+              </div>
+            </a>
+            <div class="dv-arrow-down"></div>
+
+            <!-- pos-01 + pos-02 -->
+            <div style="display:flex;align-items:flex-start;gap:8px;">
+              <!-- pos-01 branch -->
+              <div class="dv-col" style="align-items:center;">
+                <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-01');return false;" href="#">
+                  <div class="dv-box" data-node-id="slide-front-pos-01">
+                    <span class="dv-id">front-pos-01</span><span class="dv-name">Broker</span>
+                  </div>
+                </a>
+                <div class="dv-arrow-down"></div>
+                <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-ord-01');return false;" href="#">
+                  <div class="dv-box" data-node-id="slide-front-ord-01">
+                    <span class="dv-id">front-ord-01</span><span class="dv-name">Orders</span>
+                  </div>
+                </a>
+                <div class="dv-arrow-down"></div>
+                <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-ord-02');return false;" href="#">
+                  <div class="dv-box" data-node-id="slide-front-ord-02">
+                    <span class="dv-id">front-ord-02</span><span class="dv-name">Executions</span>
+                  </div>
+                </a>
+              </div>
+
+              <!-- pos-02 branch -->
+              <div class="dv-col" style="align-items:center;">
+                <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-02');return false;" href="#">
+                  <div class="dv-box" data-node-id="slide-front-pos-02">
+                    <span class="dv-id">front-pos-02</span><span class="dv-name">Earn</span>
+                  </div>
+                </a>
+                <div class="dv-arrow-down"></div>
+                <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-03');return false;" href="#">
+                  <div class="dv-box" data-node-id="slide-front-pos-03">
+                    <span class="dv-id">front-pos-03</span><span class="dv-name">Earn Detail</span>
+                  </div>
+                </a>
+                <div class="dv-arrow-down"></div>
+                <div class="dv-modal-group">
+                  <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-03-01');return false;" href="#">
+                    <div class="dv-box modal" data-node-id="slide-front-pos-03-01">
+                      <span class="dv-id">front-pos-03-01</span><span class="dv-name">Redeem</span><span class="dv-tag">[modal]</span>
+                    </div>
+                  </a>
+                  <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-03-02');return false;" href="#">
+                    <div class="dv-box modal" data-node-id="slide-front-pos-03-02">
+                      <span class="dv-id">front-pos-03-02</span><span class="dv-name">Claim</span><span class="dv-tag">[modal]</span>
+                    </div>
+                  </a>
+                  <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-03-03');return false;" href="#">
+                    <div class="dv-box modal" data-node-id="slide-front-pos-03-03">
+                      <span class="dv-id">front-pos-03-03</span><span class="dv-name">Reinvest</span><span class="dv-tag">[modal]</span>
+                    </div>
+                  </a>
+                  <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-03-04');return false;" href="#">
+                    <div class="dv-box modal" data-node-id="slide-front-pos-03-04">
+                      <span class="dv-id">front-pos-03-04</span><span class="dv-name">Completed</span><span class="dv-tag">[common]</span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div><!-- end pos-01+02 -->
+          </div><!-- end pos-00 branch -->
+
+          <!-- perf-01 -->
+          <div class="dv-col">
+            <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-perf-01');return false;" href="#">
+              <div class="dv-box" data-node-id="slide-front-perf-01">
+                <span class="dv-id">front-perf-01</span><span class="dv-name">Performance</span>
+              </div>
+            </a>
+          </div>
+
+        </div><!-- end pos-00+perf-01 -->
+      </div><div class="dv-col gnb-depth" data-gnb="trade" style="align-items:center;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#1a3a6b;margin-bottom:6px;">GNB 2 · Trade</div>
-          <a class="dv-node" onclick="goTo('slide-front-trd-01-a');return false;" href="#">
+          <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-01-a');return false;" href="#">
             <div class="dv-box" data-node-id="slide-front-trd-01-a">
               <span class="dv-id">front-trd-01</span><span class="dv-name">Trade Hub</span>
             </div>
@@ -422,19 +515,19 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
           <div style="display:flex;align-items:flex-start;gap:8px;">
             <!-- trd-03 branch -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-trd-03');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-03');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-03">
                   <span class="dv-id">front-trd-03</span><span class="dv-name">Acct Setup</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-trd-03-01');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-03-01');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-03-01">
                   <span class="dv-id">front-trd-03-01</span><span class="dv-name">Activation</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-trd-03-02');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-03-02');return false;" href="#">
                 <div class="dv-box modal" data-node-id="slide-front-trd-03-02">
                   <span class="dv-id">front-trd-03-02</span><span class="dv-name">Created</span><span class="dv-tag">[modal]</span>
                 </div>
@@ -442,7 +535,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
             </div>
             <!-- trd-02 -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-trd-02');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-02');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-02">
                   <span class="dv-id">front-trd-02</span><span class="dv-name">Downloads</span>
                 </div>
@@ -450,13 +543,13 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
             </div>
             <!-- trd-04 -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-trd-04');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-04');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-04">
                   <span class="dv-id">front-trd-04</span><span class="dv-name">Acct Manage</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-trd-04-01');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-04-01');return false;" href="#">
                 <div class="dv-box modal" data-node-id="slide-front-trd-04-01">
                   <span class="dv-id">front-trd-04-01</span><span class="dv-name">Disconnect</span>
                 </div>
@@ -464,26 +557,20 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
             </div>
             <!-- trd-05 -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-trd-05');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-05');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-05"><span class="dv-id">front-trd-05</span><span class="dv-name">Transfer</span></div>
               </a>
             </div>
             <!-- trd-07 -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-trd-07');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-trd-07');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-trd-07"><span class="dv-id">front-trd-07</span><span class="dv-name">Trade Terminal</span></div>
               </a>
             </div>
           </div><!-- end trd branches -->
-        </div><!-- end Trade col -->
-
-        <!-- separator -->
-        <div class="gnb-sep" style="width:1px;background:#e0e0e0;align-self:stretch;margin:0 4px;"></div>
-
-        <!-- GNB 3: Earning -->
-        <div class="dv-col gnb-depth" data-gnb="earning" style="align-items:center;">
+        </div><div class="dv-col gnb-depth" data-gnb="earning" style="align-items:center;">
           <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#2d6a4f;margin-bottom:6px;">GNB 3 · Earning</div>
-          <a class="dv-node" onclick="goTo('slide-front-ern-01');return false;" href="#">
+          <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-01');return false;" href="#">
             <div class="dv-box" data-node-id="slide-front-ern-01">
               <span class="dv-id">front-ern-01</span><span class="dv-name">Earning Home</span>
             </div>
@@ -493,19 +580,19 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
           <div style="display:flex;align-items:flex-start;gap:8px;">
             <!-- ern-03 branch -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-ern-03');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-03');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-ern-03">
                   <span class="dv-id">front-ern-03</span><span class="dv-name">Flexible</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-ern-03-01');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-03-01');return false;" href="#">
                 <div class="dv-box modal" data-node-id="slide-front-ern-03-01">
                   <span class="dv-id">front-ern-03-01</span><span class="dv-name">Confirm</span><span class="dv-tag">[modal]</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-ern-02');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-02');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-ern-02-a">
                   <span class="dv-id">front-ern-02</span><span class="dv-name">Complete</span><span class="dv-tag">[common]</span>
                 </div>
@@ -513,13 +600,13 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
             </div>
             <!-- ern-04 branch -->
             <div class="dv-col" style="align-items:center;">
-              <a class="dv-node" onclick="goTo('slide-front-ern-04');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-04');return false;" href="#">
                 <div class="dv-box" data-node-id="slide-front-ern-04">
                   <span class="dv-id">front-ern-04</span><span class="dv-name">Fixed-term</span>
                 </div>
               </a>
               <div class="dv-arrow-down"></div>
-              <a class="dv-node" onclick="goTo('slide-front-ern-04-01');return false;" href="#">
+              <a class="dv-node" onclick="navTo('ROGer_TradeEarning.html','slide-front-ern-04-01');return false;" href="#">
                 <div class="dv-box modal" data-node-id="slide-front-ern-04-01">
                   <span class="dv-id">front-ern-04-01</span><span class="dv-name">Confirm</span><span class="dv-tag">[modal]</span>
                 </div>
@@ -528,7 +615,29 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
               <div style="font-size:10px;color:#aaa;text-align:center;">→ ern-02</div>
             </div>
           </div><!-- end ern branches -->
-        </div><!-- end Earning col -->
+        </div><div class="dv-col gnb-depth" data-gnb="account" style="align-items:center;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#14532d;margin-bottom:6px;">GNB 4 · Account</div>
+        <a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-00');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-00"><span class="dv-id">front-acc-00</span><span class="dv-name">Account Hub</span></div></a>
+        <div class="dv-arrow-down"></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;"><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-03');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-03"><span class="dv-id">front-acc-03</span><span class="dv-name">Deposit</span></div></a><div class="dv-arrow-down"></div><div style="display:flex;align-items:flex-start;gap:8px;"><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-09');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-09"><span class="dv-id">front-acc-09</span><span class="dv-name">Bank</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-07');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-07"><span class="dv-id">front-acc-07</span><span class="dv-name">Crypto</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-07-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-07-02"><span class="dv-id">front-acc-07-02</span><span class="dv-name">Provider</span></div></a></div></div></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-04');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-04"><span class="dv-id">front-acc-04</span><span class="dv-name">Withdraw</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-04-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-04-01"><span class="dv-id">front-acc-04-01</span><span class="dv-name">Off-ramp</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-05"><span class="dv-id">front-acc-05</span><span class="dv-name">Transactions</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-06"><span class="dv-id">front-acc-06</span><span class="dv-name">Reward center</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-acc-06-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-acc-06-01"><span class="dv-id">front-acc-06-01</span><span class="dv-name">Reinvest</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-01"><span class="dv-id">front-card-01</span><span class="dv-name">Card</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-07');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-07"><span class="dv-id">front-card-07</span><span class="dv-name">Apply</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-02"><span class="dv-id">front-card-02</span><span class="dv-name">Charge</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-03');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-03"><span class="dv-id">front-card-03</span><span class="dv-name">Settings</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-05"><span class="dv-id">front-card-05</span><span class="dv-name">Limit</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-06"><span class="dv-id">front-card-06</span><span class="dv-name">PIN</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_Account.html','slide-front-card-04');return false;" href="#"><div class="dv-box" data-node-id="slide-front-card-04"><span class="dv-id">front-card-04</span><span class="dv-name">Deactivate</span></div></a></div></div>
+      </div><div class="dv-col gnb-depth" data-gnb="more" style="align-items:center;">
+        <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#5b2a86;margin-bottom:6px;">GNB 5 · More</div>
+        <a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-00');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-00"><span class="dv-id">front-more-00</span><span class="dv-name">More Hub</span></div></a>
+        <div class="dv-arrow-down"></div>
+        <div style="display:flex;align-items:flex-start;gap:14px;"><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-01"><span class="dv-id">front-ver-01</span><span class="dv-name">Verify</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-02"><span class="dv-id">front-ver-02</span><span class="dv-name">Info</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-03');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-03"><span class="dv-id">front-ver-03</span><span class="dv-name">Docs</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-04');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-04"><span class="dv-id">front-ver-04</span><span class="dv-name">In review</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-05"><span class="dv-id">front-ver-05</span><span class="dv-name">Rejected</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ver-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ver-06"><span class="dv-id">front-ver-06</span><span class="dv-name">Verified</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-sec-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-sec-01"><span class="dv-id">front-sec-01</span><span class="dv-name">Security</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-sec-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-sec-02"><span class="dv-id">front-sec-02</span><span class="dv-name">2FA</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-prof-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-prof-01"><span class="dv-id">front-prof-01</span><span class="dv-name">Profile</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-prof-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-prof-02"><span class="dv-id">front-prof-02</span><span class="dv-name">Photo</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-ref-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-ref-01"><span class="dv-id">front-ref-01</span><span class="dv-name">Referral</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-noti-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-noti-01"><span class="dv-id">front-noti-01</span><span class="dv-name">Notif</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-lang-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-lang-01"><span class="dv-id">front-lang-01</span><span class="dv-name">Lang</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-help-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-help-01"><span class="dv-id">front-help-01</span><span class="dv-name">Help</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-legal-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-legal-01"><span class="dv-id">front-legal-01</span><span class="dv-name">Legal</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-01"><span class="dv-id">front-more-01</span><span class="dv-name">Notice</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-02');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-02"><span class="dv-id">front-more-02</span><span class="dv-name">Detail</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-learn-01');return false;" href="#"><div class="dv-box" data-node-id="slide-front-learn-01"><span class="dv-id">front-learn-01</span><span class="dv-name">Learn</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-16');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-16"><span class="dv-id">front-more-16</span><span class="dv-name">Beginner</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-17');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-17"><span class="dv-id">front-more-17</span><span class="dv-name">Core</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-08');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-08"><span class="dv-id">front-more-08</span><span class="dv-name">AI</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-09');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-09"><span class="dv-id">front-more-09</span><span class="dv-name">History</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-15');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-15"><span class="dv-id">front-more-15</span><span class="dv-name">Identity</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-04');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-04"><span class="dv-id">front-more-04</span><span class="dv-name">FAQ</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-05"><span class="dv-id">front-more-05</span><span class="dv-name">Contact</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-06"><span class="dv-id">front-more-06</span><span class="dv-name">Tickets</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-07');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-07"><span class="dv-id">front-more-07</span><span class="dv-name">Ticket</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-set-05');return false;" href="#"><div class="dv-box" data-node-id="slide-front-set-05"><span class="dv-id">front-set-05</span><span class="dv-name">S.N</span></div></a><div class="dv-arrow-down"></div><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-set-06');return false;" href="#"><div class="dv-box" data-node-id="slide-front-set-06"><span class="dv-id">front-set-06</span><span class="dv-name">Delete</span></div></a></div><div class="dv-col" style="align-items:center;"><a class="dv-node" onclick="navTo('ROGer_More.html','slide-front-more-13');return false;" href="#"><div class="dv-box" data-node-id="slide-front-more-13"><span class="dv-id">front-more-13</span><span class="dv-name">SIF</span></div></a></div></div>
+      </div>
+
+      <!-- GNB 2 Trade + GNB 3 Earning side by side -->
+      <div style="display:flex;align-items:flex-start;gap:20px;">
+
+        <!-- GNB 2: Trade -->
+        <!-- end Trade col -->
+
+        <!-- separator -->
+        <div class="gnb-sep" style="width:1px;background:#e0e0e0;align-self:stretch;margin:0 4px;"></div>
+
+        <!-- GNB 3: Earning -->
+        <!-- end Earning col -->
 
       </div><!-- end GNB cols -->
     </div><!-- end inner flex -->
@@ -648,7 +757,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <!-- Top app bar (글로벌 헤더, 공통 chrome) -->
         <div>
           <div class="tab-bar" style="padding-bottom:4px;">
-            <div style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;">Logo</div>
+            <div onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'" style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;cursor:pointer;">Logo</div>
             <div style="display:flex;gap:6px;align-items:center;">
               <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></div>
               <div class="avatar"></div>
@@ -668,11 +777,12 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
               <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line-2);">
                 <div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-2</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Open P&L</div><div style="font-size:14px;font-weight:700;margin-top:2px;"><span style="color:var(--gain);font-weight:inherit;">+$58.02</span></div></div>
                 <div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-3</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Margin</div><div style="font-size:14px;font-weight:700;margin-top:2px;">$1,300</div></div>
-                <div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-4</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Open</div><div style="font-size:14px;font-weight:700;margin-top:2px;">3</div></div>
+                <div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-4</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Open</div><div style="font-size:14px;font-weight:700;margin-top:2px;">3</div></div><div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-5</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Margin Level</div><div style="font-size:14px;font-weight:700;margin-top:2px;">629%</div></div><div style="position:relative;margin-top:16px"><span class="sub-cal" style="inset:-2px"><span class="sub-tag br">1-6</span></span><div class="faint" style="font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;">Free Margin</div><div style="font-size:14px;font-weight:700;margin-top:2px;">$6,879</div></div>
               </div>
             </div>
           </div>
         </div>
+        <div class="section" style="padding:0 20px 8px;"><div class="cal-wrap"><div onclick="goTo('slide-front-trd-07')" style="background:#111;color:#fff;text-align:center;padding:13px;border-radius:10px;font-size:14px;font-weight:800;cursor:pointer;position:relative;">Trade now<span class="sub-cal" style="inset:0;"><span class="sub-tag br">1-7</span></span><span class="proto-badge">&#8594; trd-07</span></div></div></div>
         <!-- 2 Trade account row -->
         <div class="section" style="padding:6px 20px 10px;">
           <div class="cal-wrap">
@@ -723,7 +833,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <div class="desc-item"><span class="desc-num" data-sub>1-1</span><div class="desc-body"><span class="lbl">Equity</span>계좌 순자산(잔고 + 미실현 손익), USD. 카드 헤드라인 수치. 표기: 통화기호 + 천단위 콤마 + 소수 2자리(예 $8,178.52), 음수 시 손실색.</div></div>
         <div class="desc-item"><span class="desc-num" data-sub>1-2</span><div class="desc-body"><span class="lbl">Open P&L</span>오픈 포지션 전체 평가손익. 실시간 갱신(1초 주기, 거래 서버 폴링 기준). 양수=이익색·음수=손실색, 부호(+/−) 병기.</div></div>
         <div class="desc-item"><span class="desc-num" data-sub>1-3</span><div class="desc-body"><span class="lbl">Margin</span>오픈 포지션 유지를 위해 묶인 사용 증거금(Used Margin) 합계를 USD로 환산. 가용 증거금(Free Margin)이 아닌 점유 증거금 기준. 환산 환율은 거래 서버값 기준(계좌 기준통화 ≠ USD여도 USD 표기).</div></div>
-        <div class="desc-item"><span class="desc-num" data-sub>1-4</span><div class="desc-body"><span class="lbl">Open</span>현재 보유 중인 오픈 포지션 건수. 미체결 대기주문(Pending)은 제외하고 체결·보유 중인 포지션만 집계.</div></div>
+        <div class="desc-item"><span class="desc-num" data-sub>1-4</span><div class="desc-body"><span class="lbl">Open</span>현재 보유 중인 오픈 포지션 건수. 미체결 대기주문(Pending)은 제외하고 체결·보유 중인 포지션만 집계.</div></div><div class="desc-item"><span class="desc-num" data-sub>1-5</span><div class="desc-body"><span class="lbl">Margin Level</span>증거금 유지율 = (Equity ÷ 사용 증거금) × 100%. 낮을수록 위험. 마진콜/스탑아웃 임계 근접 시 경고색.</div></div><div class="desc-item"><span class="desc-num" data-sub>1-6</span><div class="desc-body"><span class="lbl">Free Margin</span>여유 증거금 = Equity − 사용 증거금. 신규 진입 가능 여력(USD).</div></div><div class="desc-item"><span class="desc-num" data-sub>1-7</span><div class="desc-body"><span class="lbl">Trade now</span>계좌 보유 시 거래 터미널로 즉시 진입 → front-trd-07(MT5 WebView). 1탭 거래.<div class="desc-exc"><b>예외 변수</b><ul><li>계좌 미개설 시 노출 안 함(대신 Open your trade account → trd-03)</li><li>연동 끊김 시 비활성+Reconnect 유도</li></ul></div></div></div>
         <div class="desc-item"><span class="desc-num">2</span><div class="desc-body"><span class="lbl">Trade account row</span>연동 계좌 요약(서버 · 로그인 ID).<br>• 개설(연동) 상태: 탭 시 front-trd-04 Trade 계좌 상세/관리로 이동.<br>• 미개설 상태: "Set up" → front-trd-03 계좌 개설.<br>• 계좌 2개 이상 시: 행 반복(각 행 탭 → 해당 계좌 trd-04 관리).
           <div class="desc-exc"><b>예외 변수</b><ul><li>미개설 상태: "Not connected" + "Set up" 라벨로 표시</li></ul></div><div style="margin-top:10px;"><div style="font-size:10px;font-weight:700;color:var(--callout);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">변경 화면 · 계좌 미개설</div><div style="border:1.2px dashed var(--callout);border-radius:8px;padding:8px;max-width:240px;"><div style="border:1px solid var(--line);border-radius:10px;padding:10px 12px;background:#fff;display:flex;justify-content:space-between;align-items:center;"><div><div style="font-size:12px;font-weight:700;white-space:nowrap;">Trade account</div><div style="font-size:11px;color:var(--ink-3);">Not connected</div></div><span onclick="goTo('slide-front-trd-03')" style="border:1.5px solid var(--ink);border-radius:8px;padding:5px 12px;font-size:11px;font-weight:700;white-space:nowrap;cursor:pointer;">Set up</span></div><div style="font-size:10.5px;color:var(--ink-3);margin-top:6px;">· 서버·로그인 정보 → "Not connected" + Set up 라벨 · 탭 시 → front-trd-03</div></div></div></div></div>
       </div>
@@ -747,7 +857,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <!-- Top app bar (글로벌 헤더, 공통 chrome) -->
         <div>
           <div class="tab-bar" style="padding-bottom:4px;">
-            <div style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;">Logo</div>
+            <div onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'" style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;cursor:pointer;">Logo</div>
             <div style="display:flex;gap:6px;align-items:center;">
               <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></div>
               <div class="avatar"></div>
@@ -1528,7 +1638,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <!-- Top app bar (글로벌 헤더, 공통 chrome) -->
         <div>
           <div class="tab-bar" style="padding-bottom:4px;">
-            <div style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;">Logo</div>
+            <div onclick="location.href='260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'" style="font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;border:1.5px dashed #999;padding:5px 10px;border-radius:4px;color:#555;cursor:pointer;">Logo</div>
             <div style="display:flex;gap:6px;align-items:center;">
               <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18"></path></svg></div>
               <div class="avatar"></div>
@@ -1653,7 +1763,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
             <div class="cal"><span class="cal-tag">2</span></div>
             <div style="background:#f0f0f0;border-radius:14px;padding:14px 16px;color:#111;border:1.5px solid #d0d0d0;">
               <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;opacity:.7;margin-bottom:4px;">Annual Rate</div>
-              <div style="font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1;color:#111;">8.6&ndash;21%<span style="font-size:15px;font-weight:600;color:#555;margin-left:4px;">APR</span></div><div style="font-size:11px;color:#555;margin-top:5px;">Tiered by amount &middot; your 1,000 USD &rarr; <b style="color:#111;">12.0%</b></div>
+              <div style="font-size:30px;font-weight:900;letter-spacing:-.03em;line-height:1;color:#111;">8.6&ndash;21%<span style="font-size:15px;font-weight:600;color:#555;margin-left:4px;">APR</span><span style="font-size:11px;font-weight:600;color:#555;margin-left:6px;">&middot; up to ~23.4% APY*</span></div><div style="font-size:11px;color:#555;margin-top:5px;">Tiered by amount &middot; your 1,000 USD &rarr; <b style="color:#111;">12.0%</b></div>
               <div style="display:flex;gap:6px;margin-top:8px;">
                 <span style="background:#e0e0e0;border-radius:6px;padding:3px 8px;font-size:10px;font-weight:600;color:#555;">Redeem anytime</span>
                 <span style="background:#e0e0e0;border-radius:6px;padding:3px 8px;font-size:10px;font-weight:600;color:#555;">No penalty</span>
@@ -1705,7 +1815,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
               <div style="display:grid;grid-template-columns:auto 1fr;gap:16px 16px;font-size:12.5px;">
                 <span style="color:var(--ink-3);position:relative;">Payout cycle<span class="sub-cal" style="inset:0;"><span class="sub-tag br">6-1</span></span></span><span style="font-weight:600;">Daily</span>
                 <span style="color:var(--ink-3);position:relative;">Redemption<span class="sub-cal" style="inset:0;"><span class="sub-tag br">6-2</span></span></span><span style="font-weight:600;">Anytime · no penalty</span>
-                <span style="color:var(--ink-3);position:relative;">Min. deposit<span class="sub-cal" style="inset:0;"><span class="sub-tag br">6-3</span></span></span><span style="font-weight:600;">50 USD</span>
+                <span style="color:var(--ink-3);position:relative;">Min. deposit<span class="sub-cal" style="inset:0;"><span class="sub-tag br">6-3</span></span></span><span style="font-weight:600;">50 USD</span><span style="color:var(--ink-3);position:relative;">Auto-compound<span class="sub-cal" style="inset:0;"><span class="sub-tag br">6-4</span></span></span><span style="display:flex;align-items:center;gap:6px;font-weight:600;justify-content:flex-end;">On<span style="position:relative;width:34px;height:19px;background:var(--ink);border-radius:10px;display:inline-block;flex-shrink:0;"><span style="position:absolute;right:2px;top:2px;width:15px;height:15px;background:#fff;border-radius:50%;"></span></span></span>
               </div>
               <div style="font-size:11px;color:var(--ink-3);margin-top:6px;padding-top:6px;border-top:1px solid var(--line-2);">If your balance is insufficient, you'll be taken to Deposit to top up, then continue.</div>
             </div>
@@ -1734,9 +1844,9 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <div class="desc-item"><span class="desc-num" data-sub>5-3</span><div class="desc-body"><span class="lbl">Est. yearly</span>입력 금액 × APR.</div></div>
         <div class="desc-item"><span class="desc-num">6</span><div class="desc-body"><span class="lbl">Terms</span>지급 주기 · 환매 조건 · 최소 예치액. 언제든 원금 전액 환매 가능, 페널티 없음.
           <div class="desc-exc"><b>예외 변수</b><ul><li>잔액 부족 시 입금 화면(front-ast-01)으로 유도</li></ul></div></div></div>
-        <div class="desc-item"><span class="desc-num" data-sub>6-1</span><div class="desc-body"><span class="lbl">Payout cycle</span>Daily — 매일 자정 리워드 적립.</div></div>
+        <div class="desc-item"><span class="desc-num" data-sub>6-1</span><div class="desc-body"><span class="lbl">Payout cycle</span>Daily — 매일 자정 리워드 <b>자동 적립(Claim 불필요)</b>. 리워드 센터(acc-06)는 내역 조회용.</div></div>
         <div class="desc-item"><span class="desc-num" data-sub>6-2</span><div class="desc-body"><span class="lbl">Redemption</span>Anytime · no penalty — 페널티 없이 즉시 전액 환매 가능.</div></div>
-        <div class="desc-item"><span class="desc-num" data-sub>6-3</span><div class="desc-body"><span class="lbl">Min. deposit</span>최소 예치 가능 금액(50 USD). 미만 시 CTA 비활성.</div></div>
+        <div class="desc-item"><span class="desc-num" data-sub>6-3</span><div class="desc-body"><span class="lbl">Min. deposit</span>최소 예치 가능 금액(50 USD). 미만 시 CTA 비활성.</div></div><div class="desc-item"><span class="desc-num" data-sub>6-4</span><div class="desc-body"><span class="lbl">Auto-compound</span>일 리워드를 원금에 자동 재예치(복리). On 시 APY 기준, Off 시 단리 APR. 기본 On.</div></div>
         <div class="desc-item"><span class="desc-num">7</span><div class="desc-body"><span class="lbl">Invest CTA</span>탭 시 front-ern-03-01 투자 확인 모달 노출(금액·APR·수령 주기 최종 확인 → S.N. 인증).</div></div>
         <div class="desc-item" style="grid-column:1/-1;"><span class="desc-num" data-sub style="background:#0a7c5e;border-radius:4px;">GATE</span><div class="desc-body"><div class="desc-gate" style="margin-top:0;"><b>진입 · 분기</b>Earning 홈(<span class="mono">front-ern-01</span>)에서 진입. 예치 가능 잔액 부족 시 입금(<span class="mono">front-ast-01</span>)으로 분기 후 복귀. <span class="sub">User Flow 3 · 어닝 예치</span></div></div></div>
       </div>
@@ -1866,7 +1976,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
           <div class="cal-wrap">
             <div class="cal"><span class="cal-tag">5</span></div>
             <div class="card" style="padding:10px 14px;">
-              <div style="font-size:12.5px;"><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-1</span></span><span style="color:var(--ink-3);">Est. reward at maturity</span><span style="font-weight:600;">≈ 290.00 USD</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-2</span></span><span style="color:var(--ink-3);">Total at maturity</span><span style="font-weight:600;">≈ 2,290.00 USD</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-3</span></span><span style="color:var(--ink-3);">Term · maturity</span><span style="font-weight:600;">1 year · 2027.05.29</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;color:#c0392b;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-4</span></span><span style="color:var(--ink-3);">Early redemption</span><span style="font-weight:600;">10% penalty</span></div></div>
+              <div style="font-size:12.5px;"><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-1</span></span><span style="color:var(--ink-3);">Est. reward at maturity</span><span style="font-weight:600;">≈ 290.00 USD</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-2</span></span><span style="color:var(--ink-3);">Total at maturity</span><span style="font-weight:600;">≈ 2,290.00 USD</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-3</span></span><span style="color:var(--ink-3);">Term · maturity</span><span style="font-weight:600;">1 year · 2027.05.29</span></div><div style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;color:#c0392b;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-4</span></span><span style="color:var(--ink-3);">Early redemption</span><span style="font-weight:600;">10% penalty</span></div><div onclick="location.href='ROGer_More.html#slide-front-more-13'" style="display:flex;justify-content:space-between;align-items:center;position:relative;margin-top:14px;cursor:pointer;"><span class="sub-cal" style="inset:0;"><span class="sub-tag br">5-5</span></span><span style="color:var(--ink-3);">Risk &amp; protection</span><span style="font-weight:700;">SIF &amp; risk &rsaquo;<span class="proto-badge">&#8594; more-13</span></span></div></div>
               <div style="font-size:11px;color:#c0392b;padding:6px 8px;background:#fde8e8;border-radius:6px;">⚠ Early redemption incurs a 10% penalty on principal. No penalty after maturity.</div>
             </div>
           </div>
@@ -1893,7 +2003,7 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
         <div class="desc-item"><span class="desc-num" data-sub>5-1</span><div class="desc-body"><span class="lbl">Est. reward at maturity</span>1년 후 예상 리워드(금액 × APR).</div></div>
         <div class="desc-item"><span class="desc-num" data-sub>5-2</span><div class="desc-body"><span class="lbl">Total at maturity</span>원금 + 예상 리워드 합계.</div></div>
         <div class="desc-item"><span class="desc-num" data-sub>5-3</span><div class="desc-body"><span class="lbl">Term · maturity</span>1년 만기 · 만기일 표시.</div></div>
-        <div class="desc-item"><span class="desc-num" data-sub>5-4</span><div class="desc-body"><span class="lbl">Early redemption</span>중도 환매 시 원금의 10% 페널티. 만기 후 환매는 페널티 없음.</div></div>
+        <div class="desc-item"><span class="desc-num" data-sub>5-4</span><div class="desc-body"><span class="lbl">Early redemption</span>중도 환매 시 원금의 10% 페널티. 만기 후 환매는 페널티 없음.</div></div><div class="desc-item"><span class="desc-num" data-sub>5-5</span><div class="desc-body"><span class="lbl">Risk &amp; protection</span>보호기금(SIF)·리스크 고지 → front-more-13. 고정형도 비보장·리스크 고지. Auto-renew 시 연 복리.</div></div>
         <div class="desc-item"><span class="desc-num">6</span><div class="desc-body"><span class="lbl">Review investment CTA</span>탭 시 front-ern-04-01 투자 확인 모달(금액·조건·Auto Renew 최종 확인 → S.N. 인증).</div></div>
         <div class="desc-item" style="grid-column:1/-1;"><span class="desc-num" data-sub style="background:#0a7c5e;border-radius:4px;">GATE</span><div class="desc-body"><div class="desc-gate" style="margin-top:0;"><b>진입 · 만기 정책</b>Earning 홈에서 진입, 잔액 부족 시 <span class="mono">front-ast-01</span> 분기. 만기 도래 시 <b>Auto Renew ON</b> → 1년 자동 연장 / <b>OFF</b> → 자동 Redeem(예수금 반영). 중도 환매 시 원금 10% 페널티. <span class="sub">User Flow 3 · 22</span></div></div></div>
       </div>
@@ -2065,10 +2175,13 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
     for(var i=0;i<deps.length;i++){ deps[i].style.display=(deps[i].getAttribute('data-gnb')===name)?'':'none'; }
     var sep=document.querySelector('#depth-tooltip .gnb-sep'); if(sep) sep.style.display='none';
     var tabs=document.querySelectorAll('#depth-tooltip .gnb-tab'); for(var j=0;j<tabs.length;j++){ tabs[j].classList.remove('active'); }
-    if(el) el.classList.add('active');
+    if(el){ el.classList.add('active'); var _bd=document.getElementById('depth-badge'); if(_bd)_bd.classList.add('pinned'); }
     else { var t=document.querySelector('#depth-tooltip .gnb-tab[data-gnbtab="'+name+'"]'); if(t) t.classList.add('active'); }
   }
   window.showGnb=showGnb;
+  function navTo(file,id){var el=document.getElementById(id);if(el){goTo(id);}else{location.href=file+"#"+id;}}
+  window.navTo=navTo;
+  (function(){var bd=document.getElementById("depth-badge"),tr=document.getElementById("depth-badge-trigger");if(!bd)return;if(tr){tr.style.cursor="pointer";tr.addEventListener("click",function(e){e.stopPropagation();bd.classList.toggle("pinned");});}document.addEventListener("click",function(e){if(!bd.contains(e.target))bd.classList.remove("pinned");});})();
   document.addEventListener('DOMContentLoaded',function(){ showGnb('trade'); });
 
   function goTo(targetId) {
@@ -2132,7 +2245,9 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   var GNB_ROUTES = {
     'Portfolio': {href:'260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a'},
     'Trade':     {slide:'slide-front-trd-01-a'},
-    'Earning':   {slide:'slide-front-ern-01'}
+    'Earning':   {slide:'slide-front-ern-01'},
+    'Account':   {href:'ROGer_Account.html#slide-front-acc-00'},
+    'More':      {href:'ROGer_More.html#slide-front-more-00'}
   };
   document.addEventListener('click', function gnbRouteHandler(e){
     var item = e.target.closest('.gnb-item');
@@ -2144,4 +2259,6 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   });
 })();
 </script>
+
+<script>(function(){var NEXT="ROGer_Account.html#slide-front-acc-00",NLB="Account",PREV="260527_Portfolio_WF_ver_0.02.html#slide-front-avw-01-a",PLB="Portfolio";var armed=0,lock=false,hideT=null;function atB(){return (window.innerHeight+window.scrollY)>=(document.documentElement.scrollHeight-2);}function atT(){return window.scrollY<=1;}var h=document.createElement("div");h.style.cssText="position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(8px);background:rgba(17,17,17,.86);color:#fff;font:600 12px/1 system-ui,sans-serif;padding:9px 14px;border-radius:18px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:99999;";document.body.appendChild(h);function show(txt,top){if(!txt){h.style.opacity="0";h.style.transform="translateX(-50%) translateY(8px)";return;}h.textContent=txt;h.style.bottom=top?"auto":"18px";h.style.top=top?"18px":"auto";h.style.opacity="1";h.style.transform="translateX(-50%) translateY(0)";}function flash(txt,top){show(txt,top);if(hideT)clearTimeout(hideT);hideT=setTimeout(function(){show(null);},1100);}window.addEventListener("scroll",function(){if(lock)return;if(NEXT&&atB())show("Keep scrolling \u2193 "+NLB,false);else if(!atB())show(null);},{passive:true});window.addEventListener("wheel",function(e){if(lock)return;if(e.deltaY>0&&NEXT&&atB()){armed=(armed>0?armed:0)+e.deltaY;if(armed>140){lock=true;show(null);location.href=NEXT;}}else if(e.deltaY<0&&PREV&&atT()){armed=(armed<0?armed:0)+e.deltaY;flash("Keep scrolling \u2191 "+PLB,true);if(armed<-140){lock=true;show(null);location.href=PREV;}}else armed=0;},{passive:true});var ty=0;window.addEventListener("touchstart",function(e){ty=e.touches[0].clientY;armed=0;},{passive:true});window.addEventListener("touchmove",function(e){if(lock)return;var dy=ty-e.touches[0].clientY;if(dy>0&&NEXT&&atB()){armed+=dy*1.6;if(armed>150){lock=true;location.href=NEXT;}}else if(dy<0&&PREV&&atT()){armed+=dy*1.6;flash("Keep scrolling \u2191 "+PLB,true);if(armed<-150){lock=true;location.href=PREV;}}},{passive:true});})();</script>
 </body></html>
