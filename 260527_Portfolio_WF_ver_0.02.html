@@ -10,7 +10,10 @@
 <title>ROGer · Portfolio Wireframe Storyboard</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAzMiAzMiI+PHJlY3Qgd2lkdGg9IjMyIiBoZWlnaHQ9IjMyIiByeD0iOCIgZmlsbD0iIzExMSIvPjx0ZXh0IHg9IjE2IiB5PSIyMyIgZm9udC1mYW1pbHk9IkhlbHZldGljYSxBcmlhbCxzYW5zLXNlcmlmIiBmb250LXNpemU9IjIxIiBmb250LXdlaWdodD0iODAwIiBmaWxsPSIjZmZmZmZmIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5SPC90ZXh0Pjwvc3ZnPg==">
 
-<style>/* ROGer Portfolio Wireframe Storyboard — shared styles */
+<style>
+.demo-banner{display:none!important}
+body.demo-on .demo-banner{display:flex!important}
+/* ROGer Portfolio Wireframe Storyboard — shared styles */
 
 /* cyrillic-ext */
 
@@ -1574,7 +1577,7 @@ function goTo(id) {
         <div class="section" style="padding:2px 20px 4px;">
           <div class="cal-wrap">
             <div class="cal"><span class="cal-tag">2</span></div>
-            <div onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
+            <div class="demo-banner" onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
               <div>
                 <div style="font-size:11px;font-weight:700;color:#b97a00;letter-spacing:0.06em;text-transform:uppercase;">Demo Mode</div>
                 <div style="font-size:10px;color:#999;margin-top:1px;">Using simulated data</div>
@@ -1733,8 +1736,8 @@ function goTo(id) {
             <div class="section" style="padding:2px 20px 2px;">
               <div class="row" style="margin-bottom:2px;">
                 <span class="kicker">Recent activity</span>
-                <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;">
-                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">8-1</span></span>
+                <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">
+                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">8-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
                   View all ›
                 </span>
               </div>
@@ -1945,7 +1948,7 @@ function goTo(id) {
         <div class="section" style="padding:2px 20px 4px;">
           <div class="cal-wrap">
             <div class="cal" style="display:none"><span class="cal-tag">2</span></div>
-            <div onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
+            <div class="demo-banner" onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
               <div>
                 <div style="font-size:11px;font-weight:700;color:#b97a00;letter-spacing:0.06em;text-transform:uppercase;">Demo Mode</div>
                 <div style="font-size:10px;color:#999;margin-top:1px;">Using simulated data</div>
@@ -2112,8 +2115,8 @@ function goTo(id) {
             <div class="section" style="padding:2px 20px 2px;">
               <div class="row" style="margin-bottom:2px;">
                 <span class="kicker">Recent activity</span>
-                <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;">
-                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">8-1</span></span>
+                <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">
+                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">8-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
                   View all ›
                 </span>
               </div>
@@ -2290,7 +2293,7 @@ function goTo(id) {
             <div class="section" style="padding:10px 20px 4px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">Cash</span>
-                <span style="font-size:11px;font-weight:600;color:#555;">View all ›</span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-05</span></span>
               </div>
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">2</span></div>
@@ -2357,7 +2360,7 @@ function goTo(id) {
             <div class="section" style="padding:6px 20px 12px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">ROG</span>
-                <span style="font-size:11px;font-weight:600;color:#555;">View all ›</span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-08'" title="→ front-acc-08 ROG token">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-08</span></span>
               </div>
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">5</span></div>
@@ -5036,4 +5039,5 @@ function goTo(id) {
   document.addEventListener('click',function(){document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none';});});
 })();
 </script>
+<script>(function(){function a(){try{if(localStorage.getItem("roger_demo")==="on")document.body.classList.add("demo-on");}catch(e){}}if(document.body)a();else document.addEventListener("DOMContentLoaded",a);}());</script>
 </body></html>
