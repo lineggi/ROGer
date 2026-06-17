@@ -1238,7 +1238,7 @@ deck-stage { display: block; }
 function goTo(id) {
   const el = document.getElementById(id);
   if (el) {
-    el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    el.scrollIntoView({ block: 'start' });   /* 즉시 이동(스크롤 애니메이션 없음) */
   }
 }
 </script>
@@ -1610,9 +1610,10 @@ function goTo(id) {
                       <span class="sub-cal" style="inset:-2px -4px"><span class="sub-tag tag-b tag-r">3-2</span></span>
                       ↗ +$24.18 (+0.20%) <span class="muted" style="font-weight:500;">today</span>
                      <span style="color:var(--ink-3);">&rsaquo;</span><span class="proto-badge">&#8594; perf-01</span></span>
-                    <span class="chip ghost" style="height:22px;font-size:10px;position:relative;">
+                    <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perA');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px"><span class="sub-tag tag-b tag-r">3-4</span></span>
-                      Last 24h ▾
+                      <span id="perA-l">Last 24h</span> &#9662;
+                      <div id="perA" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='Last 24h';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">Last 24h</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='7d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='30d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='90d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='1Y';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='All';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
                     </span>
                   </div>
                 </div>
@@ -1980,9 +1981,10 @@ function goTo(id) {
                       <span class="sub-cal" style="inset:-2px -4px;display:none"><span class="sub-tag tag-b tag-r">3-2</span></span>
                       ↗ +$24.18 (+0.20%) <span class="muted" style="font-weight:500;">today</span>
                      <span style="color:var(--ink-3);">&rsaquo;</span><span class="proto-badge">&#8594; perf-01</span></span>
-                    <span class="chip ghost" style="height:22px;font-size:10px;position:relative;">
+                    <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perB');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px;display:none"><span class="sub-tag tag-b tag-r">3-4</span></span>
-                      Last 24h ▾
+                      <span id="perB-l">Last 24h</span> &#9662;
+                      <div id="perB" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='Last 24h';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">Last 24h</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='7d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='30d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='90d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='1Y';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='All';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
                     </span>
                   </div>
                 </div>
@@ -5031,6 +5033,7 @@ function goTo(id) {
   input.addEventListener('focus',function(){if(input.value)render();});
   input.addEventListener('keydown',function(e){if(e.key==='Enter'){var ff=res.querySelector('.scr-row');if(ff)ff.click();}else if(e.key==='Escape'){res.style.display='none';input.blur();}});
   document.addEventListener('click',function(e){if(!box.contains(e.target))res.style.display='none';});
+  document.addEventListener('click',function(){document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none';});});
 })();
 </script>
 </body></html>
