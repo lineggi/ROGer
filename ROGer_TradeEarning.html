@@ -2272,11 +2272,13 @@ body.hide-callouts .cal,body.hide-callouts .sub-cal{display:none!important}
   box.innerHTML='<input id="scrInput" type="text" placeholder="화면 검색 (전체 · id·이름)" autocomplete="off"><div id="scrResults"></div>';
   document.body.appendChild(box);
   var input=box.querySelector('#scrInput'),res=box.querySelector('#scrResults');
+  function liveIdx(){return [].slice.call(document.querySelectorAll('section[id^="slide-front"]')).map(function(s){var sb=s.querySelector('.sb-id'),kr=s.querySelector('.sb-title-kr'),pa=s.querySelector('.sb-path');var label=(sb?sb.textContent:s.id.replace('slide-','')).trim();var name=(kr?kr.textContent:'').trim();var path=(pa?pa.textContent:'').trim();var g=(path.split('›')[0]||'').trim();return {f:CUR,id:s.id,label:label,kr:name,gnb:g,hay:(label+' '+name+' '+path+' '+g).toLowerCase()};});}
+  var IDX=SCREENS.filter(function(x){return x.f!==CUR;}).concat(liveIdx());
   function go(it){if(it.f===CUR){if(window.goTo){goTo(it.id);}else{var el=document.getElementById(it.id);if(el)el.scrollIntoView({block:'start'});}}else{location.href=it.f+'#'+it.id;}res.style.display='none';input.value='';}
   function render(){
     var q=input.value.trim().toLowerCase();res.innerHTML='';
     if(!q){res.style.display='none';return;}
-    var m=SCREENS.filter(function(it){return it.hay.indexOf(q)>-1;}).slice(0,14);
+    var m=IDX.filter(function(it){return it.hay.indexOf(q)>-1;}).slice(0,14);
     if(!m.length){res.innerHTML='<div class="scr-empty">결과 없음</div>';res.style.display='block';return;}
     m.forEach(function(it){
       var r=document.createElement('div');r.className='scr-row';
