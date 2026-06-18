@@ -13,6 +13,8 @@
 <style>
 .demo-banner{display:none!important}
 body.demo-on .demo-banner{display:flex!important}
+.demo-sec{display:none!important}
+body.demo-on .demo-sec{display:block!important}
 /* ROGer Portfolio Wireframe Storyboard — shared styles */
 
 /* cyrillic-ext */
@@ -1574,7 +1576,7 @@ function goTo(id) {
             </div>
 
             <!-- ⑧ demo mode toggle -->
-        <div class="section" style="padding:2px 20px 4px;">
+        <div class="section demo-sec" style="padding:2px 20px 4px;">
           <div class="cal-wrap">
             <div class="cal"><span class="cal-tag">2</span></div>
             <div class="demo-banner" onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
@@ -1803,14 +1805,14 @@ function goTo(id) {
           <span class="desc-num">2</span>
           <div class="desc-body">
             <span class="lbl">Demo Mode Toggle <span style="font-weight:500;color:#777;font-size:12px;">(데모 전환 배너)</span></span>
-            앱 내 데모 모드와 실거래(Live) 모드를 전환하는 토글 배너.<br>
-            Demo Mode 활성 시 상단에 앰버 배경 배너가 노출되어 사용자가 모의 데이터 환경임을 인지하게 함.
+            앱 내 데모 모드와 실거래(Live) 모드를 전환하는 토글 배너. <b>탭 시 front-dmo-01(데모 설정 페이지)로 이동.</b><br>
+            기본 미노출 — Demo Mode ON일 때만 상단에 앰버 배경 배너가 노출되어 모의 데이터 환경임을 인지하게 함.
             <div class="desc-exc">
               <b>예외 변수</b>
               <ul>
                 <li>Demo Mode 중 실 주문(Buy/Sell/Withdraw) 버튼 탭 시 → "You cannot place real trades in demo mode." 토스트 노출 후 차단.</li>
                 <li>앱 재시작 시 Demo 상태 유지(persistent). 명시적 Live 전환 또는 로그아웃 시에만 해제.</li>
-                <li>KYC 미완료 유저: Demo Mode 자동 활성, 토글 비활성화(Live 전환 불가). KYC 완료 후 해제.</li>
+                <li>기본 Live · Demo는 opt-in(자동 활성 아님). 온보딩에서 "Try Demo first"를 적극 제안.</li>
               </ul>
             </div>
             <div class="desc-note" style="margin-top:8px;padding:6px 10px;background:#f5f5f5;border-left:3px solid #e6a817;border-radius:0 4px 4px 0;font-size:11px;color:#555;">
@@ -1945,7 +1947,7 @@ function goTo(id) {
             </div>
 
             <!-- ⑧ demo mode toggle -->
-        <div class="section" style="padding:2px 20px 4px;">
+        <div class="section demo-sec" style="padding:2px 20px 4px;">
           <div class="cal-wrap">
             <div class="cal" style="display:none"><span class="cal-tag">2</span></div>
             <div class="demo-banner" onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="display:flex;align-items:center;justify-content:space-between;background:#fff8ee;border:1.5px dashed #e6a817;border-radius:8px;padding:8px 12px;cursor:pointer;">
