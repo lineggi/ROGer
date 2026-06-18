@@ -1318,7 +1318,7 @@ function goTo(id) {
           <a class="nt-node" onclick="goTo('slide-front-pos-00');return false;" href="#">
             <div class="nt-box">
               <span class="nt-id">front-pos-00</span>
-              <span class="nt-name">Positions Hub</span>
+              <span class="nt-name">Asset Hub</span>
             </div>
           </a>
           <div class="nt-arrow-down"></div>
@@ -1566,7 +1566,7 @@ function goTo(id) {
                   </div>
                   <div style="position:relative;">
                     <span class="sub-cal" style="inset:-3px;border-radius:50%"><span class="sub-tag tag-b tag-r">1-3</span></span>
-                    <div class="avatar"></div>
+                    <div class="avatar" style="width:26px;height:26px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);flex-shrink:0;"></div>
                   </div>
                 </div>
               </div>
@@ -1601,20 +1601,20 @@ function goTo(id) {
                 <div class="card" style="padding:12px 14px;">
                   <div class="row">
                     <span class="kicker">Total Value</span>
-                    <span style="position:relative;display:inline-flex;">
+                    <span onclick="toggleMask(this)" title="Hide/show balance" style="position:relative;display:inline-flex;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:50%"><span class="sub-tag tag-b tag-r">3-3</span></span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.6"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </span>
                   </div>
                   <div class="h-amount" style="margin-top:2px;font-size:26px;position:relative;display:inline-block;">
                     <span class="sub-cal" style="inset:-2px -4px"><span class="sub-tag tag-b tag-r">3-1</span></span>
-                    $12,438.52<span class="ccy">USD</span>
+                    <span class="js-amt" data-orig="$12,438.52">$12,438.52</span><span class="ccy">USD</span>
                   </div>
                   <div class="row" style="margin-top:4px;">
-                    <span onclick="goTo('slide-front-perf-01')" style="font-size:12px;font-weight:600;position:relative;display:inline-block;cursor:pointer;">
+                    <span style="font-size:12px;font-weight:600;position:relative;display:inline-block;">
                       <span class="sub-cal" style="inset:-2px -4px"><span class="sub-tag tag-b tag-r">3-2</span></span>
-                      ↗ +$24.18 (+0.20%) <span class="muted" style="font-weight:500;">today</span>
-                     <span style="color:var(--ink-3);">&rsaquo;</span><span class="proto-badge">&#8594; perf-01</span></span>
+                      <span class="js-amt" data-orig="↗ +$24.18 (+0.20%)">↗ +$24.18 (+0.20%)</span> <span class="muted" style="font-weight:500;">today</span>
+                    </span>
                     <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perA');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px"><span class="sub-tag tag-b tag-r">3-4</span></span>
                       <span id="perA-l">Last 24h</span> &#9662;
@@ -1637,30 +1637,55 @@ function goTo(id) {
             <!-- 4 quick actions -->
             <div class="section" style="padding:2px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">5</span></div>
-                <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:2px 0;">
+                <div class="cal" style="display:none"><span class="cal-tag">5</span></div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:2px 0;">
+                  <div onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-1</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
+                    Demo
+                  </div>
                   <div onclick="location.href='ROGer_Account.html#slide-front-acc-03'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-1</span></span>
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:13px;">↓</div>
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-2</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Deposit
                   </div>
                   <div onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-2</span></span>
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:13px;">+</div>
-                    Earn
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-3</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
+                    Earning
                   </div>
                 </div>
               </div>
             </div>
 
+                        <!-- promo / event banner -->
+            <div class="section" style="padding:8px 20px 2px;">
+              <div class="cal-wrap">
+                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
+                <div onclick="location.href='ROGer_More.html#slide-front-evt-01'" style="border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--paper-2);">
+                  <div>
+                    <span style="display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;color:#b97a00;background:#fff4e5;border-radius:8px;padding:2px 7px;margin-bottom:5px;">EVENT</span>
+                    <div style="font-size:13px;font-weight:700;">Welcome bonus event</div>
+                    <div style="font-size:11px;color:var(--ink-3);margin-top:1px;">Tap to see all events &amp; promotions</div>
+                  </div>
+                  <span style="color:var(--ink-3);font-size:16px;">&rsaquo;</span>
+                  <span class="proto-badge">&#8594; evt-01</span>
+                </div>
+                <div style="display:flex;justify-content:center;gap:4px;margin-top:6px;">
+                  <span style="width:14px;height:3px;border-radius:2px;background:#111;"></span>
+                  <span style="width:6px;height:3px;border-radius:2px;background:var(--line);"></span>
+                  <span style="width:6px;height:3px;border-radius:2px;background:var(--line);"></span>
+                </div>
+              </div>
+            </div>
             <!-- ⑤ daily reward strip -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
-                <div class="card" onclick="location.href='ROGer_Account.html#slide-front-acc-06'" style="padding:10px 14px;cursor:pointer;position:relative;">
+                <div class="cal" style="display:none"><span class="cal-tag">7</span></div>
+                <div class="card" onclick="goTo('slide-front-perf-01')" style="padding:10px 14px;cursor:pointer;position:relative;">
                   <div class="row">
                     <div>
-                      <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward<span class="proto-badge">&#8594; acc-06</span></div>
+                      <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward<span class="proto-badge">&#8594; perf-01</span></div>
                       <div class="faint" style="font-size:11px;margin-top:2px;">3 sources · auto-credited daily</div>
                     </div>
                     <div style="display:flex;align-items:center;gap:10px;">
@@ -1679,53 +1704,53 @@ function goTo(id) {
             <!-- ⑥ asset breakdown card -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="row" style="margin-bottom:6px;">
-                <span class="kicker">Position</span>
-                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Positions Hub">
-                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">7-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
+                <span></span>
+                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub">
+                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">8-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
                   View all ›
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">7</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">8</span></div>
                 <div class="card" style="padding:12px 14px;">
                   <div style="display:flex;flex-direction:column;gap:3px;">
-                    <div class="row"><span class="kicker">Allocation</span><span style="font-size:14px;font-weight:800;">$12,563</span></div>
+                    <div style="display:grid;grid-template-columns:1fr 80px;align-items:center;padding-right:6px;"><span class="kicker">Asset</span><span style="font-size:14px;font-weight:800;text-align:right;">$12,563</span></div>
                     <div style="flex:1;display:grid;gap:2px;">
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">7-1</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-1</span></span>
                         <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Cash</div>
-                          <div class="faint" style="font-size:9.5px;">33.5%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$4,210</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,210</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">7-2</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-2</span></span>
                         <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Earning</div>
-                          <div class="faint" style="font-size:9.5px;">54.3%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$6,820</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,820</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">7-3</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-3</span></span>
                         <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Broker</div>
-                          <div class="faint" style="font-size:9.5px;">10.8%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$1,358</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,358</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">7-4</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-4</span></span>
                         <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">ROG</div>
-                          <div class="faint" style="font-size:9.5px;">168.50 ROG · 1.4%</div>
+                          <div class="faint" style="font-size:9.5px;">168.50 ROG</div>
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$175</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$175</div>
                       </div>
                     </div>
                   </div>
@@ -1739,12 +1764,12 @@ function goTo(id) {
               <div class="row" style="margin-bottom:2px;">
                 <span class="kicker">Recent activity</span>
                 <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">
-                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">8-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
+                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">9-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
                   View all ›
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">8</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">9</span></div>
                 <div>
                   <div class="list-row" style="padding:7px 0;">
                     <div class="av">+</div>
@@ -1764,7 +1789,7 @@ function goTo(id) {
 
           <!-- 7 GNB -->
           <div class="cal-wrap">
-            <div class="cal" style="display:none;inset:0;border-radius:0 0 44px 44px"><span class="cal-tag" style="top:8px;left:8px;">9</span></div>
+            <div class="cal" style="display:none;inset:0;border-radius:0 0 44px 44px"><span class="cal-tag" style="top:8px;left:8px;">10</span></div>
             <div class="phone-gnb">
               <div class="gnb-item active"><div class="gnb-dummy-icon"></div>Portfolio</div>
               <div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div>
@@ -1790,8 +1815,8 @@ function goTo(id) {
             - 하단 행: 페이지 타이틀 "Portfolio".
             <ul class="sub-list">
               <li><span class="num">1-1</span><span><b>Logo.</b> ROGer 워드마크. 탭 시 Portfolio 홈 reset<br>(이미 본 화면이면 scroll top).</span></li>
-              <li><span class="num">1-2</span><span><b>Language.</b> 다국어 제공. 구글 번역 기반으로 현지화 지원 (ROGup 방식 동일).</span></li>
-              <li><span class="num">1-3</span><span><b>Profile avatar.</b> 탭 시 <code>front-acc-00</code> Account Hub(GNB 4)로 이동.</span></li>
+              <li><span class="num">1-2</span><span><b>Language.</b> 탭 시 <b>언어 선택 드롭다운</b>(인앱) 노출 — <b>페이지 이동 없음</b>. 다국어 제공(구글 번역 기반 현지화, ROGup 방식 동일).<div style="margin-top:6px;"><div style="font-size:10px;font-weight:700;color:var(--callout);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">변경 화면 · Language 드롭다운</div><div style="border:1.2px dashed var(--callout);border-radius:8px;padding:6px;max-width:200px;"><div style="border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;font-size:11px;"><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);font-weight:700;">English ✓</div><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);">한국어</div><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);">日本語</div><div style="padding:7px 10px;">More…</div></div></div></div></span></li>
+              <li><span class="num">1-3</span><span><b>Profile avatar.</b> 탭 시 <b>계정 바로가기 드롭다운</b>(인앱) 노출 — <b>페이지 이동 없음</b>(Account Hub 직접 이동 ✕).<div style="margin-top:6px;"><div style="font-size:10px;font-weight:700;color:var(--callout);text-transform:uppercase;letter-spacing:.05em;margin-bottom:5px;">변경 화면 · Profile 드롭다운</div><div style="border:1.2px dashed var(--callout);border-radius:8px;padding:6px;max-width:200px;"><div style="border:1px solid var(--line);border-radius:8px;background:#fff;overflow:hidden;font-size:11px;"><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);">Account</div><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);">Profile</div><div style="padding:7px 10px;border-bottom:1px solid var(--line-2);">Settings</div><div style="padding:7px 10px;">Log out</div></div></div></div></span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -1804,19 +1829,24 @@ function goTo(id) {
         <div class="desc-item" style="grid-column: 1 / -1;">
           <span class="desc-num">2</span>
           <div class="desc-body">
-            <span class="lbl">Demo Mode Toggle <span style="font-weight:500;color:#777;font-size:12px;">(데모 전환 배너)</span></span>
-            앱 내 데모 모드와 실거래(Live) 모드를 전환하는 토글 배너. <b>탭 시 front-dmo-01(데모 설정 페이지)로 이동.</b><br>
-            기본 미노출 — Demo Mode ON일 때만 상단에 앰버 배경 배너가 노출되어 모의 데이터 환경임을 인지하게 함.
-            <div class="desc-exc">
-              <b>예외 변수</b>
-              <ul>
-                <li>Demo Mode 중 실 주문(Buy/Sell/Withdraw) 버튼 탭 시 → "You cannot place real trades in demo mode." 토스트 노출 후 차단.</li>
-                <li>앱 재시작 시 Demo 상태 유지(persistent). 명시적 Live 전환 또는 로그아웃 시에만 해제.</li>
-                <li>기본 Live · Demo는 opt-in(자동 활성 아님). 온보딩에서 "Try Demo first"를 적극 제안.</li>
-              </ul>
-            </div>
-            <div class="desc-note" style="margin-top:8px;padding:6px 10px;background:#f5f5f5;border-left:3px solid #e6a817;border-radius:0 4px 4px 0;font-size:11px;color:#555;">
-              ⚙️ Demo Mode 설정 위치: <b>Account → Demo</b> (<code>front-dmo-01</code>)
+            <span class="lbl">Demo Mode 온보딩 <span style="font-weight:500;color:#777;font-size:12px;">(Try Demo first)</span></span>
+            #2는 Demo Mode 배너(ON일 때만 상단 노출 · 탭 시 front-dmo-01). 신규 가입자에게는 <b>첫 홈 진입 시 1회 온보딩 모달</b>로 데모 체험을 제안. 기본값은 Live이며 데모는 <b>opt-in</b>(강제 아님).<br>
+            • 노출 시점: 가입 후 첫 홈 진입 <b>1회</b>(이후 미노출 · dismiss 영구).<br>
+            • <b>Start Demo</b> → Demo Mode ON(앰버 배너 노출) + front-dmo-01(데모 설정)로 이동.<br>
+            • <b>Skip / 닫기</b> → Live 유지. 이후 More › Preferences › Demo(front-dmo-01)에서 직접 ON.<br>
+            • Demo Mode 중 실 주문(Buy/Sell/Withdraw) 탭 시 → "You cannot place real trades in demo mode." 토스트 후 차단.
+            <div style="margin-top:10px;">
+              <div style="font-size:10px;font-weight:700;color:var(--callout);text-transform:uppercase;letter-spacing:.05em;margin-bottom:6px;">변경 화면 · Demo 온보딩 모달 (첫 진입 1회)</div>
+              <div onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="border:1.2px dashed var(--callout);border-radius:8px;padding:8px;max-width:240px;cursor:pointer;">
+                <div style="border:1px solid var(--line);border-radius:12px;padding:14px;background:#fff;text-align:center;">
+                  <div style="display:inline-block;background:#fff4e5;color:#b97a00;font-size:9px;font-weight:800;letter-spacing:.08em;border-radius:10px;padding:3px 8px;margin-bottom:8px;">DEMO</div>
+                  <div style="font-size:13px;font-weight:800;">Try Demo first</div>
+                  <div style="font-size:10.5px;color:var(--ink-3);margin:5px 0 10px;line-height:1.5;">Explore ROGer risk-free with simulated data. No real funds involved.</div>
+                  <div style="background:#111;color:#fff;border-radius:8px;padding:8px;font-size:11px;font-weight:700;">Start Demo</div>
+                  <div style="font-size:11px;color:var(--ink-3);margin-top:7px;font-weight:600;">Skip, use Live</div>
+                </div>
+                <div style="font-size:9.5px;color:var(--ink-3);margin-top:4px;">&#8594; front-dmo-01 (Start Demo)</div>
+              </div>
             </div>
           </div>
         </div>
@@ -1828,7 +1858,7 @@ function goTo(id) {
             첫 화면 진입 시 가장 강조되는 핵심 영역.
             <ul class="sub-list">
               <li><span class="num">3-1</span><span><b>Amount.</b> 실시간 시세 기반 합산(Cash+투자금+리워드+ROG).</span></li>
-              <li><span class="num">3-2</span><span><b>Change.</b> 선택 기간(2-4) 대비 변화량 및 변화율. 탭 시 수익 현황(front-perf-01)로 이동.</span></li>
+              <li><span class="num">3-2</span><span><b>Change.</b> 선택 기간(2-4) 대비 변화량 및 변화율. <b>표시 전용 — 클릭/이동 없음.</b></span></li>
               <li><span class="num">3-3</span><span><b>Visibility toggle.</b> 금액 마스킹 — 토글 off 시 <b>금액에 상관없이 '•••••'로 노출</b>(실제 값·자릿수 비반영, 고정 5점).</span></li>
               <li><span class="num">3-4</span><span><b>Period.</b> Last 24h(기본) · 7d · 30d · 90d · 1Y · All.(기간에 해당하는 금액 노출)<br>선택값은 3-2에 즉시 반영. 총자산 3-1은 항상 현재값.</span></li>
             </ul>
@@ -1855,25 +1885,6 @@ function goTo(id) {
                 <li>인증 완료(Verified) 유저: 배너 숨김(미노출).</li>
                 <li>인증 진행 중(Pending): "Verification in review" 상태 문구로 대체.</li>
                 <li>Demo Mode: 배너는 노출되나 실제 인증 차단(데모 환경 안내).</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="desc-item">
-          <span class="desc-num">5</span>
-          <div class="desc-body">
-            <span class="lbl">Quick Actions <span style="font-weight:500;color:#777;font-size:12px;">(바로가기 행)</span></span>
-            자금 추가·운용 핵심 단축 2개. (입출금·리워드 전체는 Account 홈에서)
-            <ul class="sub-list">
-              <li><span class="num">5-1</span><span><b>Deposit.</b> 탭 → <code>ROGer_Account.html#front-acc-03</code> Account 입금(정본).<br>Card · Bank · Crypto — 금액·실행은 써드파티.</span></li>
-              <li><span class="num">5-2</span><span><b>Earn.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
-            </ul>
-            <div class="desc-exc">
-              <b>예외 변수</b>
-              <ul>
-                <li>5-2 Earn: Verification 불필요 (잠금 없음)</li>
-                <li>Withdraw · Card · 리워드 수령은 Account 홈(정본)으로 이동 — Portfolio 단축에서 제외</li>
-                <li>Broker 트레이딩 진입은 Quick actions 제외 → Position 행 또는 Trade GNB</li>
               </ul>
             </div>
           </div>
@@ -1937,7 +1948,7 @@ function goTo(id) {
                   </div>
                   <div style="position:relative;">
                     <span class="sub-cal" style="inset:-3px;border-radius:50%;display:none"><span class="sub-tag tag-b tag-r">1-3</span></span>
-                    <div class="avatar"></div>
+                    <div class="avatar" style="width:26px;height:26px;border-radius:50%;background:var(--paper-3);border:1px solid var(--line);flex-shrink:0;"></div>
                   </div>
                 </div>
               </div>
@@ -1972,20 +1983,20 @@ function goTo(id) {
                 <div class="card" style="padding:12px 14px;">
                   <div class="row">
                     <span class="kicker">Total Value</span>
-                    <span style="position:relative;display:inline-flex;">
+                    <span onclick="toggleMask(this)" title="Hide/show balance" style="position:relative;display:inline-flex;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:50%;display:none"><span class="sub-tag tag-b tag-r">3-3</span></span>
                       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="1.6"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8S1 12 1 12z"></path><circle cx="12" cy="12" r="3"></circle></svg>
                     </span>
                   </div>
                   <div class="h-amount" style="margin-top:2px;font-size:26px;position:relative;display:inline-block;">
                     <span class="sub-cal" style="inset:-2px -4px;display:none"><span class="sub-tag tag-b tag-r">3-1</span></span>
-                    $12,438.52<span class="ccy">USD</span>
+                    <span class="js-amt" data-orig="$12,438.52">$12,438.52</span><span class="ccy">USD</span>
                   </div>
                   <div class="row" style="margin-top:4px;">
-                    <span onclick="goTo('slide-front-perf-01')" style="font-size:12px;font-weight:600;position:relative;display:inline-block;cursor:pointer;">
+                    <span style="font-size:12px;font-weight:600;position:relative;display:inline-block;">
                       <span class="sub-cal" style="inset:-2px -4px;display:none"><span class="sub-tag tag-b tag-r">3-2</span></span>
-                      ↗ +$24.18 (+0.20%) <span class="muted" style="font-weight:500;">today</span>
-                     <span style="color:var(--ink-3);">&rsaquo;</span><span class="proto-badge">&#8594; perf-01</span></span>
+                      <span class="js-amt" data-orig="↗ +$24.18 (+0.20%)">↗ +$24.18 (+0.20%)</span> <span class="muted" style="font-weight:500;">today</span>
+                    </span>
                     <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perB');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px;display:none"><span class="sub-tag tag-b tag-r">3-4</span></span>
                       <span id="perB-l">Last 24h</span> &#9662;
@@ -2008,38 +2019,55 @@ function goTo(id) {
             <!-- 4 quick actions -->
             <div class="section" style="padding:2px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">5</span></div>
-                <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;padding:2px 0;">
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-1</span></span>
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:13px;">↓</div>
+                <div class="cal"><span class="cal-tag">5</span></div>
+                <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:2px 0;">
+                  <div onclick="location.href='ROGer_More.html#slide-front-dmo-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-1</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
+                    Demo
+                  </div>
+                  <div onclick="location.href='ROGer_Account.html#slide-front-acc-03'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-2</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Deposit
                   </div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-2</span></span>
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:13px;">↑</div>
-                    Withdraw
-                  </div>
-                  <div onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'" style="cursor:pointer;display: grid; justify-items: center; gap: 4px; font-size: 10.5px; font-weight: 600; position: relative;">
-                    
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:13px;">+</div>Earning</div>
-                  <div style="display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    
-                    <div style="width:32px;height:32px;border-radius:50%;border:1.2px solid #111;display:flex;align-items:center;justify-content:center;font-size:12px;">★</div>
-                    Claim
+                  <div onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-3</span></span>
+                    <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
+                    Earning
                   </div>
                 </div>
               </div>
             </div>
 
+                        <!-- promo / event banner -->
+            <div class="section" style="padding:8px 20px 2px;">
+              <div class="cal-wrap">
+                <div class="cal"><span class="cal-tag">6</span></div>
+                <div onclick="location.href='ROGer_More.html#slide-front-evt-01'" style="border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--paper-2);">
+                  <div>
+                    <span style="display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;color:#b97a00;background:#fff4e5;border-radius:8px;padding:2px 7px;margin-bottom:5px;">EVENT</span>
+                    <div style="font-size:13px;font-weight:700;">Welcome bonus event</div>
+                    <div style="font-size:11px;color:var(--ink-3);margin-top:1px;">Tap to see all events &amp; promotions</div>
+                  </div>
+                  <span style="color:var(--ink-3);font-size:16px;">&rsaquo;</span>
+                  <span class="proto-badge">&#8594; evt-01</span>
+                </div>
+                <div style="display:flex;justify-content:center;gap:4px;margin-top:6px;">
+                  <span style="width:14px;height:3px;border-radius:2px;background:#111;"></span>
+                  <span style="width:6px;height:3px;border-radius:2px;background:var(--line);"></span>
+                  <span style="width:6px;height:3px;border-radius:2px;background:var(--line);"></span>
+                </div>
+              </div>
+            </div>
             <!-- ⑤ daily reward strip -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">6</span></div>
-                <div class="card" onclick="location.href='ROGer_Account.html#slide-front-acc-06'" style="padding:10px 14px;cursor:pointer;position:relative;">
+                <div class="cal"><span class="cal-tag">7</span></div>
+                <div class="card" onclick="goTo('slide-front-perf-01')" style="padding:10px 14px;cursor:pointer;position:relative;">
                   <div class="row">
                     <div>
-                      <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward<span class="proto-badge">&#8594; acc-06</span></div>
+                      <div style="font-size:12px;font-weight:600;color:#333;">Today's Reward<span class="proto-badge">&#8594; perf-01</span></div>
                       <div class="faint" style="font-size:11px;margin-top:2px;">3 sources · auto-credited daily</div>
                     </div>
                     <div style="display:flex;align-items:center;gap:10px;">
@@ -2058,53 +2086,53 @@ function goTo(id) {
             <!-- ⑥ asset breakdown card -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="row" style="margin-bottom:6px;">
-                <span class="kicker">Position</span>
-                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Positions Hub">
-                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">7-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
+                <span></span>
+                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub">
+                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">8-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
                   View all ›
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">7</span></div>
+                <div class="cal"><span class="cal-tag">8</span></div>
                 <div class="card" style="padding:12px 14px;">
                   <div style="display:flex;flex-direction:column;gap:3px;">
-                    <div class="row"><span class="kicker">Allocation</span><span style="font-size:14px;font-weight:800;">$12,563</span></div>
+                    <div style="display:grid;grid-template-columns:1fr 80px;align-items:center;padding-right:6px;"><span class="kicker">Asset</span><span style="font-size:14px;font-weight:800;text-align:right;">$12,563</span></div>
                     <div style="flex:1;display:grid;gap:2px;">
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">7-1</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-1</span></span>
                         <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Cash</div>
-                          <div class="faint" style="font-size:9.5px;">33.5%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$4,210</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,210</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">7-2</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-2</span></span>
                         <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Earning</div>
-                          <div class="faint" style="font-size:9.5px;">54.3%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$6,820</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,820</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">7-3</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-3</span></span>
                         <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">Broker</div>
-                          <div class="faint" style="font-size:9.5px;">10.8%</div>
+                          
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$1,358</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,358</div>
                       </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr auto;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">7-4</span></span>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-4</span></span>
                         <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
                         <div>
                           <div style="font-size:12px;font-weight:700;">ROG</div>
-                          <div class="faint" style="font-size:9.5px;">168.50 ROG · 1.4%</div>
+                          <div class="faint" style="font-size:9.5px;">168.50 ROG</div>
                         </div>
-                        <div style="font-size:12px;font-weight:700;">$175</div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$175</div>
                       </div>
                     </div>
                   </div>
@@ -2118,12 +2146,12 @@ function goTo(id) {
               <div class="row" style="margin-bottom:2px;">
                 <span class="kicker">Recent activity</span>
                 <span style="font-size:10.5px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">
-                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">8-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
+                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">9-1</span><span class="proto-badge-next">&#8594; acc-05</span></span>
                   View all ›
                 </span>
               </div>
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">8</span></div>
+                <div class="cal"><span class="cal-tag">9</span></div>
                 <div>
                   <div class="list-row" style="padding:7px 0;">
                     <div class="av">+</div>
@@ -2143,7 +2171,7 @@ function goTo(id) {
 
           <!-- 7 GNB -->
           <div class="cal-wrap">
-            <div class="cal" style="inset:0;border-radius:0 0 44px 44px"><span class="cal-tag" style="top:8px;left:8px;">9</span></div>
+            <div class="cal" style="inset:0;border-radius:0 0 44px 44px"><span class="cal-tag" style="top:8px;left:8px;">10</span></div>
             <div class="phone-gnb">
               <div class="gnb-item active"><div class="gnb-dummy-icon"></div>Portfolio</div>
               <div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div>
@@ -2161,11 +2189,40 @@ function goTo(id) {
     <div class="sb-desc-col">
       <div class="desc-grid cols-2">
         <div class="desc-item">
+          <span class="desc-num">5</span>
+          <div class="desc-body">
+            <span class="lbl">Quick Actions <span style="font-weight:500;color:#777;font-size:12px;">(바로가기 행)</span></span>
+            데모·자금 추가·운용 핵심 단축 3개. (입출금·리워드 전체는 Account 홈에서)
+            <ul class="sub-list">
+              <li><span class="num">5-1</span><span><b>Demo.</b> 탭 → <code>ROGer_More.html#front-dmo-01</code> 데모 설정(Demo Mode on/off · 별도 데이터셋).</span></li>
+              <li><span class="num">5-2</span><span><b>Deposit.</b> 탭 → <code>ROGer_Account.html#front-acc-03</code> Account 입금(정본).<br>Card · Bank · Crypto — 금액·실행은 써드파티.</span></li>
+              <li><span class="num">5-3</span><span><b>Earning.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
+            </ul>
+            <div class="desc-exc">
+              <b>예외 변수</b>
+              <ul>
+                <li>5-2 Earn: Verification 불필요 (잠금 없음)</li>
+                <li>Withdraw · Card · 리워드 수령은 Account 홈(정본)으로 이동 — Portfolio 단축에서 제외</li>
+                <li>Broker 트레이딩 진입은 Quick actions 제외 → Position 행 또는 Trade GNB</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="desc-item">
           <span class="desc-num">6</span>
+          <div class="desc-body">
+            <span class="lbl">Promo / Event banner</span>
+            이벤트·프로모션 배너 영역(캐러셀). 탭 시 <code>front-evt-01</code> 이벤트 목록으로 이동.<br>
+            • 다중 배너 시 <b>자동 전환(슬라이드) 주기 약 1–2초</b> · 하단 인디케이터(닷)로 현재 위치 표시 · 스와이프로 수동 전환.<br>
+            • 노출할 배너 0건 시 영역 자체 비노출(숨김).
+          </div>
+        </div>
+        <div class="desc-item">
+          <span class="desc-num">7</span>
           <div class="desc-body">
             <span class="lbl">Today's Reward <span style="font-weight:500;color:#777;font-size:12px;">(일별 리워드 strip)</span></span>
             Earner · Trader 랏 · Referral 3개 소스 리워드 합산.<br>
-            매일 00:00 UTC 자동 정산. 카드 탭 시 <code>front-acc-06</code> 리워드 센터로 이동(정본)<div class="desc-exc">
+            매일 00:00 UTC 자동 정산. 카드 탭 시 <code>front-perf-01</code> 수익 현황(Performance)으로 이동<div class="desc-exc">
               <b>예외 변수</b>
               <ul>
                 <li>합산 $0.00 이하: $0.00으로 노출</li>
@@ -2176,16 +2233,16 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">7</span>
+          <span class="desc-num">8</span>
           <div class="desc-body">
-            <span class="lbl">Allocation <span style="font-weight:500;color:#777;font-size:12px;">(자산 배분 리스트)</span></span>
-            Cash / Earn / Broker / ROG 4개 자산군 비중을 리스트로 표기(항목별 비중·금액). 상단에 총 자산 표시. (모바일 가독성 위해 도넛 차트 미사용)
+            <span class="lbl">Asset <span style="font-weight:500;color:#777;font-size:12px;">(자산 리스트)</span></span>
+            Cash / Earn / Broker / ROG 4개 자산군을 리스트로 표기(항목별 금액, 비중% 미표기). 상단에 총 자산 표시. (모바일 가독성 위해 도넛 차트 미사용)
             <ul class="sub-list">
-              <li><span class="num">7-1</span><span><b>Cash.</b> USD 예수금.</span></li>
-              <li><span class="num">7-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
-              <li><span class="num">7-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
-              <li><span class="num">7-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
-              <li><span class="num">7-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Positions Hub.</span></li>
+              <li><span class="num">8-1</span><span><b>Cash.</b> USD 예수금.</span></li>
+              <li><span class="num">8-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
+              <li><span class="num">8-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
+              <li><span class="num">8-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
+              <li><span class="num">8-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Asset Hub.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -2198,13 +2255,13 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">8</span>
+          <span class="desc-num">9</span>
           <div class="desc-body">
             <span class="lbl">Recent Activity <span style="font-weight:500;color:#777;font-size:12px;">(통합 피드)</span></span>
             전 자산군 통합 활동 피드.<br>
             리워드 · 체결 · 입출금 · 카드 결제를 시간 역순, 최대 3건 노출.
             <ul class="sub-list">
-              <li><span class="num">8-1</span><span><b>View all ›</b> 탭 → <code>front-acc-05</code> 전체 거래 내역.<br>필터 · 기간 · 내보내기 지원.</span></li>
+              <li><span class="num">9-1</span><span><b>View all ›</b> 탭 → <code>front-acc-05</code> 전체 거래 내역.<br>필터 · 기간 · 내보내기 지원.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -2217,7 +2274,7 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item" style="grid-column: 1 / -1;">
-          <span class="desc-num">9</span>
+          <span class="desc-num">10</span>
           <div class="desc-body">
             <span class="lbl">Bottom GNB · 5 tabs <span style="font-weight:500;color:#777;font-size:12px;">(글로벌 내비게이션)</span></span>
             전 화면 공통 글로벌 내비게이션 바. 현재 화면 소속 탭은 아이콘 + 라벨 모두 굵게 강조.
@@ -2234,13 +2291,13 @@ function goTo(id) {
 
 
 <!-- =========================================================
-     SLIDE 03 — front-pos-00 · Positions Hub
+     SLIDE 03 — front-pos-00 · Asset Hub
      ========================================================= -->
 <section id="slide-front-pos-00">
   <header class="sb-header">
     <div class="sb-header-left">
       <span class="sb-id">front-pos-00</span>
-      <div class="sb-title-block"><span class="sb-path">Portfolio › Positions</span><span class="sb-title-kr">포지션 현황</span></div>
+      <div class="sb-title-block"><span class="sb-path">Portfolio › Asset</span><span class="sb-title-kr">자산 현황</span></div>
     </div>
     <div class="sb-header-right">
       Positions · Broker + Earn summary
@@ -2266,7 +2323,7 @@ function goTo(id) {
 
             <div class="tab-bar" style="font-size: 17px; opacity: 1;">
               <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></div>
-              <div style="flex: 1 1 0%; font-size: 17px; font-weight: 700; text-align: center; margin-left: -32px;">Position</div>
+              <div style="flex: 1 1 0%; font-size: 17px; font-weight: 700; text-align: center; margin-left: -32px;">Asset</div>
               <div class="icon-btn"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="M21 21l-4.3-4.3"></path></svg></div>
             </div>
 
@@ -2275,7 +2332,7 @@ function goTo(id) {
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">1</span></div>
                 <div class="card" style="padding:14px;">
-                  <div class="kicker">Invested capital</div>
+                  <div class="kicker">Earning capital</div>
                   <div class="h-amount" style="margin-top: 2px; font-size: 26px;" contenteditable="true">$8,178.52<span style="font-size: 26px; letter-spacing: -0.26px;"></span></div>
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line-2);">
                     <div>
@@ -2403,7 +2460,7 @@ function goTo(id) {
         <div class="desc-item">
           <span class="desc-num">1</span>
           <div class="desc-body">
-            <span class="lbl">Invested capital</span>
+            <span class="lbl">Earning capital</span>
             Earn(투자금 & 리워드) + Broker에 투입된 자금 + 평가손익의 총합.<br>
             하단 지표: 오늘 발생한 P&amp;L 합계(어닝 리워드 + 트레이딩 손익) · 활성 포지션 수.
           </div>
@@ -2497,12 +2554,9 @@ function goTo(id) {
             <div class="cal-wrap">
               <div class="cal"><span class="cal-tag">1</span></div>
               <div class="tab-bar">
-                <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></div>
+                <div class="icon-btn" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'" style="cursor:pointer;position:relative;"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg><span class="proto-badge">&#8594; trd-01</span></div>
                 <div style="flex:1;font-size:17px;font-weight:700;text-align:center;margin-left:-32px;">Broker positions</div>
-                <div class="icon-btn" style="position:relative;">
-                <span class="sub-cal" style="inset:-4px;"><span class="sub-tag tag-b">1-1</span></span>
-                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 8v5l3 2"></path></svg>
-              </div>
+                <div style="width:24px;"></div>
               </div>
             </div>
 
@@ -2648,7 +2702,7 @@ function goTo(id) {
             좌측 back → <code>front-pos-00</code> 상위 Positions 화면으로 복귀.<br>
             페이지명 "Broker positions".
             <ul class="sub-list">
-              <li><span class="num">1-1</span><span><b>Auto-refresh indicator.</b> 우측 시계 아이콘. 자동 갱신 주기(기본 1s) 및 Broker 동기화 상태 표시. 비활성 시 마지막 동기화 시각 노출.</span></li>
+              
             </ul>
           </div>
         </div>
@@ -2756,9 +2810,9 @@ function goTo(id) {
             <div class="cal-wrap">
               <div class="cal"><span class="cal-tag">1</span></div>
               <div class="tab-bar">
-                <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></div>
+                <div class="icon-btn" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'" style="cursor:pointer;position:relative;"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg><span class="proto-badge">&#8594; trd-01</span></div>
                 <div style="flex:1;font-size:17px;font-weight:700;text-align:center;margin-left:-32px;">Orders</div>
-                <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M3 6h18M6 12h12M10 18h4"></path></svg></div>
+                <div style="width:24px;"></div>
               </div>
             </div>
 
@@ -2976,9 +3030,9 @@ function goTo(id) {
             <div class="cal-wrap">
               <div class="cal"><span class="cal-tag">1</span></div>
               <div class="tab-bar">
-                <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg></div>
+                <div class="icon-btn" onclick="location.href='ROGer_TradeEarning.html#slide-front-trd-01-a'" style="cursor:pointer;position:relative;"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"></path></svg><span class="proto-badge">&#8594; trd-01</span></div>
                 <div style="flex:1;font-size:17px;font-weight:700;text-align:center;margin-left:-32px;">Trade history</div>
-                <div class="icon-btn"><svg viewBox="0 0 24 24"><path d="M12 3v18M5 10l7-7 7 7"></path></svg></div>
+                <div style="width:24px;"></div>
               </div>
             </div>
 
@@ -3484,6 +3538,14 @@ function goTo(id) {
                     <span class="sub-cal" style="inset:2px -6px;"><span class="sub-tag">4-2</span></span>
                     <span class="k">Early redeem penalty</span><span class="v">10% of principal</span>
                   </div>
+                  <div class="kv" style="position:relative;">
+                    <span class="sub-cal" style="inset:2px -6px;"><span class="sub-tag">4-3</span></span>
+                    <span class="k">Auto-compound</span>
+                    <span class="v" style="display:flex;align-items:center;gap:6px;">
+                      <span style="display:inline-flex;align-items:center;width:32px;height:18px;background:#ccc;border-radius:9px;padding:2px;box-sizing:border-box;"><span style="width:14px;height:14px;background:#fff;border-radius:50%;display:block;"></span></span>
+                      <span style="font-size:11px;">OFF</span>
+                    </span>
+                  </div>
                   <div class="kv" style="position:relative;"><span class="k" style=""><br></span><span class="v" style=""><br></span></div>
                 </div>
               </div>
@@ -3493,17 +3555,17 @@ function goTo(id) {
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">5</span></div>
                 <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
-                  <div class="cta-block outlined" style="padding:11px;font-size:13px;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-03-01')" title="→ front-pos-03-01 Redeem">
-                    <span class="sub-cal" style="inset:-3px;border-radius:14px;"><span class="sub-tag tag-b">5-1</span><span class="proto-badge-next">&#8594; pos-03-01</span></span>
-                    Redeem
+                  <div class="cta-block outlined" style="padding:11px;font-size:13px;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-03-03')" title="→ front-pos-03-03 Reinvest">
+                    <span class="sub-cal" style="inset:-3px;border-radius:14px;"><span class="sub-tag tag-b">5-1</span><span class="proto-badge-next">&#8594; pos-03-03</span></span>
+                    Reinvest
                   </div>
                   <div class="cta-block" style="padding:11px;font-size:13px;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-03-02')" title="→ front-pos-03-02 Claim">
                     <span class="sub-cal" style="inset:-3px;border-radius:14px;"><span class="sub-tag tag-b">5-2</span><span class="proto-badge-next">&#8594; pos-03-02</span></span>
                     Claim
                   </div>
-                  <div class="cta-block outlined" style="padding:11px;font-size:13px;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-03-03')" title="→ front-pos-03-03 Reinvest">
-                    <span class="sub-cal" style="inset:-3px;border-radius:14px;"><span class="sub-tag tag-b">5-3</span><span class="proto-badge-next">&#8594; pos-03-03</span></span>
-                    Reinvest
+                  <div class="cta-block outlined" style="padding:11px;font-size:13px;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-03-01')" title="→ front-pos-03-01 Redeem">
+                    <span class="sub-cal" style="inset:-3px;border-radius:14px;"><span class="sub-tag tag-b">5-3</span><span class="proto-badge-next">&#8594; pos-03-01</span></span>
+                    Redeem
                   </div>
                 </div>
               </div>
@@ -3594,7 +3656,7 @@ function goTo(id) {
             상품 약관 핵심 정보.<br>- Maturity date<br>- Auto-renew<br>- Early redeem penalty<br>- Reward currency.
             <ul class="sub-list">
               <li><span class="num">4-1</span><span><b>Auto-renew 행</b>: 토글 UI 노출 (인라인). ON/OFF 탭으로 직접 변경 가능.</span></li>
-              <li><span class="num">4-2</span><span><b>Penalty 행 탭</b>: 페널티 정책 설명 시트.</span></li>
+              <li><span class="num">4-2</span><span><b>Penalty 행 탭</b>: 페널티 정책 설명 시트.</span></li><li><span class="num">4-3</span><span><b>Auto-compound 행</b>: 토글 UI(인라인) · <b>기본 OFF</b>. ON/OFF 탭으로 직접 변경(상시 재설정 위치) — 설정값은 포지션에 저장(pos-03-03 재투자 모달과 동기화).</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수 — Flexible</b>
@@ -3613,9 +3675,9 @@ function goTo(id) {
             <span class="lbl">Action buttons · 3개</span>
             본 화면의 핵심 액션. 모달에서 확인 버튼 탭 시 즉시 처리.
             <ul class="sub-list">
-              <li><span class="num">5-1</span><span><b>Redeem</b> → <code>front-pos-03-01</code> 환매 신청 모달. Fixed-term: 만기 전 10% 페널티 경고. Flexible: 페널티 없음, 부분 환매 가능.</span></li>
+              <li><span class="num">5-1</span><span><b>Reinvest</b> → <code>front-pos-03-03</code>. 적립액을 즉시 재투자.</span></li>
               <li><span class="num">5-2</span><span><b>Claim</b> → <code>front-pos-03-02</code>. 누적 적립액을 Cash로 수령(원금 유지).</span></li>
-              <li><span class="num">5-3</span><span><b>Reinvest</b> → <code>front-pos-03-03</code>. 적립액을 즉시 재투자.</span></li>
+              <li><span class="num">5-3</span><span><b>Redeem</b> → <code>front-pos-03-01</code> 환매 신청 모달. Fixed-term: 만기 전 10% 페널티 경고. Flexible: 페널티 없음, 부분 환매 가능.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -3976,8 +4038,7 @@ function goTo(id) {
           <span class="desc-num">4</span>
           <div class="desc-body">
             <span class="lbl">Claim CTA</span>
-            탭 시 즉시 처리 → 모달 닫고 토스트 "Claimed $30.42 to Cash" 노출.<br>
-            <code>front-pos-03</code>의 Accrued 값은 0으로 reset.
+            탭 시 처리 → <b>front-pos-03-04</b>(요청 완료 공통 화면)로 이동.<br>• [대안] 인라인 즉시 처리 시: 모달 닫고 토스트 "Claimed $30.42 to Cash" 노출.<br>• 처리 후 <code>front-pos-03</code>의 Accrued 값은 0으로 reset.
           </div>
         </div>
 
@@ -4080,8 +4141,8 @@ function goTo(id) {
                       <div style="font-size:13px;font-weight:700;">Auto-compound</div>
                       <div class="faint" style="font-size:11px;margin-top:1px;">Reinvest future rewards from this position</div>
                     </div>
-                    <div style="width:38px;height:22px;border-radius:11px;background:#111;position:relative;">
-                      <span style="position:absolute;right:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff;"></span>
+                    <div style="width:38px;height:22px;border-radius:11px;background:#ccc;position:relative;">
+                      <span style="position:absolute;left:2px;top:2px;width:18px;height:18px;border-radius:50%;background:#fff;"></span>
                     </div>
                   </div>
                 </div>
@@ -4155,6 +4216,7 @@ function goTo(id) {
           <span class="desc-num">4</span>
           <div class="desc-body">
             <span class="lbl">Auto-compound 토글</span>
+            <b>기본값 = OFF(비활성).</b><br>
             ON 시 본 포지션에서 발생하는 미래 모든 리워드가 매일 자동으로 선택한 상품(3번)으로 재투자됨.<br>
             OFF 시 1회성 재투자만 처리.
             <div class="desc-exc">
@@ -4272,7 +4334,7 @@ function goTo(id) {
                 <div class="cal-wrap" style="align-items:flex-start;">
                   <div class="cal"><span class="cal-tag">2</span></div>
                   <div style="flex:1;">
-                    <div class="cta-block" style="background:#111;color:#fff;font-size:13px;">Confirm</div>
+                    <div class="cta-block" onclick="goTo('slide-front-pos-03')" style="background:#111;color:#fff;font-size:13px;cursor:pointer;position:relative;">Confirm<span class="proto-badge">&#8594; pos-03</span></div>
                   </div>
                 </div>
 
@@ -4693,7 +4755,7 @@ function goTo(id) {
           <div class="dv-col" style="align-items:center;">
             <a class="dv-node" onclick="navTo('260527_Portfolio_WF_ver_0.02.html','slide-front-pos-00');return false;" href="#">
               <div class="dv-box" data-node-id="slide-front-pos-00">
-                <span class="dv-id">front-pos-00</span><span class="dv-name">Positions Hub</span>
+                <span class="dv-id">front-pos-00</span><span class="dv-name">Asset Hub</span>
               </div>
             </a>
             <div class="dv-arrow-down"></div>
@@ -4917,7 +4979,7 @@ function goTo(id) {
     'slide-index':           { id: 'INDEX',           name: 'Index' },
     'slide-front-avw-01-a':  { id: 'front-avw-01',   name: 'Asset Overview 1/2' },
     'slide-front-avw-01-b':  { id: 'front-avw-01',   name: 'Asset Overview 2/2' },
-    'slide-front-pos-00':    { id: 'front-pos-00',   name: 'Positions Hub' },
+    'slide-front-pos-00':    { id: 'front-pos-00',   name: 'Asset Hub' },
     'slide-front-pos-01':    { id: 'front-pos-01',   name: 'Broker Positions' },
     'slide-front-pos-02':    { id: 'front-pos-02',   name: 'Earn Positions' },
     'slide-front-pos-03':    { id: 'front-pos-03',   name: 'Earn Detail' },
@@ -5004,12 +5066,12 @@ function goTo(id) {
 })();
 </script>
 
-<script>(function(){var NEXT="ROGer_TradeEarning.html#slide-front-trd-01-a",NLB="Trade",PREV="",PLB="";var armed=0,lock=false,hideT=null;function atB(){return (window.innerHeight+window.scrollY)>=(document.documentElement.scrollHeight-2);}function atT(){return window.scrollY<=1;}var h=document.createElement("div");h.style.cssText="position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(8px);background:rgba(17,17,17,.86);color:#fff;font:600 12px/1 system-ui,sans-serif;padding:9px 14px;border-radius:18px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:99999;";document.body.appendChild(h);function show(txt,top){if(!txt){h.style.opacity="0";h.style.transform="translateX(-50%) translateY(8px)";return;}h.textContent=txt;h.style.bottom=top?"auto":"18px";h.style.top=top?"18px":"auto";h.style.opacity="1";h.style.transform="translateX(-50%) translateY(0)";}function flash(txt,top){show(txt,top);if(hideT)clearTimeout(hideT);hideT=setTimeout(function(){show(null);},1100);}window.addEventListener("scroll",function(){if(lock)return;if(NEXT&&atB())show("Keep scrolling \u2193 "+NLB,false);else if(!atB())show(null);},{passive:true});window.addEventListener("wheel",function(e){if(lock)return;if(e.deltaY>0&&NEXT&&atB()){armed=(armed>0?armed:0)+e.deltaY;if(armed>140){lock=true;show(null);location.href=NEXT;}}else if(e.deltaY<0&&PREV&&atT()){armed=(armed<0?armed:0)+e.deltaY;flash("Keep scrolling \u2191 "+PLB,true);if(armed<-140){lock=true;show(null);location.href=PREV;}}else armed=0;},{passive:true});var ty=0;window.addEventListener("touchstart",function(e){ty=e.touches[0].clientY;armed=0;},{passive:true});window.addEventListener("touchmove",function(e){if(lock)return;var dy=ty-e.touches[0].clientY;if(dy>0&&NEXT&&atB()){armed+=dy*1.6;if(armed>150){lock=true;location.href=NEXT;}}else if(dy<0&&PREV&&atT()){armed+=dy*1.6;flash("Keep scrolling \u2191 "+PLB,true);if(armed<-150){lock=true;location.href=PREV;}}},{passive:true});})();</script>
+<script>(function(){var NEXT="ROGer_TradeEarning.html#slide-front-trd-01-a",NLB="Trade",PREV="",PLB="";var lock=false,dn=0,up=0,rT=null,HOLD=2000;function atB(){return (window.innerHeight+window.scrollY)>=(document.documentElement.scrollHeight-2);}function atT(){return window.scrollY<=1;}var h=document.createElement("div");h.style.cssText="position:fixed;left:50%;bottom:18px;transform:translateX(-50%) translateY(8px);background:rgba(17,17,17,.86);color:#fff;font:600 12px/1 system-ui,sans-serif;padding:9px 14px;border-radius:18px;opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;z-index:99999;";document.body.appendChild(h);function show(t,top){if(!t){h.style.opacity="0";h.style.transform="translateX(-50%) translateY(8px)";return;}h.textContent=t;h.style.bottom=top?"auto":"18px";h.style.top=top?"18px":"auto";h.style.opacity="1";h.style.transform="translateX(-50%) translateY(0)";}function rs(){if(rT)clearTimeout(rT);rT=setTimeout(function(){dn=0;up=0;show(null);},350);}function down(){if(lock||!NEXT||!atB())return;var n=Date.now();if(!dn)dn=n;var el=n-dn;if(el>=HOLD){lock=true;show(null);location.href=NEXT;return;}show("↓ "+NLB+" "+Math.ceil((HOLD-el)/1000)+"s",false);rs();}function upf(){if(lock||!PREV||!atT())return;var n=Date.now();if(!up)up=n;var el=n-up;if(el>=HOLD){lock=true;show(null);location.href=PREV;return;}show("↑ "+PLB+" "+Math.ceil((HOLD-el)/1000)+"s",true);rs();}window.addEventListener("wheel",function(e){if(lock)return;if(e.deltaY>0)down();else if(e.deltaY<0)upf();},{passive:true});var ty=0;window.addEventListener("touchstart",function(e){ty=e.touches[0].clientY;dn=0;up=0;},{passive:true});window.addEventListener("touchmove",function(e){if(lock)return;var dy=ty-e.touches[0].clientY;if(dy>0)down();else if(dy<0)upf();},{passive:true});window.addEventListener("scroll",function(){if(lock)return;if(!atB())dn=0;if(!atT())up=0;},{passive:true});})();</script>
 <script>
 /* 화면 검색 (Screen search) — 전체 덱(4파일) 통합 검색 */
 (function(){
   var CUR='260527_Portfolio_WF_ver_0.02.html';
-  var SCREENS=[{"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-avw-01-a", "label": "front-avw-01", "kr": "자산 개요", "gnb": "Portfolio · Home", "hay": "front-avw-01 자산 개요 portfolio · home portfolio · home"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-avw-01-b", "label": "front-avw-01", "kr": "자산 개요", "gnb": "Portfolio · Home", "hay": "front-avw-01 자산 개요 portfolio · home portfolio · home"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-00", "label": "front-pos-00", "kr": "포지션 현황", "gnb": "Portfolio", "hay": "front-pos-00 포지션 현황 portfolio › positions portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-01", "label": "front-pos-01", "kr": "Broker 포지션 목록", "gnb": "Portfolio", "hay": "front-pos-01 broker 포지션 목록 portfolio › positions › broker portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-ord-01", "label": "front-ord-01", "kr": "주문 내역", "gnb": "Portfolio", "hay": "front-ord-01 주문 내역 portfolio › positions › broker › orders portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-ord-02", "label": "front-ord-02", "kr": "체결 내역", "gnb": "Portfolio", "hay": "front-ord-02 체결 내역 portfolio › positions › broker › orders › executions portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-02", "label": "front-pos-02", "kr": "어닝 포지션 목록", "gnb": "Portfolio", "hay": "front-pos-02 어닝 포지션 목록 portfolio › positions › earn portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03", "label": "front-pos-03", "kr": "어닝 포지션 상세 관리", "gnb": "Portfolio", "hay": "front-pos-03 어닝 포지션 상세 관리 portfolio › positions › earn › detail portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-01", "label": "front-pos-03-01", "kr": "환매 신청 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-01 환매 신청 [모달] portfolio › positions › earn › detail › redeem portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-02", "label": "front-pos-03-02", "kr": "리워드 수령 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-02 리워드 수령 [모달] portfolio › positions › earn › detail › claim portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-03", "label": "front-pos-03-03", "kr": "리워드 재투자 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-03 리워드 재투자 [모달] portfolio › positions › earn › detail › reinvest portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-04", "label": "front-pos-03-04", "kr": "요청 완료 (공통 화면)", "gnb": "Portfolio", "hay": "front-pos-03-04 요청 완료 (공통 화면) portfolio › positions › earn › detail › completed portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-perf-01", "label": "front-perf-01", "kr": "수익 현황", "gnb": "Portfolio", "hay": "front-perf-01 수익 현황 portfolio › performance portfolio"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-01-a", "label": "front-trd-01", "kr": "Trade 허브", "gnb": "Trade", "hay": "front-trd-01 trade 허브 trade trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-01-b", "label": "front-trd-01", "kr": "Trade 허브", "gnb": "Trade", "hay": "front-trd-01 trade 허브 trade trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03", "label": "front-trd-03", "kr": "Trade 계좌 개설", "gnb": "Trade", "hay": "front-trd-03 trade 계좌 개설 trade › account setup trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03-01", "label": "front-trd-03-01", "kr": "계좌 활성화", "gnb": "Trade", "hay": "front-trd-03-01 계좌 활성화 trade › setup › activation trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03-02", "label": "front-trd-03-02", "kr": "계좌 개설 완료 [모달]", "gnb": "Trade", "hay": "front-trd-03-02 계좌 개설 완료 [모달] trade › setup › complete trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-02", "label": "front-trd-02", "kr": "플랫폼별 다운로드", "gnb": "Trade", "hay": "front-trd-02 플랫폼별 다운로드 trade › download trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-04", "label": "front-trd-04", "kr": "Trade 계좌 관리", "gnb": "Trade &rsaquo; Account", "hay": "front-trd-04 trade 계좌 관리 trade &rsaquo; account trade &rsaquo; account"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-04-01", "label": "front-trd-04-01", "kr": "연동 해제 확인 [모달]", "gnb": "Trade &rsaquo; Account &rsaquo; Disconnect", "hay": "front-trd-04-01 연동 해제 확인 [모달] trade &rsaquo; account &rsaquo; disconnect trade &rsaquo; account &rsaquo; disconnect"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-05", "label": "front-trd-05", "kr": "자금 이체 (Transfer)", "gnb": "Trade &rsaquo; Account", "hay": "front-trd-05 자금 이체 (transfer) trade &rsaquo; account trade &rsaquo; account"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-07", "label": "front-trd-07", "kr": "거래 터미널 (WebView)", "gnb": "Trade &rsaquo; Terminal", "hay": "front-trd-07 거래 터미널 (webview) trade &rsaquo; terminal trade &rsaquo; terminal"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-01", "label": "front-ern-01", "kr": "Earning 홈", "gnb": "Earning", "hay": "front-ern-01 earning 홈 earning earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-03", "label": "front-ern-03", "kr": "수시 예치 상세", "gnb": "Earning", "hay": "front-ern-03 수시 예치 상세 earning › flexible earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-03-01", "label": "front-ern-03-01", "kr": "투자 확인 [모달]", "gnb": "Earning", "hay": "front-ern-03-01 투자 확인 [모달] earning › flexible › confirm earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-04", "label": "front-ern-04", "kr": "정기 예치 상세", "gnb": "Earning", "hay": "front-ern-04 정기 예치 상세 earning › fixed-term earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-04-01", "label": "front-ern-04-01", "kr": "투자 확인 [모달]", "gnb": "Earning", "hay": "front-ern-04-01 투자 확인 [모달] earning › fixed-term › confirm earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-02", "label": "front-ern-02", "kr": "예치 완료", "gnb": "Earning", "hay": "front-ern-02 예치 완료 earning › complete earning"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-00", "label": "front-acc-00", "kr": "Account 홈", "gnb": "Account", "hay": "front-acc-00 account 홈 account account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-04", "label": "front-acc-04", "kr": "출금 (Deposit식 UI)", "gnb": "Account", "hay": "front-acc-04 출금 (deposit식 ui) account › withdraw account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-05", "label": "front-acc-05", "kr": "자금 트랜잭션 내역", "gnb": "Account", "hay": "front-acc-05 자금 트랜잭션 내역 account › history account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-06", "label": "front-acc-06", "kr": "리워드 센터", "gnb": "Account", "hay": "front-acc-06 리워드 센터 account › rewards account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-01", "label": "front-card-01", "kr": "카드 홈", "gnb": "Account", "hay": "front-card-01 카드 홈 account › card account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-03", "label": "front-acc-03", "kr": "카드 입금 [써드파티 PG]", "gnb": "Account", "hay": "front-acc-03 카드 입금 [써드파티 pg] account › deposit › card account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-02", "label": "front-card-02", "kr": "카드 충전", "gnb": "Account", "hay": "front-card-02 카드 충전 account › card › charge account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-03", "label": "front-card-03", "kr": "카드 관리", "gnb": "Account", "hay": "front-card-03 카드 관리 account › card › settings account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-04", "label": "front-card-04", "kr": "카드 해지 확인 [모달]", "gnb": "Account", "hay": "front-card-04 카드 해지 확인 [모달] account › card › deactivate account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-04-01", "label": "front-acc-04-01", "kr": "출금 [써드파티]", "gnb": "Account", "hay": "front-acc-04-01 출금 [써드파티] account › withdraw › provider account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-07", "label": "front-acc-07", "kr": "Crypto 입금 (General / ROG)", "gnb": "Account", "hay": "front-acc-07 crypto 입금 (general / rog) account › deposit › crypto account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-05", "label": "front-card-05", "kr": "카드 한도 설정", "gnb": "Account", "hay": "front-card-05 카드 한도 설정 account › card › limit account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-06", "label": "front-card-06", "kr": "카드 PIN 변경", "gnb": "Account", "hay": "front-card-06 카드 pin 변경 account › card › pin account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-07", "label": "front-card-07", "kr": "카드 발급", "gnb": "Account", "hay": "front-card-07 카드 발급 account › card › apply account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-09", "label": "front-acc-09", "kr": "은행 입금 안내", "gnb": "Account", "hay": "front-acc-09 은행 입금 안내 account › deposit › bank account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-07-02", "label": "front-acc-07-02", "kr": "써드파티 입금 안내 [모달]", "gnb": "Account", "hay": "front-acc-07-02 써드파티 입금 안내 [모달] account › deposit › crypto › provider account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-06-01", "label": "front-acc-06-01", "kr": "리워드 재투자 [모달]", "gnb": "Account", "hay": "front-acc-06-01 리워드 재투자 [모달] account › rewards › reinvest account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-08", "label": "front-card-08", "kr": "카드 결제 내역", "gnb": "Account", "hay": "front-card-08 카드 결제 내역 account › card › history account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-09", "label": "front-card-09", "kr": "CVV·만료일 확인", "gnb": "Account", "hay": "front-card-09 cvv·만료일 확인 account › card › cvv & expiry account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-08", "label": "front-acc-08", "kr": "ROG 토큰 관리", "gnb": "Account", "hay": "front-acc-08 rog 토큰 관리 account › rog token account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-08-01", "label": "front-acc-08-01", "kr": "ROG 출금", "gnb": "Account", "hay": "front-acc-08-01 rog 출금 account › rog token › withdraw account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-11", "label": "front-acc-11", "kr": "초대 현황", "gnb": "Account", "hay": "front-acc-11 초대 현황 account › referral status account"}, {"f": "ROGer_More.html", "id": "slide-front-more-00", "label": "front-more-00", "kr": "More 홈", "gnb": "More", "hay": "front-more-00 more 홈 more more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-01", "label": "front-ver-01", "kr": "신원 인증 상태", "gnb": "More", "hay": "front-ver-01 신원 인증 상태 more › verification more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-02", "label": "front-ver-02", "kr": "신원 정보 입력", "gnb": "More", "hay": "front-ver-02 신원 정보 입력 more › verification › info more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-03", "label": "front-ver-03", "kr": "서류 제출 [게이트]", "gnb": "More", "hay": "front-ver-03 서류 제출 [게이트] more › verification › documents more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-04", "label": "front-ver-04", "kr": "심사 중", "gnb": "More", "hay": "front-ver-04 심사 중 more › verification › in review more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-05", "label": "front-ver-05", "kr": "인증 거절", "gnb": "More", "hay": "front-ver-05 인증 거절 more › verification › rejected more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-06", "label": "front-ver-06", "kr": "인증 완료", "gnb": "More", "hay": "front-ver-06 인증 완료 more › verification › verified more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-01", "label": "front-sec-01", "kr": "보안 설정", "gnb": "More", "hay": "front-sec-01 보안 설정 more › security more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-02", "label": "front-sec-02", "kr": "2FA 설정", "gnb": "More", "hay": "front-sec-02 2fa 설정 more › security › 2fa more"}, {"f": "ROGer_More.html", "id": "slide-front-prof-01", "label": "front-prof-01", "kr": "프로필", "gnb": "More", "hay": "front-prof-01 프로필 more › profile more"}, {"f": "ROGer_More.html", "id": "slide-front-ref-01", "label": "front-ref-01", "kr": "레퍼럴 (토글: Earning 기본 · Trade)", "gnb": "More", "hay": "front-ref-01 레퍼럴 (토글: earning 기본 · trade) more › referral more"}, {"f": "ROGer_More.html", "id": "slide-front-noti-01", "label": "front-noti-01", "kr": "알림 설정", "gnb": "More", "hay": "front-noti-01 알림 설정 more › notifications more"}, {"f": "ROGer_More.html", "id": "slide-front-lang-01", "label": "front-lang-01", "kr": "언어·지역", "gnb": "More", "hay": "front-lang-01 언어·지역 more › language more"}, {"f": "ROGer_More.html", "id": "slide-front-help-01", "label": "front-help-01", "kr": "고객센터", "gnb": "More", "hay": "front-help-01 고객센터 more › help more"}, {"f": "ROGer_More.html", "id": "slide-front-legal-01", "label": "front-legal-01", "kr": "약관·정책", "gnb": "More", "hay": "front-legal-01 약관·정책 more › legal more"}, {"f": "ROGer_More.html", "id": "slide-front-prof-02", "label": "front-prof-02", "kr": "프로필 사진 변경", "gnb": "More", "hay": "front-prof-02 프로필 사진 변경 more › profile › photo more"}, {"f": "ROGer_More.html", "id": "slide-front-more-01", "label": "front-more-01", "kr": "공지사항 목록", "gnb": "More", "hay": "front-more-01 공지사항 목록 more › notices more"}, {"f": "ROGer_More.html", "id": "slide-front-more-02", "label": "front-more-02", "kr": "공지사항 상세", "gnb": "More", "hay": "front-more-02 공지사항 상세 more › notices › detail more"}, {"f": "ROGer_More.html", "id": "slide-front-learn-01", "label": "front-learn-01", "kr": "학습 목록", "gnb": "More", "hay": "front-learn-01 학습 목록 more › learn more"}, {"f": "ROGer_More.html", "id": "slide-front-more-16", "label": "front-more-16", "kr": "입문 가이드", "gnb": "More", "hay": "front-more-16 입문 가이드 more › learn › beginner more"}, {"f": "ROGer_More.html", "id": "slide-front-more-17", "label": "front-more-17", "kr": "심화 가이드", "gnb": "More", "hay": "front-more-17 심화 가이드 more › learn › core more"}, {"f": "ROGer_More.html", "id": "slide-front-more-08", "label": "front-more-08", "kr": "AI 어시스턴트", "gnb": "More", "hay": "front-more-08 ai 어시스턴트 more › ai assistant more"}, {"f": "ROGer_More.html", "id": "slide-front-more-09", "label": "front-more-09", "kr": "AI 챗봇 대화 이력", "gnb": "More", "hay": "front-more-09 ai 챗봇 대화 이력 more › ai assistant › history more"}, {"f": "ROGer_More.html", "id": "slide-front-more-15", "label": "front-more-15", "kr": "신원 요약", "gnb": "More", "hay": "front-more-15 신원 요약 more › identity more"}, {"f": "ROGer_More.html", "id": "slide-front-more-04", "label": "front-more-04", "kr": "자주 묻는 질문", "gnb": "More", "hay": "front-more-04 자주 묻는 질문 more › help center › faq more"}, {"f": "ROGer_More.html", "id": "slide-front-more-05", "label": "front-more-05", "kr": "1:1 문의", "gnb": "More", "hay": "front-more-05 1:1 문의 more › help center › contact more"}, {"f": "ROGer_More.html", "id": "slide-front-more-06", "label": "front-more-06", "kr": "문의 내역", "gnb": "More", "hay": "front-more-06 문의 내역 more › help center › my tickets more"}, {"f": "ROGer_More.html", "id": "slide-front-more-07", "label": "front-more-07", "kr": "문의 상세", "gnb": "More", "hay": "front-more-07 문의 상세 more › help center › ticket more"}, {"f": "ROGer_More.html", "id": "slide-front-set-05", "label": "front-set-05", "kr": "Security Number 설정", "gnb": "More", "hay": "front-set-05 security number 설정 more › settings › security number more"}, {"f": "ROGer_More.html", "id": "slide-front-set-06", "label": "front-set-06", "kr": "회원 탈퇴", "gnb": "More", "hay": "front-set-06 회원 탈퇴 more › settings › delete account more"}, {"f": "ROGer_More.html", "id": "slide-front-more-13", "label": "front-more-13", "kr": "소셜임팩트펀드 (SIF)", "gnb": "More", "hay": "front-more-13 소셜임팩트펀드 (sif) more › protection fund more"}, {"f": "ROGer_More.html", "id": "slide-front-evt-01", "label": "front-evt-01", "kr": "이벤트 목록", "gnb": "More", "hay": "front-evt-01 이벤트 목록 more › events more"}, {"f": "ROGer_More.html", "id": "slide-front-evt-02", "label": "front-evt-02", "kr": "이벤트 상세", "gnb": "More", "hay": "front-evt-02 이벤트 상세 more › events › detail more"}, {"f": "ROGer_More.html", "id": "slide-front-dmo-01", "label": "front-dmo-01", "kr": "데모", "gnb": "More", "hay": "front-dmo-01 데모 more › preferences › demo more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-03", "label": "front-sec-03", "kr": "시큐리티 넘버 입력 [게이트]", "gnb": "More", "hay": "front-sec-03 시큐리티 넘버 입력 [게이트] more › security › enter security number more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-04", "label": "front-sec-04", "kr": "2FA 코드 입력 [게이트]", "gnb": "More", "hay": "front-sec-04 2fa 코드 입력 [게이트] more › security › enter 2fa more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-05", "label": "front-sec-05", "kr": "시큐리티 넘버 재설정", "gnb": "More", "hay": "front-sec-05 시큐리티 넘버 재설정 more › security › reset security number more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-06", "label": "front-sec-06", "kr": "2FA 복구", "gnb": "More", "hay": "front-sec-06 2fa 복구 more › security › 2fa recovery more"}];
+  var SCREENS=[{"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-avw-01-a", "label": "front-avw-01", "kr": "자산 개요", "gnb": "Portfolio · Home", "hay": "front-avw-01 자산 개요 portfolio · home portfolio · home"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-avw-01-b", "label": "front-avw-01", "kr": "자산 개요", "gnb": "Portfolio · Home", "hay": "front-avw-01 자산 개요 portfolio · home portfolio · home"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-00", "label": "front-pos-00", "kr": "자산 현황", "gnb": "Portfolio", "hay": "front-pos-00 자산 현황 portfolio › positions portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-01", "label": "front-pos-01", "kr": "Broker 포지션 목록", "gnb": "Portfolio", "hay": "front-pos-01 broker 포지션 목록 portfolio › positions › broker portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-ord-01", "label": "front-ord-01", "kr": "주문 내역", "gnb": "Portfolio", "hay": "front-ord-01 주문 내역 portfolio › positions › broker › orders portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-ord-02", "label": "front-ord-02", "kr": "체결 내역", "gnb": "Portfolio", "hay": "front-ord-02 체결 내역 portfolio › positions › broker › orders › executions portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-02", "label": "front-pos-02", "kr": "어닝 포지션 목록", "gnb": "Portfolio", "hay": "front-pos-02 어닝 포지션 목록 portfolio › positions › earn portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03", "label": "front-pos-03", "kr": "어닝 포지션 상세 관리", "gnb": "Portfolio", "hay": "front-pos-03 어닝 포지션 상세 관리 portfolio › positions › earn › detail portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-01", "label": "front-pos-03-01", "kr": "환매 신청 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-01 환매 신청 [모달] portfolio › positions › earn › detail › redeem portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-02", "label": "front-pos-03-02", "kr": "리워드 수령 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-02 리워드 수령 [모달] portfolio › positions › earn › detail › claim portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-03", "label": "front-pos-03-03", "kr": "리워드 재투자 [모달]", "gnb": "Portfolio", "hay": "front-pos-03-03 리워드 재투자 [모달] portfolio › positions › earn › detail › reinvest portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-pos-03-04", "label": "front-pos-03-04", "kr": "요청 완료 (공통 화면)", "gnb": "Portfolio", "hay": "front-pos-03-04 요청 완료 (공통 화면) portfolio › positions › earn › detail › completed portfolio"}, {"f": "260527_Portfolio_WF_ver_0.02.html", "id": "slide-front-perf-01", "label": "front-perf-01", "kr": "수익 현황", "gnb": "Portfolio", "hay": "front-perf-01 수익 현황 portfolio › performance portfolio"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-01-a", "label": "front-trd-01", "kr": "Trade 허브", "gnb": "Trade", "hay": "front-trd-01 trade 허브 trade trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-01-b", "label": "front-trd-01", "kr": "Trade 허브", "gnb": "Trade", "hay": "front-trd-01 trade 허브 trade trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03", "label": "front-trd-03", "kr": "Trade 계좌 개설", "gnb": "Trade", "hay": "front-trd-03 trade 계좌 개설 trade › account setup trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03-01", "label": "front-trd-03-01", "kr": "계좌 활성화", "gnb": "Trade", "hay": "front-trd-03-01 계좌 활성화 trade › setup › activation trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-03-02", "label": "front-trd-03-02", "kr": "계좌 개설 완료 [모달]", "gnb": "Trade", "hay": "front-trd-03-02 계좌 개설 완료 [모달] trade › setup › complete trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-02", "label": "front-trd-02", "kr": "플랫폼별 다운로드", "gnb": "Trade", "hay": "front-trd-02 플랫폼별 다운로드 trade › download trade"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-04", "label": "front-trd-04", "kr": "Trade 계좌 관리", "gnb": "Trade &rsaquo; Account", "hay": "front-trd-04 trade 계좌 관리 trade &rsaquo; account trade &rsaquo; account"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-04-01", "label": "front-trd-04-01", "kr": "연동 해제 확인 [모달]", "gnb": "Trade &rsaquo; Account &rsaquo; Disconnect", "hay": "front-trd-04-01 연동 해제 확인 [모달] trade &rsaquo; account &rsaquo; disconnect trade &rsaquo; account &rsaquo; disconnect"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-05", "label": "front-trd-05", "kr": "자금 이체 (Transfer)", "gnb": "Trade &rsaquo; Account", "hay": "front-trd-05 자금 이체 (transfer) trade &rsaquo; account trade &rsaquo; account"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-trd-07", "label": "front-trd-07", "kr": "거래 터미널 (WebView)", "gnb": "Trade &rsaquo; Terminal", "hay": "front-trd-07 거래 터미널 (webview) trade &rsaquo; terminal trade &rsaquo; terminal"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-01", "label": "front-ern-01", "kr": "Earning 홈", "gnb": "Earning", "hay": "front-ern-01 earning 홈 earning earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-03", "label": "front-ern-03", "kr": "수시 예치 상세", "gnb": "Earning", "hay": "front-ern-03 수시 예치 상세 earning › flexible earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-03-01", "label": "front-ern-03-01", "kr": "투자 확인 [모달]", "gnb": "Earning", "hay": "front-ern-03-01 투자 확인 [모달] earning › flexible › confirm earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-04", "label": "front-ern-04", "kr": "정기 예치 상세", "gnb": "Earning", "hay": "front-ern-04 정기 예치 상세 earning › fixed-term earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-04-01", "label": "front-ern-04-01", "kr": "투자 확인 [모달]", "gnb": "Earning", "hay": "front-ern-04-01 투자 확인 [모달] earning › fixed-term › confirm earning"}, {"f": "ROGer_TradeEarning.html", "id": "slide-front-ern-02", "label": "front-ern-02", "kr": "예치 완료", "gnb": "Earning", "hay": "front-ern-02 예치 완료 earning › complete earning"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-00", "label": "front-acc-00", "kr": "Account 홈", "gnb": "Account", "hay": "front-acc-00 account 홈 account account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-04", "label": "front-acc-04", "kr": "출금 (Deposit식 UI)", "gnb": "Account", "hay": "front-acc-04 출금 (deposit식 ui) account › withdraw account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-05", "label": "front-acc-05", "kr": "자금 트랜잭션 내역", "gnb": "Account", "hay": "front-acc-05 자금 트랜잭션 내역 account › history account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-06", "label": "front-acc-06", "kr": "리워드 센터", "gnb": "Account", "hay": "front-acc-06 리워드 센터 account › rewards account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-01", "label": "front-card-01", "kr": "카드 홈", "gnb": "Account", "hay": "front-card-01 카드 홈 account › card account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-03", "label": "front-acc-03", "kr": "카드 입금 [써드파티 PG]", "gnb": "Account", "hay": "front-acc-03 카드 입금 [써드파티 pg] account › deposit › card account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-02", "label": "front-card-02", "kr": "카드 충전", "gnb": "Account", "hay": "front-card-02 카드 충전 account › card › charge account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-03", "label": "front-card-03", "kr": "카드 관리", "gnb": "Account", "hay": "front-card-03 카드 관리 account › card › settings account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-04", "label": "front-card-04", "kr": "카드 해지 확인 [모달]", "gnb": "Account", "hay": "front-card-04 카드 해지 확인 [모달] account › card › deactivate account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-04-01", "label": "front-acc-04-01", "kr": "출금 [써드파티]", "gnb": "Account", "hay": "front-acc-04-01 출금 [써드파티] account › withdraw › provider account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-07", "label": "front-acc-07", "kr": "Crypto 입금 (General / ROG)", "gnb": "Account", "hay": "front-acc-07 crypto 입금 (general / rog) account › deposit › crypto account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-05", "label": "front-card-05", "kr": "카드 한도 설정", "gnb": "Account", "hay": "front-card-05 카드 한도 설정 account › card › limit account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-06", "label": "front-card-06", "kr": "카드 PIN 변경", "gnb": "Account", "hay": "front-card-06 카드 pin 변경 account › card › pin account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-07", "label": "front-card-07", "kr": "카드 발급", "gnb": "Account", "hay": "front-card-07 카드 발급 account › card › apply account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-09", "label": "front-acc-09", "kr": "은행 입금 안내", "gnb": "Account", "hay": "front-acc-09 은행 입금 안내 account › deposit › bank account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-07-02", "label": "front-acc-07-02", "kr": "써드파티 입금 안내 [모달]", "gnb": "Account", "hay": "front-acc-07-02 써드파티 입금 안내 [모달] account › deposit › crypto › provider account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-06-01", "label": "front-acc-06-01", "kr": "리워드 재투자 [모달]", "gnb": "Account", "hay": "front-acc-06-01 리워드 재투자 [모달] account › rewards › reinvest account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-08", "label": "front-card-08", "kr": "카드 결제 내역", "gnb": "Account", "hay": "front-card-08 카드 결제 내역 account › card › history account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-09", "label": "front-card-09", "kr": "CVV·만료일 확인", "gnb": "Account", "hay": "front-card-09 cvv·만료일 확인 account › card › cvv & expiry account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-10", "label": "front-card-10", "kr": "입장 코드 입력", "gnb": "Account", "hay": "front-card-10 입장 코드 입력 access code account › card › apply account"}, {"f": "ROGer_Account.html", "id": "slide-front-card-11", "label": "front-card-11", "kr": "발급 확인 (발급비·KYC)", "gnb": "Account", "hay": "front-card-11 발급 확인 발급비 kyc issuance fee account › card › apply account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-08", "label": "front-acc-08", "kr": "ROG 토큰 관리", "gnb": "Account", "hay": "front-acc-08 rog 토큰 관리 account › rog token account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-08-01", "label": "front-acc-08-01", "kr": "ROG 출금", "gnb": "Account", "hay": "front-acc-08-01 rog 출금 account › rog token › withdraw account"}, {"f": "ROGer_Account.html", "id": "slide-front-acc-11", "label": "front-acc-11", "kr": "초대 현황", "gnb": "Account", "hay": "front-acc-11 초대 현황 account › referral status account"}, {"f": "ROGer_More.html", "id": "slide-front-more-00", "label": "front-more-00", "kr": "More 홈", "gnb": "More", "hay": "front-more-00 more 홈 more more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-01", "label": "front-ver-01", "kr": "신원 인증 상태", "gnb": "More", "hay": "front-ver-01 신원 인증 상태 more › verification more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-02", "label": "front-ver-02", "kr": "신원 정보 입력", "gnb": "More", "hay": "front-ver-02 신원 정보 입력 more › verification › info more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-03", "label": "front-ver-03", "kr": "서류 제출 [게이트]", "gnb": "More", "hay": "front-ver-03 서류 제출 [게이트] more › verification › documents more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-04", "label": "front-ver-04", "kr": "심사 중", "gnb": "More", "hay": "front-ver-04 심사 중 more › verification › in review more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-05", "label": "front-ver-05", "kr": "인증 거절", "gnb": "More", "hay": "front-ver-05 인증 거절 more › verification › rejected more"}, {"f": "ROGer_More.html", "id": "slide-front-ver-06", "label": "front-ver-06", "kr": "인증 완료", "gnb": "More", "hay": "front-ver-06 인증 완료 more › verification › verified more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-01", "label": "front-sec-01", "kr": "보안 설정", "gnb": "More", "hay": "front-sec-01 보안 설정 more › security more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-02", "label": "front-sec-02", "kr": "2FA 설정", "gnb": "More", "hay": "front-sec-02 2fa 설정 more › security › 2fa more"}, {"f": "ROGer_More.html", "id": "slide-front-prof-01", "label": "front-prof-01", "kr": "프로필", "gnb": "More", "hay": "front-prof-01 프로필 more › profile more"}, {"f": "ROGer_More.html", "id": "slide-front-ref-01", "label": "front-ref-01", "kr": "레퍼럴 (토글: Earning 기본 · Trade)", "gnb": "More", "hay": "front-ref-01 레퍼럴 (토글: earning 기본 · trade) more › referral more"}, {"f": "ROGer_More.html", "id": "slide-front-noti-01", "label": "front-noti-01", "kr": "알림 설정", "gnb": "More", "hay": "front-noti-01 알림 설정 more › notifications more"}, {"f": "ROGer_More.html", "id": "slide-front-lang-01", "label": "front-lang-01", "kr": "언어·지역", "gnb": "More", "hay": "front-lang-01 언어·지역 more › language more"}, {"f": "ROGer_More.html", "id": "slide-front-help-01", "label": "front-help-01", "kr": "고객센터", "gnb": "More", "hay": "front-help-01 고객센터 more › help more"}, {"f": "ROGer_More.html", "id": "slide-front-legal-01", "label": "front-legal-01", "kr": "약관·정책", "gnb": "More", "hay": "front-legal-01 약관·정책 more › legal more"}, {"f": "ROGer_More.html", "id": "slide-front-prof-02", "label": "front-prof-02", "kr": "프로필 사진 변경", "gnb": "More", "hay": "front-prof-02 프로필 사진 변경 more › profile › photo more"}, {"f": "ROGer_More.html", "id": "slide-front-more-01", "label": "front-more-01", "kr": "공지사항 목록", "gnb": "More", "hay": "front-more-01 공지사항 목록 more › notices more"}, {"f": "ROGer_More.html", "id": "slide-front-more-02", "label": "front-more-02", "kr": "공지사항 상세", "gnb": "More", "hay": "front-more-02 공지사항 상세 more › notices › detail more"}, {"f": "ROGer_More.html", "id": "slide-front-learn-01", "label": "front-learn-01", "kr": "학습 목록", "gnb": "More", "hay": "front-learn-01 학습 목록 more › learn more"}, {"f": "ROGer_More.html", "id": "slide-front-more-16", "label": "front-more-16", "kr": "입문 가이드", "gnb": "More", "hay": "front-more-16 입문 가이드 more › learn › beginner more"}, {"f": "ROGer_More.html", "id": "slide-front-more-17", "label": "front-more-17", "kr": "심화 가이드", "gnb": "More", "hay": "front-more-17 심화 가이드 more › learn › core more"}, {"f": "ROGer_More.html", "id": "slide-front-more-08", "label": "front-more-08", "kr": "AI 어시스턴트", "gnb": "More", "hay": "front-more-08 ai 어시스턴트 more › ai assistant more"}, {"f": "ROGer_More.html", "id": "slide-front-more-09", "label": "front-more-09", "kr": "AI 챗봇 대화 이력", "gnb": "More", "hay": "front-more-09 ai 챗봇 대화 이력 more › ai assistant › history more"}, {"f": "ROGer_More.html", "id": "slide-front-more-15", "label": "front-more-15", "kr": "신원 요약", "gnb": "More", "hay": "front-more-15 신원 요약 more › identity more"}, {"f": "ROGer_More.html", "id": "slide-front-more-04", "label": "front-more-04", "kr": "자주 묻는 질문", "gnb": "More", "hay": "front-more-04 자주 묻는 질문 more › help center › faq more"}, {"f": "ROGer_More.html", "id": "slide-front-more-05", "label": "front-more-05", "kr": "1:1 문의", "gnb": "More", "hay": "front-more-05 1:1 문의 more › help center › contact more"}, {"f": "ROGer_More.html", "id": "slide-front-more-06", "label": "front-more-06", "kr": "문의 내역", "gnb": "More", "hay": "front-more-06 문의 내역 more › help center › my tickets more"}, {"f": "ROGer_More.html", "id": "slide-front-more-07", "label": "front-more-07", "kr": "문의 상세", "gnb": "More", "hay": "front-more-07 문의 상세 more › help center › ticket more"}, {"f": "ROGer_More.html", "id": "slide-front-set-05", "label": "front-set-05", "kr": "Security Number 설정", "gnb": "More", "hay": "front-set-05 security number 설정 more › settings › security number more"}, {"f": "ROGer_More.html", "id": "slide-front-set-06", "label": "front-set-06", "kr": "회원 탈퇴", "gnb": "More", "hay": "front-set-06 회원 탈퇴 more › settings › delete account more"}, {"f": "ROGer_More.html", "id": "slide-front-more-13", "label": "front-more-13", "kr": "소셜임팩트펀드 (SIF)", "gnb": "More", "hay": "front-more-13 소셜임팩트펀드 (sif) more › protection fund more"}, {"f": "ROGer_More.html", "id": "slide-front-evt-01", "label": "front-evt-01", "kr": "이벤트 목록", "gnb": "More", "hay": "front-evt-01 이벤트 목록 more › events more"}, {"f": "ROGer_More.html", "id": "slide-front-evt-02", "label": "front-evt-02", "kr": "이벤트 상세", "gnb": "More", "hay": "front-evt-02 이벤트 상세 more › events › detail more"}, {"f": "ROGer_More.html", "id": "slide-front-dmo-01", "label": "front-dmo-01", "kr": "데모", "gnb": "More", "hay": "front-dmo-01 데모 more › preferences › demo more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-03", "label": "front-sec-03", "kr": "시큐리티 넘버 입력 [게이트]", "gnb": "More", "hay": "front-sec-03 시큐리티 넘버 입력 [게이트] more › security › enter security number more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-04", "label": "front-sec-04", "kr": "2FA 코드 입력 [게이트]", "gnb": "More", "hay": "front-sec-04 2fa 코드 입력 [게이트] more › security › enter 2fa more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-05", "label": "front-sec-05", "kr": "시큐리티 넘버 재설정", "gnb": "More", "hay": "front-sec-05 시큐리티 넘버 재설정 more › security › reset security number more"}, {"f": "ROGer_More.html", "id": "slide-front-sec-06", "label": "front-sec-06", "kr": "2FA 복구", "gnb": "More", "hay": "front-sec-06 2fa 복구 more › security › 2fa recovery more"}];
   var css='#scrSearch{position:fixed;top:92px;right:20px;z-index:100000;font:600 12px/1.3 system-ui,-apple-system,sans-serif;text-align:right;}'+'#scrInput{width:248px;padding:8px 11px;border:1px solid #d0d0d0;border-radius:8px;background:#fff;color:#111;outline:none;box-shadow:0 1px 3px rgba(0,0,0,.08);}'+'#scrInput:focus{border-color:#111;}'+'#scrInput::placeholder{color:#999;font-weight:500;}'+'#scrResults{display:none;margin-top:5px;max-height:360px;overflow-y:auto;width:272px;text-align:left;background:#fff;border:1px solid #e2e2e2;border-radius:8px;box-shadow:0 6px 20px rgba(0,0,0,.14);}'+'.scr-row{display:flex;flex-direction:column;gap:1px;padding:8px 11px;border-bottom:1px solid #f0f0f0;cursor:pointer;}'+'.scr-row:last-child{border-bottom:0;}'+'.scr-row:hover,.scr-row.on{background:#f4f4f4;}'+'.scr-id{font-size:11px;font-weight:700;color:#111;font-family:ui-monospace,SFMono-Regular,monospace;}'+'.scr-kr{font-size:10.5px;color:#777;font-weight:500;}'+'.scr-empty{padding:10px 11px;color:#999;font-weight:500;}';
   var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
   var box=document.createElement('div');box.id='scrSearch';
@@ -5042,4 +5104,5 @@ function goTo(id) {
 })();
 </script>
 <script>(function(){function a(){try{if(localStorage.getItem("roger_demo")==="on")document.body.classList.add("demo-on");}catch(e){}}if(document.body)a();else document.addEventListener("DOMContentLoaded",a);}());</script>
+<script>function toggleMask(el){var c=el.closest(".card");if(!c)return;var m=c.getAttribute("data-masked")==="1";c.setAttribute("data-masked",m?"0":"1");c.querySelectorAll(".js-amt").forEach(function(a){if(m){a.textContent=a.getAttribute("data-orig");}else{if(!a.getAttribute("data-orig"))a.setAttribute("data-orig",a.textContent);a.textContent="\u2022\u2022\u2022\u2022\u2022";}});}</script>
 </body></html>
