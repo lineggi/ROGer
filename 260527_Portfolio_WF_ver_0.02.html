@@ -1608,27 +1608,77 @@ function goTo(id) {
                   </div>
                   <div class="h-amount" style="margin-top:2px;font-size:26px;position:relative;display:inline-block;">
                     <span class="sub-cal" style="inset:-2px -4px"><span class="sub-tag tag-b tag-r">3-1</span></span>
-                    <span class="js-amt" data-orig="$12,438.52">$12,438.52</span><span class="ccy">USD</span>
+                    <span class="js-amt" data-orig="$12,000.00">$12,000.00</span>
                   </div>
                   <div class="row" style="margin-top:4px;">
                     <span style="font-size:12px;font-weight:600;position:relative;display:inline-block;">
                       <span class="sub-cal" style="inset:-2px -4px"><span class="sub-tag tag-b tag-r">3-2</span></span>
-                      <span class="js-amt" data-orig="↗ +$24.18 (+0.20%)">↗ +$24.18 (+0.20%)</span> <span class="muted" style="font-weight:500;">today</span>
+                      <span class="js-amt" data-orig="↗ +$60.00 (+0.50%)">↗ +$60.00 (+0.50%)</span>
                     </span>
                     <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perA');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px"><span class="sub-tag tag-b tag-r">3-4</span></span>
-                      <span id="perA-l">Last 24h</span> &#9662;
-                      <div id="perA" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='Last 24h';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">Last 24h</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='7d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='30d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='90d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='1Y';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='All';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
+                      <span id="perA-l">24h</span> &#9662;
+                      <div id="perA" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='24h';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">24h</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='7d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='30d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='90d';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='1Y';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perA-l').textContent='All';document.getElementById('perA').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="section" style="padding:2px 20px 2px;"><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border:1px solid var(--line);border-radius:10px;"><span style="font-size:11px;color:var(--ink-3);font-weight:600;">Total assets</span><span style="font-size:15px;font-weight:800;">$12,563</span></div></div>
+            <!-- ⑥ asset breakdown card -->
+            <div class="section" style="padding:0 20px 2px;">
+              <div class="cal-wrap">
+                <div class="cal"><span class="cal-tag">4</span></div>
+                <div class="card" style="padding:12px 14px;">
+                  <div style="display:flex;flex-direction:column;gap:3px;">
+                    <div class="row" style="margin-bottom:4px;"><span class="kicker">Asset</span><span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub"> <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">4-5</span><span class="proto-badge-next">&#8594; pos-00</span></span> View all › </span></div>
+                    <div style="flex:1;display:grid;gap:2px;">
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">4-1</span></span>
+                        <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Cash</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,000.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">4-2</span></span>
+                        <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Earning</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,000.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">4-3</span></span>
+                        <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Broker</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,500.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">4-4</span></span>
+                        <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">ROG</div>
+                          <div class="faint" style="font-size:9.5px;">500.00 ROG</div>
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$500.00</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
             <!-- verification banner (chrome alert) -->
             <div class="section" style="padding:6px 20px 0;">
-              <div class="cal-wrap"><div class="cal"><span class="cal-tag">4</span></div><div style="display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;">
+              <div class="cal-wrap"><div class="cal"><span class="cal-tag">5</span></div><div style="display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;">
                 <span style="width:18px;height:18px;border-radius:50%;background:#111;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">!</span>
                 <div style="flex:1;font-size:11px;color:var(--ink-2);line-height:1.3;">Verify your identity to trade, deposit &amp; withdraw.</div>
                 <span onclick="location.href='ROGer_More.html#slide-front-ver-01'" style="font-size:11px;font-weight:700;color:#111;white-space:nowrap;cursor:pointer;">Verify now &#8250;</span>
@@ -1638,15 +1688,15 @@ function goTo(id) {
             <!-- 4 quick actions -->
             <div class="section" style="padding:2px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">5</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
                 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:2px 0;">
                   <div onclick="location.href='ROGer_Account.html#slide-front-acc-03'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-1</span></span>
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">6-1</span></span>
                     <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Deposit
                   </div>
                   <div onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">5-2</span></span>
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px;display:none"><span class="sub-tag tag-b tag-r">6-2</span></span>
                     <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Earning
                   </div>
@@ -1657,7 +1707,7 @@ function goTo(id) {
                         <!-- promo / event banner -->
             <div class="section" style="padding:8px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">6</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">7</span></div>
                 <div onclick="location.href='ROGer_More.html#slide-front-evt-01'" style="border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--paper-2);">
                   <div>
                     <span style="display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;color:#b97a00;background:#fff4e5;border-radius:8px;padding:2px 7px;margin-bottom:5px;">EVENT</span>
@@ -1677,7 +1727,7 @@ function goTo(id) {
             <!-- ⑤ daily reward strip -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">7</span></div>
+                <div class="cal" style="display:none"><span class="cal-tag">8</span></div>
                 <div class="card" onclick="goTo('slide-front-perf-01')" style="padding:10px 14px;cursor:pointer;position:relative;">
                   <div class="row">
                     <div>
@@ -1696,64 +1746,6 @@ function goTo(id) {
                 </div>
               </div>
             </div>
-
-            <!-- ⑥ asset breakdown card -->
-            <div class="section" style="padding:0 20px 2px;">
-              <div class="row" style="margin-bottom:6px;">
-                <span></span>
-                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub">
-                  <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">8-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
-                  View all ›
-                </span>
-              </div>
-              <div class="cal-wrap">
-                <div class="cal" style="display:none"><span class="cal-tag">8</span></div>
-                <div class="card" style="padding:12px 14px;">
-                  <div style="display:flex;flex-direction:column;gap:3px;">
-                    <div style="margin-bottom:2px;"><span class="kicker">Asset</span></div>
-                    <div style="flex:1;display:grid;gap:2px;">
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-1</span></span>
-                        <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Cash</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,210</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-2</span></span>
-                        <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Earning</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,820</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-3</span></span>
-                        <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Broker</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,358</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">8-4</span></span>
-                        <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">ROG</div>
-                          <div class="faint" style="font-size:9.5px;">168.50 ROG</div>
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$175</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
             <!-- 6 recent activity -->
             <div class="section" style="padding:2px 20px 2px;">
@@ -1785,7 +1777,7 @@ function goTo(id) {
 
           <!-- 7 GNB -->
           <div class="cal-wrap">
-            <div class="cal" style="display:none;inset:0;border-radius:0 0 44px 44px"><span class="cal-tag" style="top:8px;left:8px;">10</span></div>
+            <div class="cal" style="inset:0;border-radius:0 0 44px 44px;display:none"><span class="cal-tag" style="top:8px;left:8px;">10</span></div>
             <div class="phone-gnb">
               <div class="gnb-item active"><div class="gnb-dummy-icon"></div>Portfolio</div>
               <div class="gnb-item"><div class="gnb-dummy-icon"></div>Trade</div>
@@ -1856,12 +1848,12 @@ function goTo(id) {
               <li><span class="num">3-1</span><span><b>Amount.</b> 실시간 시세 기반 합산(Cash+투자금+리워드+ROG).</span></li>
               <li><span class="num">3-2</span><span><b>Change.</b> 선택 기간(2-4) 대비 변화량 및 변화율. <b>표시 전용 — 클릭/이동 없음.</b></span></li>
               <li><span class="num">3-3</span><span><b>Visibility toggle.</b> 금액 마스킹 — 토글 off 시 <b>금액에 상관없이 '•••••'로 노출</b>(실제 값·자릿수 비반영, 고정 5점).</span></li>
-              <li><span class="num">3-4</span><span><b>Period.</b> Last 24h(기본) · 7d · 30d · 90d · 1Y · All.(기간에 해당하는 금액 노출)<br>선택값은 3-2에 즉시 반영. 총자산 3-1은 항상 현재값.</span></li>
+              <li><span class="num">3-4</span><span><b>Period.</b> 24h(기본) · 7d · 30d · 90d · 1Y · All.(기간에 해당하는 금액 노출)<br>선택값은 3-2에 즉시 반영. 총자산 3-1은 항상 현재값.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
               <ul>
-                <li>잔액 $0: "$0.00 USD" 표시 (빈 상태 내 별도 없음)</li>
+                <li>잔액 $0: "$0.00" 표시 (빈 상태 내 별도 없음)</li>
                 <li>변화 음수: ↓ 아이콘 + 빨간색 표시</li>
                 <li>3-3 off 상태: 재진입 시 마스킹 유지 (디바이스 저장)</li>
                 <li>3-4 기간: 세션 내 유지, 앱 재실행 시 24h 초기화</li>
@@ -1870,7 +1862,7 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">4</span>
+          <span class="desc-num">5</span>
           <div class="desc-body">
             <span class="lbl">Verification 안내 배너 <span style="font-weight:500;color:#777;font-size:12px;">(신원 인증)</span></span>
             거래 · 입금 · 출금 전 신원 인증(KYC)이 필요함을 알리는 안내 배너.<br>
@@ -1986,27 +1978,77 @@ function goTo(id) {
                   </div>
                   <div class="h-amount" style="margin-top:2px;font-size:26px;position:relative;display:inline-block;">
                     <span class="sub-cal" style="inset:-2px -4px;display:none"><span class="sub-tag tag-b tag-r">3-1</span></span>
-                    <span class="js-amt" data-orig="$12,438.52">$12,438.52</span><span class="ccy">USD</span>
+                    <span class="js-amt" data-orig="$12,000.00">$12,000.00</span>
                   </div>
                   <div class="row" style="margin-top:4px;">
                     <span style="font-size:12px;font-weight:600;position:relative;display:inline-block;">
                       <span class="sub-cal" style="inset:-2px -4px;display:none"><span class="sub-tag tag-b tag-r">3-2</span></span>
-                      <span class="js-amt" data-orig="↗ +$24.18 (+0.20%)">↗ +$24.18 (+0.20%)</span> <span class="muted" style="font-weight:500;">today</span>
+                      <span class="js-amt" data-orig="↗ +$60.00 (+0.50%)">↗ +$60.00 (+0.50%)</span>
                     </span>
                     <span class="chip ghost" onclick="event.stopPropagation();var m=document.getElementById('perB');var o=m.style.display==='block';document.querySelectorAll('.per-menu').forEach(function(x){x.style.display='none'});m.style.display=o?'none':'block';" style="height:22px;font-size:10px;position:relative;cursor:pointer;">
                       <span class="sub-cal" style="inset:-3px;border-radius:13px;display:none"><span class="sub-tag tag-b tag-r">3-4</span></span>
-                      <span id="perB-l">Last 24h</span> &#9662;
-                      <div id="perB" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='Last 24h';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">Last 24h</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='7d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='30d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='90d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='1Y';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='All';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
+                      <span id="perB-l">24h</span> &#9662;
+                      <div id="perB" class="per-menu" style="display:none;position:absolute;top:24px;right:0;z-index:60;background:#fff;border:1px solid var(--line);border-radius:8px;box-shadow:0 4px 14px rgba(0,0,0,.14);overflow:hidden;text-align:left;"><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='24h';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">24h</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='7d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">7d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='30d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">30d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='90d';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">90d</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='1Y';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">1Y</div><div onclick="event.stopPropagation();document.getElementById('perB-l').textContent='All';document.getElementById('perB').style.display='none';" onmouseover="this.style.background='var(--paper-2)'" onmouseout="this.style.background='#fff'" style="padding:7px 12px;font-size:11px;font-weight:600;cursor:pointer;white-space:nowrap;">All</div></div>
                     </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div class="section" style="padding:2px 20px 2px;"><div style="display:flex;justify-content:space-between;align-items:center;padding:9px 14px;border:1px solid var(--line);border-radius:10px;"><span style="font-size:11px;color:var(--ink-3);font-weight:600;">Total assets</span><span style="font-size:15px;font-weight:800;">$12,563</span></div></div>
+            <!-- ⑥ asset breakdown card -->
+            <div class="section" style="padding:0 20px 2px;">
+              <div class="cal-wrap">
+                <div class="cal" style="display:none"><span class="cal-tag">4</span></div>
+                <div class="card" style="padding:12px 14px;">
+                  <div style="display:flex;flex-direction:column;gap:3px;">
+                    <div class="row" style="margin-bottom:4px;"><span class="kicker">Asset</span><span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub"> <span class="sub-cal" style="inset:-3px -4px;display:none"><span class="sub-tag tag-b tag-r">4-5</span><span class="proto-badge-next">&#8594; pos-00</span></span> View all › </span></div>
+                    <div style="flex:1;display:grid;gap:2px;">
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">4-1</span></span>
+                        <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Cash</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,000.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">4-2</span></span>
+                        <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Earning</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,000.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">4-3</span></span>
+                        <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">Broker</div>
+                          
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,500.00</div>
+                      </div>
+                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
+                        <span class="sub-cal" style="inset:1px -6px 1px -6px;display:none"><span class="sub-tag tag-b tag-r">4-4</span></span>
+                        <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
+                        <div>
+                          <div style="font-size:12px;font-weight:700;">ROG</div>
+                          <div class="faint" style="font-size:9.5px;">500.00 ROG</div>
+                        </div>
+                        <div style="font-size:12px;font-weight:700;text-align:right;">$500.00</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
             <!-- verification banner (chrome alert) -->
             <div class="section" style="padding:6px 20px 0;">
-              <div class="cal-wrap"><div class="cal" style="display:none"><span class="cal-tag">4</span></div><div style="display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;">
+              <div class="cal-wrap"><div class="cal" style="display:none"><span class="cal-tag">5</span></div><div style="display:flex;align-items:center;gap:8px;background:var(--paper-2);border:1px solid var(--line);border-radius:10px;padding:8px 11px;">
                 <span style="width:18px;height:18px;border-radius:50%;background:#111;color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;">!</span>
                 <div style="flex:1;font-size:11px;color:var(--ink-2);line-height:1.3;">Verify your identity to trade, deposit &amp; withdraw.</div>
                 <span onclick="location.href='ROGer_More.html#slide-front-ver-01'" style="font-size:11px;font-weight:700;color:#111;white-space:nowrap;cursor:pointer;">Verify now &#8250;</span>
@@ -2016,15 +2058,15 @@ function goTo(id) {
             <!-- 4 quick actions -->
             <div class="section" style="padding:2px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">5</span></div>
+                <div class="cal"><span class="cal-tag">6</span></div>
                 <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px;padding:2px 0;">
                   <div onclick="location.href='ROGer_Account.html#slide-front-acc-03'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-1</span></span>
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">6-1</span></span>
                     <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Deposit
                   </div>
                   <div onclick="location.href='ROGer_TradeEarning.html#slide-front-ern-01'" style="cursor:pointer;display:grid;justify-items:center;gap:4px;font-size:10.5px;font-weight:600;position:relative;">
-                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">5-2</span></span>
+                    <span class="sub-cal" style="inset:-4px;border-radius:10px"><span class="sub-tag tag-b tag-r">6-2</span></span>
                     <div style="width:24px;height:24px;border-radius:50%;background:#ccc;"></div>
                     Earning
                   </div>
@@ -2035,7 +2077,7 @@ function goTo(id) {
                         <!-- promo / event banner -->
             <div class="section" style="padding:8px 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">6</span></div>
+                <div class="cal"><span class="cal-tag">7</span></div>
                 <div onclick="location.href='ROGer_More.html#slide-front-evt-01'" style="border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;position:relative;display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--paper-2);">
                   <div>
                     <span style="display:inline-block;font-size:9px;font-weight:800;letter-spacing:.06em;color:#b97a00;background:#fff4e5;border-radius:8px;padding:2px 7px;margin-bottom:5px;">EVENT</span>
@@ -2055,7 +2097,7 @@ function goTo(id) {
             <!-- ⑤ daily reward strip -->
             <div class="section" style="padding:0 20px 2px;">
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">7</span></div>
+                <div class="cal"><span class="cal-tag">8</span></div>
                 <div class="card" onclick="goTo('slide-front-perf-01')" style="padding:10px 14px;cursor:pointer;position:relative;">
                   <div class="row">
                     <div>
@@ -2074,64 +2116,6 @@ function goTo(id) {
                 </div>
               </div>
             </div>
-
-            <!-- ⑥ asset breakdown card -->
-            <div class="section" style="padding:0 20px 2px;">
-              <div class="row" style="margin-bottom:6px;">
-                <span></span>
-                <span style="font-size:11px;color:#555;font-weight:600;position:relative;cursor:pointer;" onclick="goTo('slide-front-pos-00')" title="→ front-pos-00 Asset Hub">
-                  <span class="sub-cal" style="inset:-3px -4px"><span class="sub-tag tag-b tag-r">8-5</span><span class="proto-badge-next">&#8594; pos-00</span></span>
-                  View all ›
-                </span>
-              </div>
-              <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">8</span></div>
-                <div class="card" style="padding:12px 14px;">
-                  <div style="display:flex;flex-direction:column;gap:3px;">
-                    <div style="margin-bottom:2px;"><span class="kicker">Asset</span></div>
-                    <div style="flex:1;display:grid;gap:2px;">
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-1</span></span>
-                        <span style="width:9px;height:9px;background:#5e5e5e;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Cash</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$4,210</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-2</span></span>
-                        <span style="width:9px;height:9px;background:#111;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Earning</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$6,820</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-3</span></span>
-                        <span style="width:9px;height:9px;background:#a3a3a3;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">Broker</div>
-                          
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$1,358</div>
-                      </div>
-                      <div style="display:grid;grid-template-columns:10px 1fr 80px;gap:8px;align-items:center;padding:1.5px 6px 1.5px 0;position:relative;">
-                        <span class="sub-cal" style="inset:1px -6px 1px -6px"><span class="sub-tag tag-b tag-r">8-4</span></span>
-                        <span style="width:9px;height:9px;background:#d0d0d0;border:1px solid #aaa;border-radius:2px;"></span>
-                        <div>
-                          <div style="font-size:12px;font-weight:700;">ROG</div>
-                          <div class="faint" style="font-size:9.5px;">168.50 ROG</div>
-                        </div>
-                        <div style="font-size:12px;font-weight:700;text-align:right;">$175</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
 
             <!-- 6 recent activity -->
             <div class="section" style="padding:2px 20px 2px;">
@@ -2181,13 +2165,13 @@ function goTo(id) {
     <div class="sb-desc-col">
       <div class="desc-grid cols-2">
         <div class="desc-item">
-          <span class="desc-num">5</span>
+          <span class="desc-num">6</span>
           <div class="desc-body">
             <span class="lbl">Quick Actions <span style="font-weight:500;color:#777;font-size:12px;">(바로가기 행)</span></span>
             자금 추가·운용 핵심 단축 2개. (입출금·리워드 전체는 Account 홈에서)
             <ul class="sub-list">
-              <li><span class="num">5-1</span><span><b>Deposit.</b> 탭 → <code>ROGer_Account.html#front-acc-03</code> Account 입금(정본).<br>Card · Bank · Crypto — 금액·실행은 써드파티.</span></li>
-              <li><span class="num">5-2</span><span><b>Earning.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
+              <li><span class="num">6-1</span><span><b>Deposit.</b> 탭 → <code>ROGer_Account.html#front-acc-03</code> Account 입금(정본).<br>Card · Bank · Crypto — 금액·실행은 써드파티.</span></li>
+              <li><span class="num">6-2</span><span><b>Earning.</b> 탭 → <code>front-ern-01</code> Earning 홈(GNB 3).<br>Flexible · Fixed-term 예치 진입.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -2200,7 +2184,7 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">6</span>
+          <span class="desc-num">7</span>
           <div class="desc-body">
             <span class="lbl">Promo / Event banner</span>
             이벤트·프로모션 배너 영역(캐러셀). 탭 시 <code>front-evt-01</code> 이벤트 목록으로 이동.<br>
@@ -2209,7 +2193,7 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">7</span>
+          <span class="desc-num">8</span>
           <div class="desc-body">
             <span class="lbl">Today's Reward <span style="font-weight:500;color:#777;font-size:12px;">(일별 리워드 strip)</span></span>
             Earner · Trader 랏 · Referral 3개 소스 리워드 합산.<br>
@@ -2224,16 +2208,16 @@ function goTo(id) {
           </div>
         </div>
         <div class="desc-item">
-          <span class="desc-num">8</span>
+          <span class="desc-num">4</span>
           <div class="desc-body">
             <span class="lbl">Asset <span style="font-weight:500;color:#777;font-size:12px;">(자산 리스트)</span></span>
             Cash / Earn / Broker / ROG 4개 자산군을 리스트로 표기(항목별 금액, 비중% 미표기). 상단에 총 자산 표시. (모바일 가독성 위해 도넛 차트 미사용)
             <ul class="sub-list">
-              <li><span class="num">8-1</span><span><b>Cash.</b> USD 예수금.</span></li>
-              <li><span class="num">8-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
-              <li><span class="num">8-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
-              <li><span class="num">8-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
-              <li><span class="num">8-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Asset Hub.</span></li>
+              <li><span class="num">4-1</span><span><b>Cash.</b> USD 예수금.</span></li>
+              <li><span class="num">4-2</span><span><b>Earn.</b> Flexible + Fixed-term 합산 평가액(투자금+리워드).</span></li>
+              <li><span class="num">4-3</span><span><b>Broker.</b> Broker 계좌 잔액 + 평가손익.</span></li>
+              <li><span class="num">4-4</span><span><b>ROG.</b> ROG 토큰 잔량 × ROG/USD 환율.</span></li>
+              <li><span class="num">4-5</span><span><b>View all ›</b> 탭 → <code>front-pos-00</code> Asset Hub.</span></li>
             </ul>
             <div class="desc-exc">
               <b>예외 변수</b>
@@ -2323,12 +2307,12 @@ function goTo(id) {
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">1</span></div>
                 <div class="card" style="padding:14px;">
-                  <div class="kicker">Earning capital</div>
-                  <div class="h-amount" style="margin-top: 2px; font-size: 26px;" contenteditable="true">$8,178.52<span style="font-size: 26px; letter-spacing: -0.26px;"></span></div>
+                  <div class="kicker">Total Value</div>
+                  <div class="h-amount" style="margin-top: 2px; font-size: 26px;" contenteditable="true">$12,000.00<span style="font-size: 26px; letter-spacing: -0.26px;"></span></div>
                   <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:10px;padding-top:10px;border-top:1px solid var(--line-2);">
                     <div>
                       <div class="faint" style="font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Today P&amp;L</div>
-                      <div style="font-size:15px;font-weight:700;margin-top:2px;">+$66.48</div>
+                      <div style="font-size:15px;font-weight:700;margin-top:2px;">+$60.00</div>
                     </div>
                     <div>
                       <div class="faint" style="font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;">Active</div>
@@ -2343,7 +2327,7 @@ function goTo(id) {
             <div class="section" style="padding:10px 20px 4px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">Cash</span>
-                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-05</span></span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-05'" title="→ front-acc-05 Transaction history">Detail ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-05</span></span>
               </div>
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">2</span></div>
@@ -2354,30 +2338,7 @@ function goTo(id) {
                       <div class="ttl">USD</div>
                       <div class="sub">Available balance</div>
                     </div>
-                    <div class="amt">$4,210.00</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- 4 Broker group -->
-            <div class="section" style="padding:10px 20px 4px;">
-              <div class="row" style="margin-bottom:6px;">
-                <span style="font-size: 13px; font-weight: 700;">Broker&nbsp;</span>
-                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="goTo('slide-front-pos-01')" title="→ front-pos-01 Broker Positions">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; pos-01</span></span>
-              </div>
-              <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">3</span></div>
-                <div class="card" style="padding:2px 14px;">
-                  <div class="list-row" style="padding:8px 0;">
-                    <div class="av">FX</div>
-                    <div><div class="ttl">EUR/USD <span title="Buy / Long" style="display:inline-block;margin-left:4px;font-size:14px;font-weight:800;color:var(--ink-2);line-height:1;">&#8599;</span></div><div class="sub">0.50 lot · 1.0824 → 1.0851</div></div>
-                    <div class="amt">+$13.50</div>
-                  </div>
-                  <div class="list-row" style="padding:8px 0;">
-                    <div class="av">FX</div>
-                    <div><div class="ttl">XAU/USD <span title="Sell / Short" style="display:inline-block;margin-left:4px;font-size:14px;font-weight:800;color:var(--ink-2);line-height:1;">&#8600;</span></div><div class="sub">0.10 lot · 2,341 → 2,338</div></div>
-                    <div class="amt">+$3.00</div>
+                    <div class="amt">$4,000.00</div>
                   </div>
                 </div>
               </div>
@@ -2387,20 +2348,21 @@ function goTo(id) {
             <div class="section" style="padding:6px 20px 6px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">Earning</span>
-                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="goTo('slide-front-pos-02')" title="→ front-pos-02 Earn Positions">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; pos-02</span></span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="goTo('slide-front-pos-02')" title="→ front-pos-02 Earn Positions">Detail ›<span class="proto-badge" style="margin-left:4px;">&#8594; pos-02</span></span>
               </div>
               <div class="cal-wrap">
-                <div class="cal"><span class="cal-tag">4</span></div>
+                <div class="cal"><span class="cal-tag">3</span></div>
                 <div class="card" style="padding:2px 14px;">
                   <div class="list-row" style="padding:8px 0;">
                     <div class="av">F</div>
-                    <div><div class="ttl" style="">Flexible</div><div class="sub">$3,820.50 · 12.4% APR</div></div>
-                    <div class="amt">+$1.31</div>
+                    <div><div class="ttl" style="">Flexible</div><div class="sub">12.4% APR · +$1.31</div></div>
+                    <div class="amt">$4,000.00</div>
                   </div>
-                  <div class="list-row" style="padding:8px 0;">
-                    <div class="av">FX</div>
-                    <div><div class="ttl" style="">Fixed-term</div><div class="sub">$2,000.00 · 14.5% APR · 312d left</div></div>
-                    <div class="amt">+$0.79</div>
+                  
+                    <div class="amt">+$13.50</div>
+                  </div>
+                  
+                    <div class="amt">+$3.00</div>
                   </div>
                 </div>
               </div>
@@ -2410,7 +2372,7 @@ function goTo(id) {
             <div class="section" style="padding:6px 20px 12px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">ROG</span>
-                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-08'" title="→ front-acc-08 ROG token">View all ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-08</span></span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="location.href='ROGer_Account.html#slide-front-acc-08'" title="→ front-acc-08 ROG token">Detail ›<span class="proto-badge" style="margin-left:4px;">&#8594; acc-08</span></span>
               </div>
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">5</span></div>
@@ -2419,9 +2381,9 @@ function goTo(id) {
                     <div class="av round">R</div>
                     <div>
                       <div class="ttl">ROG Token</div>
-                      <div class="sub" style="">168.50 ROG · $1.04 / ROG</div>
+                      <div class="sub" style="">500 ROG · $1.00 / ROG</div>
                     </div>
-                    <div class="amt">$175.24</div>
+                    <div class="amt">$500.00</div>
                   </div>
                 </div>
               </div>
@@ -2451,8 +2413,8 @@ function goTo(id) {
         <div class="desc-item">
           <span class="desc-num">1</span>
           <div class="desc-body">
-            <span class="lbl">Earning capital</span>
-            Earn(투자금 & 리워드) + Broker에 투입된 자금 + 평가손익의 총합.<br>
+            <span class="lbl">Total Value</span>
+            전체 자산 평가액 합계(Cash + Earn 투자금·리워드 + Broker 잔액·평가손익). avw-01 Total Value와 동일.<br>
             하단 지표: 오늘 발생한 P&amp;L 합계(어닝 리워드 + 트레이딩 손익) · 활성 포지션 수.
           </div>
         </div>
@@ -2462,17 +2424,28 @@ function goTo(id) {
           <div class="desc-body">
             <span class="lbl">Cash 그룹 미리보기</span>
             ROGer 증권 계좌의 USD 예수금 잔액.<br>
-            "View all" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (Cash 필터).
+            "Detail" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (Cash 필터).
           </div>
         </div>
 
         <div class="desc-item">
           <span class="desc-num">3</span>
           <div class="desc-body">
+            <span class="lbl">Earn 그룹 미리보기</span>
+            어닝 포지션 중 상위 2건.<br>
+            각 행: 상품명(Flexible/Fixed-term + 통화), 원금, APR(+만기일), 오늘 적립 리워드.<br>
+            "Detail" 또는 카드 탭 시 <code>front-pos-02</code> Earn 포지션 목록으로 이동.<br>
+            개별 행 탭 시 <code>front-pos-03</code> 상세 관리로 이동.
+          </div>
+        </div>
+
+        <div class="desc-item">
+          <span class="desc-num">4</span>
+          <div class="desc-body">
             <span class="lbl">Broker 그룹 미리보기</span>
             Broker 오픈 포지션 중 상위 2건.<br>
             각 행: pair · 방향 화살표(↗/↘) · lot 수량 · 진입가 → 현재가 · 평가손익.<br>
-            "View all" 또는 카드 탭 시 <code>front-pos-01</code> Broker 포지션 목록으로 이동.
+            "Detail" 또는 카드 탭 시 <code>front-pos-01</code> Broker 포지션 목록으로 이동.
             <div class="desc-exc">
               <b>예외 변수</b>
               <ul><li>개별 행 탭은 Broker WebView로 진입 (별도 ROGer 상세 화면 없음).</li></ul>
@@ -2481,22 +2454,11 @@ function goTo(id) {
         </div>
 
         <div class="desc-item">
-          <span class="desc-num">4</span>
-          <div class="desc-body">
-            <span class="lbl">Earn 그룹 미리보기</span>
-            어닝 포지션 중 상위 2건.<br>
-            각 행: 상품명(Flexible/Fixed-term + 통화), 원금, APR(+만기일), 오늘 적립 리워드.<br>
-            "View all" 또는 카드 탭 시 <code>front-pos-02</code> Earn 포지션 목록으로 이동.<br>
-            개별 행 탭 시 <code>front-pos-03</code> 상세 관리로 이동.
-          </div>
-        </div>
-
-        <div class="desc-item">
           <span class="desc-num">5</span>
           <div class="desc-body">
             <span class="lbl">ROG 그룹 미리보기</span>
             보유 ROG 토큰 수량 + 현재 시세 환산 USD.<br>
-            "View all" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (ROG 필터).
+            "Detail" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (ROG 필터).
             <div class="desc-exc">
               <b>예외 변수</b>
               <ul><li>시세는 매 시각 갱신. 행에 토큰 수량 · 단가 · 환산 USD를 함께 노출.</li></ul>
@@ -3253,10 +3215,7 @@ function goTo(id) {
                   <span class="sub-cal" style="inset:-2px;border-radius:13px;"><span class="sub-tag tag-b tag-r">3-3</span></span>
                   Fixed-term
                 </span>
-                <span class="chip ghost" style="position:relative;">
-                  <span class="sub-cal" style="inset:-2px;border-radius:13px;"><span class="sub-tag tag-b tag-r">3-4</span></span>
-                  Sort ▾
-                </span>
+                
               </div>
             </div>
 
@@ -3379,10 +3338,6 @@ function goTo(id) {
           </div>
         </div>
 
-        <div class="desc-item" style="grid-column: 1 / -1;">
-          <span class="desc-num" data-sub>3-4</span>
-          <div class="desc-body"><span class="lbl">Sort 버튼</span>포지션 목록 정렬 기준 선택. 탭 시 정렬 옵션 시트 노출.</div>
-        </div>
         <div class="desc-item">
           <span class="desc-num">4</span>
           <div class="desc-body">
@@ -3728,7 +3683,7 @@ function goTo(id) {
               <div class="section" style="padding:4px 20px 8px;">
                 <div class="card" style="padding:14px;">
                   <div class="kicker">Principal</div>
-                  <div class="h-amount" style="margin-top:2px;font-size:24px;">$2,000.00 USD</div>
+                  <div class="h-amount" style="margin-top:2px;font-size:24px;">$2,000.00</div>
                 </div>
               </div>
               <div class="section" style="padding:0 20px;">
@@ -3762,7 +3717,7 @@ function goTo(id) {
               </div>
 
               <div class="row" style="font-size:11px;color:#555;padding:0 4px;margin-top:-6px;">
-                <span>Available · $2,000.00 USD</span>
+                <span>Available · $2,000.00</span>
                 <span style="font-weight:700;">USD ▾</span>
               </div>
 
@@ -3772,7 +3727,7 @@ function goTo(id) {
                   <div class="ic" style="border-color:#fff;color:#fff;">!</div>
                   <div>
                     <b>Fixed-term · Full redeem only</b>
-                    <div style="opacity:0.85;margin-top:2px;">Partial redemption unavailable. Early exit incurs a <b>10% penalty</b> on principal → You receive <b>$1,800.00 USD</b>.</div>
+                    <div style="opacity:0.85;margin-top:2px;">Partial redemption unavailable. Early exit incurs a <b>10% penalty</b> on principal → You receive <b>$1,800.00</b>.</div>
                   </div>
                 </div>
               </div>
@@ -3925,7 +3880,7 @@ function goTo(id) {
               <div class="section" style="padding:4px 20px 8px;">
                 <div class="card" style="padding:14px;">
                   <div class="kicker">Principal</div>
-                  <div class="h-amount" style="margin-top:2px;font-size:24px;">$2,000.00 USD</div>
+                  <div class="h-amount" style="margin-top:2px;font-size:24px;">$2,000.00</div>
                 </div>
               </div>
               <div class="section" style="padding:0 20px;">
@@ -4098,7 +4053,7 @@ function goTo(id) {
                 <div class="card" style="padding:12px 14px;background:#f5f5f5;">
                   <div class="row">
                     <span class="kicker">Reward amount</span>
-                    <span style="font-size:18px;font-weight:800;">$30.42 USD</span>
+                    <span style="font-size:18px;font-weight:800;">$30.42</span>
                   </div>
                 </div>
               </div>
@@ -4426,7 +4381,7 @@ function goTo(id) {
               <div class="cal-wrap">
                 <div class="cal"><span class="cal-tag">2</span></div>
                 <div class="card" style="padding:14px 14px 4px;">
-                  <div class="kicker">Total return · 30d</div>
+                  <div class="kicker">Total return · 24h</div>
                   <div class="h-amount" style="margin-top:2px;font-size:24px;">+$486.32</div>
                   <div class="row" style="margin-top:2px;font-size:11.5px;">
                     <span style="font-weight:700;">+4.07% ROI</span>
@@ -4445,9 +4400,9 @@ function goTo(id) {
             <div class="cal-wrap" style="margin:2px 20px 0;">
               <div class="cal"><span class="cal-tag">3</span></div>
               <div class="seg-pill">
-                <div class="seg-item">Last 24h</div>
+                <div class="seg-item active">24h</div>
                 <div class="seg-item">7d</div>
-                <div class="seg-item active">30d</div>
+                <div class="seg-item">30d</div>
                 <div class="seg-item">90d</div>
                 <div class="seg-item">1Y</div>
                 <div class="seg-item">All</div>
@@ -4543,9 +4498,9 @@ function goTo(id) {
           <span class="desc-num">3</span>
           <div class="desc-body">
             <span class="lbl">Period selector</span>
-            Last 24h / 7d / 30d / 90d / 1Y / All. 기본값 30d. <b>(avw-01 #3-4 Total Value 기간과 동일 항목으로 통일)</b><br>
+            24h / 7d / 30d / 90d / 1Y / All. 기본값 24h. <b>(avw-01 #3-4 Total Value 기간과 동일 항목으로 통일)</b><br>
             탭 선택 시 상단 Total return 차트(2번)와 Return by source 합계(4번)가 선택 기간 기준으로 갱신됨.<br>
-            • Last 24h / 7d / 30d / 90d: 단기~중기 수익 흐름.<br>
+            • 24h / 7d / 30d / 90d: 단기~중기 수익 흐름.<br>
             • 1Y: 최근 365일 · 연간 ROI 기준.<br>
             • All: 계정 개설 시점부터 전체 누적 총수익.
           </div>
