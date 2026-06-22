@@ -1441,7 +1441,7 @@ function goTo(id) {
       </p>
     </div>
     <dl class="cover-meta">
-      <div><dt>Version</dt><dd>v0.1 · 2026.05</dd></div>
+      <div><dt>Version</dt><dd>v0.04 · 2026.06.22</dd></div>
       <div><dt>Platform</dt><dd>Mobile (compact)</dd></div>
       <div><dt>Language</dt><dd>UI: English</dd></div>
       <div><dt>Source IA</dt><dd>Notion · 77 screens</dd></div>
@@ -1510,6 +1510,16 @@ function goTo(id) {
       <span class="h-date">2026.06.09</span>
       <span class="h-ver">v0.02</span>
       <span class="h-desc"><b>추가</b>: avw-01 Verification 안내 배너(콜아웃 #4). <b>변경</b>: avw-01 a/b 2뷰 연속 넘버링(a=1~5/b=6~9)·서브넘버 우측하단 정렬. 디스크립션 인라인 열거→대시, 콜아웃 클립(pos-02 칩) 수정. ⚠ 파일 끝 절단 복구.</span>
+    </div>
+    <div class="history-row">
+      <span class="h-date">2026.06.18</span>
+      <span class="h-ver">v0.03</span>
+      <span class="h-desc"><b>avw-01 Asset</b>: 합계 카드를 Total Value(#3) 아래로 이동·배치 변경 · 금액 100/1,000단위 라운딩(합 $12,000) · 통화 $ 단독.<br><b>Quick Actions</b>: Demo 제거 → Profile 드롭다운에 'Demo' 추가.<br><b>기간 통일</b>: avw-01(자산 개요) + perf-01(수익 현황) → 24h · 7d · 30d · 90d · 1Y · All (기본 24h).<br><b>Demo·이벤트</b>: Demo 배너 미노출 기본 + 온보딩 desc/모달 · 이벤트 배너 영역 추가(→evt-01).<br><b>인터랙션</b>: 화면 즉시 전환(스크롤 애니 제거) · 휠 끝이동 지속 + 하단 로딩바.</span>
+    </div>
+    <div class="history-row">
+      <span class="h-date">2026.06.22</span>
+      <span class="h-ver">v0.04</span>
+      <span class="h-desc"><b>pos-00(Asset)</b>: 순서 Cash·Earning·Broker·ROG · Total Value $12,000 · Broker FX 숨김(Trade Account·Equity) · View all→Detail.<br><b>pos-00 명세</b>: 각 금액 '구성' desc 추가(#1~#5) · #3 어닝 = 원금 + 미수령 리워드로 명확화.<br><b>avw-01</b>: Asset View all→Detail · 색네모(범례) 제거 · 잔액 마스킹을 Asset 금액까지 확장.</span>
     </div>
   </div>
 </section>
@@ -2267,7 +2277,7 @@ function goTo(id) {
       <div class="sb-title-block"><span class="sb-path">Portfolio › Asset</span><span class="sb-title-kr">자산 현황</span></div>
     </div>
     <div class="sb-header-right">
-      Positions · Broker + Earn summary
+      Asset · Cash · Earn · Broker · ROG summary
       <span class="sb-tags">
         <span class="sb-tag">GNB 1</span>
         <span class="sb-tag">P0</span>
@@ -2336,7 +2346,7 @@ function goTo(id) {
               </div>
             </div>
 
-            <!-- 5 Earn group -->
+            <!-- Earn group (#3) -->
             <div class="section" style="padding:6px 20px 6px;">
               <div class="row" style="margin-bottom:6px;">
                 <span style="font-size:13px;font-weight:700;">Earning</span>
@@ -2347,14 +2357,34 @@ function goTo(id) {
                 <div class="card" style="padding:2px 14px;">
                   <div class="list-row" style="padding:8px 0;">
                     <div class="av">F</div>
-                    <div><div class="ttl" style="">Flexible</div><div class="sub">12.4% APR · +$1.31</div></div>
+                    <div><div class="ttl" style="">Flexible</div><div class="sub">12.4% APR · +$1.31 today</div></div>
                     <div class="amt">$4,000.00</div>
                   </div>
-                  
-                    <div class="amt">+$13.50</div>
+                  <div class="list-row" style="padding:8px 0;">
+                    <div class="av">FX</div>
+                    <div><div class="ttl" style="">Fixed-term</div><div class="sub">14.5% APR · 312d · +$0.79 today</div></div>
+                    <div class="amt">$2,000.00</div>
                   </div>
-                  
-                    <div class="amt">+$3.00</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Broker group (#4) -->
+            <div class="section" style="padding:6px 20px 6px;">
+              <div class="row" style="margin-bottom:6px;">
+                <span style="font-size:13px;font-weight:700;">Broker</span>
+                <span style="font-size:11px;font-weight:600;color:#555;cursor:pointer;" onclick="goTo('slide-front-pos-01')" title="→ front-pos-01 Broker Positions">Detail ›<span class="proto-badge" style="margin-left:4px;">&#8594; pos-01</span></span>
+              </div>
+              <div class="cal-wrap">
+                <div class="cal"><span class="cal-tag">4</span></div>
+                <div class="card" style="padding:2px 14px;">
+                  <div class="list-row" style="padding:8px 0;">
+                    <div class="av round">B</div>
+                    <div>
+                      <div class="ttl">Trade Account</div>
+                      <div class="sub">Equity</div>
+                    </div>
+                    <div class="amt">$1,500.00</div>
                   </div>
                 </div>
               </div>
@@ -2406,8 +2436,9 @@ function goTo(id) {
           <span class="desc-num">1</span>
           <div class="desc-body">
             <span class="lbl">Total Value</span>
-            전체 자산 평가액 합계(Cash + Earn 투자금·리워드 + Broker 잔액·평가손익). avw-01 Total Value와 동일.<br>
-            하단 지표: 오늘 발생한 P&amp;L 합계(어닝 리워드 + 트레이딩 손익) · 활성 포지션 수.
+            전체 자산 평가액 합계. avw-01 Total Value와 동일.<br>
+            • 금액 구성: Cash $4,000 + Earning $6,000(원금+리워드) + Broker $1,500(Equity) + ROG $500(평가액) = $12,000.<br>
+            • 하단 지표: TODAY P&amp;L = 오늘 발생한 손익 합계(어닝 리워드 + 트레이딩 손익) · ACTIVE = 활성 포지션 수.
           </div>
         </div>
 
@@ -2416,6 +2447,7 @@ function goTo(id) {
           <div class="desc-body">
             <span class="lbl">Cash 그룹 미리보기</span>
             ROGer 증권 계좌의 USD 예수금 잔액.<br>
+            • 금액 구성: 운용·투자되지 않은 가용 현금(USD). 리워드·평가손익 미포함.<br>
             "Detail" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (Cash 필터).
           </div>
         </div>
@@ -2425,7 +2457,10 @@ function goTo(id) {
           <div class="desc-body">
             <span class="lbl">Earn 그룹 미리보기</span>
             어닝 포지션 중 상위 2건.<br>
-            각 행: 상품명(Flexible/Fixed-term + 통화), 원금, APR(+만기일), 오늘 적립 리워드.<br>
+            각 행: 상품명(Flexible/Fixed-term + 통화), APR(+만기일), 오늘 적립 리워드.<br>
+            • 금액 구성: 각 행 금액 = <b>원금 + 미수령 리워드</b>(현재 출금·재투자 가능한 적립 리워드).<br>
+            • ※ '지금까지 받은 리워드 총액(평생 누적)'이 아니라, 아직 수령하지 않은 잔여 리워드만 합산함.<br>
+            • 예: Flexible $4,000 · Fixed-term $2,000 (합 $6,000). 행의 '오늘 적립 리워드(+$)'는 당일 증가분.<br>
             "Detail" 또는 카드 탭 시 <code>front-pos-02</code> Earn 포지션 목록으로 이동.<br>
             개별 행 탭 시 <code>front-pos-03</code> 상세 관리로 이동.
           </div>
@@ -2433,23 +2468,24 @@ function goTo(id) {
 
         <div class="desc-item">
           <span class="desc-num">4</span>
-          <div class="desc-body">
-            <span class="lbl">Broker 그룹 미리보기</span>
-            Broker 오픈 포지션 중 상위 2건.<br>
-            각 행: pair · 방향 화살표(↗/↘) · lot 수량 · 진입가 → 현재가 · 평가손익.<br>
-            "Detail" 또는 카드 탭 시 <code>front-pos-01</code> Broker 포지션 목록으로 이동.
-            <div class="desc-exc">
-              <b>예외 변수</b>
-              <ul><li>개별 행 탭은 Broker WebView로 진입 (별도 ROGer 상세 화면 없음).</li></ul>
+              <div class="desc-body">
+                <span class="lbl">Broker 운용 금액</span> 브로커사에 입금해 운용 중인 금액(Trade Account Equity) 요약.<br>
+                • 표기: Trade Account · Equity · 금액($).<br>
+                • 금액 구성: Equity = 예치 증거금(원금) + 미실현 손익(평가손익). 출금 가능액(Free Margin)과 다를 수 있음.<br>
+                • FX 오픈 포지션(pair · lot · 평가손익)은 이 화면에 미노출.<br>
+                • "Detail" 또는 카드 탭 시 <code>front-pos-01</code> Broker 포지션 목록으로 이동.
+                <div class="desc-exc">
+                  <b>예외 변수</b>
+                  <ul><li>개별 포지션 상세는 pos-01에서 점검, 실제 거래는 Broker WebView로 진입.</li></ul>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
-
-        <div class="desc-item">
+            <div class="desc-item">
           <span class="desc-num">5</span>
           <div class="desc-body">
             <span class="lbl">ROG 그룹 미리보기</span>
             보유 ROG 토큰 수량 + 현재 시세 환산 USD.<br>
+            • 금액 구성: 평가액 = 보유 수량 × 현재 시세(USD). 별도 원금 개념 없음.<br>
             "Detail" 또는 카드 탭 시 거래 내역(<code>front-acc-05</code>)으로 이동 (ROG 필터).
             <div class="desc-exc">
               <b>예외 변수</b>

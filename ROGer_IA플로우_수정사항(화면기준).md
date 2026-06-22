@@ -253,3 +253,23 @@ flowchart TD
 
 - **L2 적용**: 출금·ROG 출금·Security Number 변경·2FA 해제·회원 탈퇴. **L1**: 리워드 수령·CVV 조회·PIN 변경·계정정보 변경·예치/환매.
 - **재인증 캐시(권장)**: 동일 세션 5분. **S.N 5회 실패 = 분실과 동일 처리
+## ⑭ front-avw-01 Asset 카드 UX 정리 (2026-06-22)
+
+- **Asset 카드 헤더 링크 라벨**: `View all ›` → **`Detail ›`** (이동 대상 동일 = front-pos-00 Asset Hub). pos-00의 Detail 표기와 통일. *Recent activity의 `View all ›`는 목록 이동이므로 유지.*
+- **Asset 행 색상 사각형(범례) 제거**: 비중%·도넛 차트 제거 후 의미가 없어진 Cash/Earning/Broker/ROG 앞 색네모 삭제. 행 그리드 `10px 1fr 80px` → `1fr 80px` (자산명 + 금액 2열).
+- **잔액 마스킹 범위 확장**: Total Value 우상단 눈(eye) 토글 클릭 시 **Total Value + 변동액 + Asset 4행 금액**을 함께 `•••••` 마스킹(toggleMask 적용 범위 .card → section). 넘버링 1:1 영향 없음(4-1~4-5 유지).
+
+## ⑮ front-pos-00 카드 구조 복구 (2026-06-22)
+
+- **버그**: Broker FX행 숨김 편집이 ① Broker(#4) 카드 통째 삭제 ② Earning(#3) 카드 구조 파손(고아 `</div>`→phone-content 조기 종료, ROG·GNB가 폰 밖으로 이탈) ③ desc #4는 옛 FX 포지션 설명 잔존 → **UI 1·2·3·5 vs desc 1·2·3·4·5 (1:1 위반)**.
+- **복구**: Earning #3 카드 정상화(Flexible $4,000 + Fixed-term $2,000 = $6,000), **Broker #4 카드 재삽입**(Trade Account · Equity $1,500, FX 포지션 미노출, Detail → pos-01), desc #4를 'Broker 운용 금액(Equity) 요약'으로 재작성.
+- **순서/정합**: Total Value(1) → Cash(2) → Earning(3) → Broker(4) → ROG(5). 합계 $4,000+$6,000+$1,500+$500=**$12,000** (avw-01 일치). cal-tag·desc 모두 1~5 1:1.
+
+## ⑯ front-pos-00 각 금액 '구성' 명세 추가 (2026-06-22)
+
+각 콜아웃 desc에 표기 금액이 무엇을 포함하는지 명시:
+- **#1 Total Value**: Cash $4,000 + Earning $6,000(원금+리워드) + Broker $1,500(Equity) + ROG $500(평가액) = $12,000. 하단 TODAY P&L=당일 손익(어닝 리워드+트레이딩 손익), ACTIVE=활성 포지션 수.
+- **#2 Cash**: 운용·투자 전 가용 현금(USD), 리워드·손익 미포함.
+- **#3 Earning**: 각 행 = 원금 + 누적 적립 리워드의 평가액(Flexible $4,000 / Fixed-term $2,000). 오늘 적립 리워드는 당일 증가분으로 평가액에 포함.
+- **#4 Broker**: Equity = 예치 증거금(원금) + 미실현 손익. 출금 가능액(Free Margin)과 상이할 수 있음.
+- **#5 ROG**: 평가액 = 보유 수량 × 현재 시세(USD), 원금 개념 없음.
